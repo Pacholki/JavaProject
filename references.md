@@ -1,5 +1,14 @@
 # Learning references
 
+---
+## Maven dependencies
+#### How to add jar files to maven projects in vscode
+
+[dependencies library](https://search.maven.org/?eh=)
+[tutorial](https://www.youtube.com/watch?v=zlHXH6maOR0)
+
+
+---
 ## Use python code in Java programm
 - jython
 - jpype
@@ -97,3 +106,4 @@ public class Main {
     }
 }
 ```
+---
