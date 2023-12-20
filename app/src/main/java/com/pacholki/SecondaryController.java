@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 public class SecondaryController {
 
     @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+    private void switchToLeagueOverview() throws IOException {
+        App.setRoot("leagueOverview");
     }
 }
