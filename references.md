@@ -8,7 +8,7 @@
 https://talvi.net/posts/a-brief-overview-of-python-java-bridges-in-2020.html
 https://www.baeldung.com/java-working-with-python
 
-----------------------------------------------------------------
+---
 #### jython example
 import org.python.core.PyObject;
 import org.python.util.PythonInterpreter;
@@ -30,8 +30,9 @@ public class PythonIntegration {
     }
 }
 
-----------------------------------------------------------------
+---
 #### jpype solution
+```java
 import jpype.JClass;
 import jpype.JException;
 import jpype.JpypeException;
@@ -61,8 +62,9 @@ public class Main {
         }
     }
 }
+```
 
-----------------------------------------------------------------
+---
 #### jython solution
 import jpype.JClass;
 import jpype.JException;
