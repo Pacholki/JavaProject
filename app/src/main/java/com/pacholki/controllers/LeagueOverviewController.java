@@ -1,4 +1,4 @@
-package com.pacholki;
+package com.pacholki.controllers;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -11,14 +11,11 @@ public class LeagueOverviewController {
 
     @FXML
     private VBox leagueButtonContainer;
+    @FXML
+    private Button chooseLeague;
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
-
-    @FXML
-    private void handleSelect() {
+    private void handleSelectLeague() {
         System.out.println("Select button clicked!");
 
         boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
@@ -46,5 +43,10 @@ public class LeagueOverviewController {
         this.leagueName = leagueName;
         System.out.println("You have chosen the league: " + leagueName);
         leagueButtonContainer.getChildren().clear();
+        chooseLeague.setText(leagueName);
+    }
+
+    public String getLeagueName() {
+        return leagueName;
     }
 }

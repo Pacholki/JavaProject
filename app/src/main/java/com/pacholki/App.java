@@ -17,7 +17,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
+        // String cssFilePath = "/com/pacholki/app.css";
+        // String css = this.getClass().getResource(cssFilePath).toExternalForm();
+
         scene = new Scene(loadFXML("leagueOverview"), 640, 480);
+        // scene.getStylesheets().add(css);
+
+        stage.setTitle("Football Dashboard");
         stage.setScene(scene);
         stage.show();
     }
@@ -27,7 +34,7 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
