@@ -1,5 +1,6 @@
 package com.pacholki.controllers;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -11,7 +12,7 @@ public class LeagueOverviewController {
     @FXML
     private VBox leagueButtonContainer;
     @FXML
-    private Button chooseLeagueButton;
+    private MFXButton chooseLeagueButton;
 
     @FXML
     private void handleChooseLeague() {
