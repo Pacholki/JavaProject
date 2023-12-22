@@ -9,8 +9,10 @@
    <top>
       <HBox fx:id="header" BorderPane.alignment="CENTER" styleClass="header">
          <children>
-            <Button fx:id="chooseLeague" onAction="#handleSelectLeague" text="Choose league" />
-            <VBox fx:id="leagueButtonContainer">
+            <VBox>
+               <Button fx:id="chooseLeagueButton" onAction="#handleChooseLeague" text="Choose league" />
+               <VBox fx:id="leagueButtonContainer">
+               </VBox>
             </VBox>
          </children>
       </HBox>

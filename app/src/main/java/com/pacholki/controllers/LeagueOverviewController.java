@@ -11,10 +11,10 @@ public class LeagueOverviewController {
     @FXML
     private VBox leagueButtonContainer;
     @FXML
-    private Button chooseLeague;
+    private Button chooseLeagueButton;
 
     @FXML
-    private void handleSelectLeague() {
+    private void handleChooseLeague() {
         System.out.println("Select button clicked!");
 
         boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
@@ -42,7 +42,7 @@ public class LeagueOverviewController {
         this.leagueName = leagueName;
         System.out.println("You have chosen the league: " + leagueName);
         leagueButtonContainer.getChildren().clear();
-        chooseLeague.setText(leagueName);
+        chooseLeagueButton.setText(leagueName);
     }
 
     public String getLeagueName() {

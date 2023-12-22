@@ -22,4 +22,10 @@
     -fx-background-color: -fx-secondary;
     cursor: hand;
     -fx-cursor: hand;
+    min-width: 10em;
+    -fx-min-width: 10em;
+}
+
+# {
+
 }
