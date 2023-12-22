@@ -8,6 +8,18 @@
     -fx-background-color: -fx-primary;
 }
 
+.sidebar {
+    background-color: crimson;
+    -fx-background-color: crimson;
+}
+
+.windowHeader {
+    background-color: khaki;
+    -fx-background-color: khaki;
+    padding: 1em;
+    -fx-padding: 1em;
+}
+
 .button {
     background-color: -fx-secondary;
     -fx-background-color: -fx-secondary;
