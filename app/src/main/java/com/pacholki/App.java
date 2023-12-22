@@ -18,11 +18,11 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        // String cssFilePath = "/com/pacholki/app.css";
-        // String css = this.getClass().getResource(cssFilePath).toExternalForm();
+        String cssFilePath = "styles/main.css";
+        String css = getClass().getResource(cssFilePath).toExternalForm();
 
         scene = new Scene(loadFXML("leagueOverview"), 640, 480);
-        // scene.getStylesheets().add(css);
+        scene.getStylesheets().add(css);
 
         stage.setTitle("Football Dashboard");
         stage.setScene(scene);

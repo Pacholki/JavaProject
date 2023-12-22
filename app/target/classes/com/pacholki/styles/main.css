@@ -1,0 +1,16 @@
+* {
+    -fx-primary: #3c3e7d;
+    -fx-secondary: #acaefd;
+}
+
+.root {
+    background-color: -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+
+.button {
+    background-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    cursor: hand;
+    -fx-cursor: hand;
+}
