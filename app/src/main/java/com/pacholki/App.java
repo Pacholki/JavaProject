@@ -18,7 +18,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        String cssFilePath = "styles/main.css";
+        String cssFilePath = "css/main.css";
         String css = getClass().getResource(cssFilePath).toExternalForm();
 
         scene = new Scene(loadFXML("leagueOverview"), 640, 480);
