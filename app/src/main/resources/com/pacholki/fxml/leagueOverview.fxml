@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -7,12 +8,17 @@
 
 <BorderPane prefHeight="742.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controllers.LeagueOverviewController">
    <top>
-      <HBox fx:id="header" BorderPane.alignment="CENTER" styleClass="header">
+      <HBox fx:id="header" styleClass="header" BorderPane.alignment="CENTER">
          <children>
             <VBox>
-               <Button fx:id="chooseLeagueButton" onAction="#handleChooseLeague" text="Choose league" />
+               <MFXButton fx:id="chooseLeagueButton" onAction="#handleChooseLeague" text="Choose league" />
                <VBox fx:id="leagueButtonContainer">
                </VBox>
+            </VBox>
+            <VBox>
+               <children>
+                  <MFXButton />
+               </children>
             </VBox>
          </children>
       </HBox>
