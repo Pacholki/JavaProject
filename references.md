@@ -9,8 +9,14 @@
 [tutorial](https://www.youtube.com/watch?v=zlHXH6maOR0)
 
 ---
-## UI libraries
+## UI
+- javaFX
+    - [documentation](https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html)
+    - [good youtube tutorial](https://www.youtube.com/watch?v=oRg5DJ5h0FA)
+    
 - MaterialFX
+    - [github](https://github.com/palexdev/MaterialFX)
+    - [good youtube tutorial](https://www.youtube.com/watch?v=dvpinlkYEY8&list=PLrzWQu7Ajpi2ySLDBk2aSQgDSR4s-tmoF)
 - Spring Boot
 
 
