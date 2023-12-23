@@ -19,16 +19,21 @@
     /* max-width: ; */
 }
 
-.button {
+.button,
+.selectButton {
     background-color: -fx-secondary;
     -fx-background-color: -fx-secondary;
     cursor: hand;
     -fx-cursor: hand;
     min-width: 10em;
     -fx-min-width: 10em;
+    font-size: 1.5em;
+    -fx-font-size: 1.5em;
+    font-weight: 800;
+    -fx-font-weight: 800;
 }
 
-#chooseLeagueButton {
-    color: -fx-primary;
-    -fx-color: -fx-primary;
+.selectButton{
+    color: whitesmoke;
+    -fx-text-fill: whitesmoke;
 }
