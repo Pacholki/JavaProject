@@ -1,5 +1,7 @@
 package com.pacholki.controllers;
 
+import com.pacholki.Tools;
+
 import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
@@ -23,25 +25,34 @@ public class mainController {
     @FXML
     private void handleChooseLeague() {
 
-        boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
-        leagueButtonContainer.getChildren().clear();
-        if (wasActive)  return;
+        Tools.startTimer();
 
-        MFXButton premierLeagueButton = new MFXButton("Premier League");
-        MFXButton laLigaButton = new MFXButton("La Liga");
-        MFXButton ligueOneButton = new MFXButton("Ligue One");
-        MFXButton serieAButton = new MFXButton("Serie A");
-        MFXButton bundesligaButton = new MFXButton("Bundesliga");
-        premierLeagueButton.setOnAction(e -> handleLeagueButtonClick("Premier League"));
-        laLigaButton.setOnAction(e -> handleLeagueButtonClick("La Liga"));
-        ligueOneButton.setOnAction(e -> handleLeagueButtonClick("Ligue One"));
-        serieAButton.setOnAction(e -> handleLeagueButtonClick("Serie A"));
-        bundesligaButton.setOnAction(e -> handleLeagueButtonClick("Bundesliga"));
-        leagueButtonContainer.getChildren().add(premierLeagueButton);
-        leagueButtonContainer.getChildren().add(laLigaButton);
-        leagueButtonContainer.getChildren().add(ligueOneButton);
-        leagueButtonContainer.getChildren().add(serieAButton);
-        leagueButtonContainer.getChildren().add(bundesligaButton);
+        for (int i = 0; i < 11111; i++) {
+            
+            boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
+            leagueButtonContainer.getChildren().clear();
+            if (wasActive)  continue;
+
+            MFXButton premierLeagueButton = new MFXButton("Premier League");
+            MFXButton laLigaButton = new MFXButton("La Liga");
+            MFXButton ligueOneButton = new MFXButton("Ligue One");
+            MFXButton serieAButton = new MFXButton("Serie A");
+            MFXButton bundesligaButton = new MFXButton("Bundesliga");
+
+            premierLeagueButton.setOnAction(e -> handleLeagueButtonClick("Premier League"));
+            laLigaButton.setOnAction(e -> handleLeagueButtonClick("La Liga"));
+            ligueOneButton.setOnAction(e -> handleLeagueButtonClick("Ligue One"));
+            serieAButton.setOnAction(e -> handleLeagueButtonClick("Serie A"));
+            bundesligaButton.setOnAction(e -> handleLeagueButtonClick("Bundesliga"));
+
+            leagueButtonContainer.getChildren().add(premierLeagueButton);
+            leagueButtonContainer.getChildren().add(laLigaButton);
+            leagueButtonContainer.getChildren().add(ligueOneButton);
+            leagueButtonContainer.getChildren().add(serieAButton);
+            leagueButtonContainer.getChildren().add(bundesligaButton);
+        }
+
+        Tools.endTimer();
     }
 
     @FXML
