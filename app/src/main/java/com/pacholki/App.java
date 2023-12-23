@@ -21,7 +21,7 @@ public class App extends Application {
         String cssFilePath = "css/main.css";
         String css = getClass().getResource(cssFilePath).toExternalForm();
 
-        scene = new Scene(loadFXML("app"), 640, 480);
+        scene = new Scene(loadFXML("main"), 640, 480);
         scene.getStylesheets().add(css);
 
         stage.setTitle("Football Dashboard");

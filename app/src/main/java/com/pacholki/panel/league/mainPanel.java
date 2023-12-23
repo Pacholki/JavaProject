@@ -6,7 +6,7 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 
 public class mainPanel {
     
-    private String leagueName;
+    private String currentLeagueName;
     private String currentSeason;
 
     public List<MFXButton> generateLeagueButtons() {
