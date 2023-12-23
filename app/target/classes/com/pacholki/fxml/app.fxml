@@ -27,6 +27,6 @@
       </HBox>
    </top>
    <left>
-      <VBox fx:id="navbar" prefHeight="717.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="navbar" prefHeight="717.0" prefWidth="150.0" style="-fx-view-order: -1;" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>
