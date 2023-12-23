@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
-public class LeagueOverviewController {
+public class AppController {
 
     private String leagueName;
     private String currentSeason;
