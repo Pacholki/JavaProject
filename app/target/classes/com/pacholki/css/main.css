@@ -11,13 +11,26 @@
 }
 
 .header {
+    min-height: 7em;
+    -fx-min-height: 7em;
+    max-height: 7em;
+    -fx-max-height: 7em;
+
+    /* max-width: ; */
+}
+
+.header,
+.listSelect {
     background-color: -fx-complementary;
     -fx-background-color: -fx-complementary;
     padding: 1em;
     -fx-padding: 1em;
-
-    /* max-width: ; */
+    z-index: 9999;
+    -fx-view-order: 9999;
 }
+
+/* .listSelect {
+} */
 
 .button,
 .selectButton {
@@ -36,4 +49,9 @@
 .selectButton{
     color: whitesmoke;
     -fx-text-fill: whitesmoke;
+}
+
+#navbar {
+    background-color: -fx-contrast;
+    -fx-background-color: -fx-contrast;
 }
