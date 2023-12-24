@@ -1,22 +1,25 @@
 package com.pacholki.controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.pacholki.Tools;
 import com.pacholki.pane.MainPane;
+import com.pacholki.pane.league.League;
+import com.pacholki.pane.league.Season;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 public class mainController implements Initializable {
 
-    private String leagueName;
-    private String currentSeason;
+    private MainPane mainPane;
+    private String currentLeagueName;
 
     @FXML
     private MFXButton chooseLeagueButton;
@@ -29,8 +32,9 @@ public class mainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MainPane mainPane = new MainPane();
+        mainPane = new MainPane();
         mainPane.readSeasons();
+        mainPane.readLeagues();
     }
 
     @FXML
@@ -40,23 +44,7 @@ public class mainController implements Initializable {
         leagueButtonContainer.getChildren().clear();
         if (wasActive)  return;
 
-        MFXButton premierLeagueButton = new MFXButton("Premier League");
-        MFXButton laLigaButton = new MFXButton("La Liga");
-        MFXButton ligueOneButton = new MFXButton("Ligue One");
-        MFXButton serieAButton = new MFXButton("Serie A");
-        MFXButton bundesligaButton = new MFXButton("Bundesliga");
-
-        premierLeagueButton.setOnAction(e -> handleLeagueButtonClick("Premier League"));
-        laLigaButton.setOnAction(e -> handleLeagueButtonClick("La Liga"));
-        ligueOneButton.setOnAction(e -> handleLeagueButtonClick("Ligue One"));
-        serieAButton.setOnAction(e -> handleLeagueButtonClick("Serie A"));
-        bundesligaButton.setOnAction(e -> handleLeagueButtonClick("Bundesliga"));
-
-        leagueButtonContainer.getChildren().add(premierLeagueButton);
-        leagueButtonContainer.getChildren().add(laLigaButton);
-        leagueButtonContainer.getChildren().add(ligueOneButton);
-        leagueButtonContainer.getChildren().add(serieAButton);
-        leagueButtonContainer.getChildren().add(bundesligaButton);
+        leagueButtonContainer.getChildren().setAll(generateLeagueButtons());
     }
 
     @FXML
@@ -66,41 +54,48 @@ public class mainController implements Initializable {
         seasonButtonContainer.getChildren().clear();
         if (wasActive)  return;
 
-        Button season2324Button = new Button("2023 / 2024");
-        Button season2223Button = new Button("2022 / 2023");
-        Button season2122Button = new Button("2021 / 2022");
-        Button season2021Button = new Button("2020 / 2021");
-        Button season1920Button = new Button("2019 / 2020");
-
-        season2324Button.setOnAction(e -> handleSeasonButtonClick("2023 / 2024"));
-        season2223Button.setOnAction(e -> handleSeasonButtonClick("2022 / 2023"));
-        season2122Button.setOnAction(e -> handleSeasonButtonClick("2021 / 2022"));
-        season2021Button.setOnAction(e -> handleSeasonButtonClick("2020 / 2021"));
-        season1920Button.setOnAction(e -> handleSeasonButtonClick("2019 / 2020"));
-
-        seasonButtonContainer.getChildren().add(season2324Button);
-        seasonButtonContainer.getChildren().add(season2223Button);
-        seasonButtonContainer.getChildren().add(season2122Button);
-        seasonButtonContainer.getChildren().add(season2021Button);
-        seasonButtonContainer.getChildren().add(season1920Button);
+        seasonButtonContainer.getChildren().setAll(generateSeasonButtons());
     }
 
-    private void handleLeagueButtonClick(String leagueName) {
-        this.leagueName = leagueName;
+    public List<MFXButton> generateLeagueButtons() {
+
+        List<MFXButton> leagueButtons = new ArrayList<>();
+
+        for (League league : mainPane.getLeagues()) {
+            MFXButton button = new MFXButton(league.getName());
+            button.setOnAction(e -> changeLeague(league));
+            leagueButtons.add(button);
+        }
+
+        return leagueButtons;
+    }
+
+    public List<MFXButton> generateSeasonButtons() {
+
+        List<MFXButton> seasonButtons = new ArrayList<>();
+
+        for (Season season : mainPane.getSeasons()) {
+            MFXButton button = new MFXButton(season.getLabel());
+            button.setOnAction(e -> changeSeason(season));
+            seasonButtons.add(button);
+        }
+
+        return seasonButtons;
+    }
+
+    public void changeLeague(League league) {
+        mainPane.setCurrentLeague(league);
+        chooseLeagueButton.setText(league.getName());
         leagueButtonContainer.getChildren().clear();
-        chooseLeagueButton.setText(leagueName);
     }
 
-    private void handleSeasonButtonClick(String season) {
-        this.currentSeason = season;
+    public void changeSeason(Season season) {
+        mainPane.setCurrentSeason(season);
+        chooseSeasonButton.setText(season.getLabel());
         seasonButtonContainer.getChildren().clear();
-        chooseSeasonButton.setText(season);
     }
 
     public String getLeagueName() {
-        return leagueName;
-    }
-    public String getCurrentSeason() {
-        return currentSeason;
+        return currentLeagueName;
     }
 }

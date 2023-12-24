@@ -1,15 +1,12 @@
 package com.pacholki.pane;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.pane.league.League;
 import com.pacholki.pane.league.Season;
-
-import io.github.palexdev.materialfx.controls.MFXButton;
 
 public class MainPane {
 
@@ -20,14 +17,14 @@ public class MainPane {
     private List<League> leagues;
     private List<Season> seasons;
     
-    private League currentLeagueName;
+    private League currentLeague;
     private Season currentSeason;
 
     public MainPane() {
     }
 
     public MainPane(League currentLeagueName, Season currentSeason) {
-        this.currentLeagueName = currentLeagueName;
+        this.currentLeague = currentLeagueName;
         this.currentSeason = currentSeason;
     }
 
@@ -35,6 +32,9 @@ public class MainPane {
         try {
             ObjectMapper mapper = new ObjectMapper();
             List<Season> seasons = mapper.readValue(new File(SEASONNAMESFILEPATH), new TypeReference<List<Season>>() {});
+            for (Season season : seasons) {
+                season.generateLabel();
+            }
             this.seasons = seasons;
             
         } catch(Exception e) {
@@ -53,30 +53,27 @@ public class MainPane {
         }
     }
 
-    public List<MFXButton> generateSeasonButtons() {
-
-        List<MFXButton> seasonButtons = new ArrayList<>();
-
-        for (Season season : seasons) {
-            MFXButton button = new MFXButton(season.getID());
-            button.setOnAction(e -> changeSeason(season));
-            seasonButtons.add(button);
-        }
-
-        return seasonButtons;
+    public List<League> getLeagues() {
+        return leagues;
     }
 
-    public void changeSeason(Season season) {
-        System.out.println("Changing season to " + season.getID());
+    public List<Season> getSeasons() {
+        return seasons;
     }
 
-    public List<MFXButton> generateLeagueButtons() {
-
-        // ObjectMapper = new ObjectMapper();
-
-        List<MFXButton> leagueButtons = null;
-        return leagueButtons;
+    public League getCurrentLeague() {
+        return currentLeague;
     }
 
+    public Season getCurrentSeason() {
+        return currentSeason;
+    }
 
+    public void setCurrentLeague(League league) {
+        this.currentLeague = league;
+    }
+
+    public void setCurrentSeason(Season season) {
+        this.currentSeason = season;
+    }
 }

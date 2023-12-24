@@ -19,6 +19,10 @@ public class Season {
 
     // ---------------------------------------------
 
+    public void generateLabel() {
+        this.label = "20" + id.substring(0,2) + " / 20" + id.substring(2,4);
+    }
+
     public void setLabel(String label) {
         this.label = label;
     }
