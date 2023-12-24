@@ -1,14 +1,19 @@
 package com.pacholki.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.pacholki.Tools;
+import com.pacholki.pane.MainPane;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
-public class mainController {
+public class mainController implements Initializable {
 
     private String leagueName;
     private String currentSeason;
@@ -22,37 +27,36 @@ public class mainController {
     @FXML
     private VBox seasonButtonContainer;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        MainPane mainPane = new MainPane();
+        mainPane.readSeasons();
+    }
+
     @FXML
     private void handleChooseLeague() {
+        
+        boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
+        leagueButtonContainer.getChildren().clear();
+        if (wasActive)  return;
 
-        Tools.startTimer();
+        MFXButton premierLeagueButton = new MFXButton("Premier League");
+        MFXButton laLigaButton = new MFXButton("La Liga");
+        MFXButton ligueOneButton = new MFXButton("Ligue One");
+        MFXButton serieAButton = new MFXButton("Serie A");
+        MFXButton bundesligaButton = new MFXButton("Bundesliga");
 
-        for (int i = 0; i < 11111; i++) {
-            
-            boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
-            leagueButtonContainer.getChildren().clear();
-            if (wasActive)  continue;
+        premierLeagueButton.setOnAction(e -> handleLeagueButtonClick("Premier League"));
+        laLigaButton.setOnAction(e -> handleLeagueButtonClick("La Liga"));
+        ligueOneButton.setOnAction(e -> handleLeagueButtonClick("Ligue One"));
+        serieAButton.setOnAction(e -> handleLeagueButtonClick("Serie A"));
+        bundesligaButton.setOnAction(e -> handleLeagueButtonClick("Bundesliga"));
 
-            MFXButton premierLeagueButton = new MFXButton("Premier League");
-            MFXButton laLigaButton = new MFXButton("La Liga");
-            MFXButton ligueOneButton = new MFXButton("Ligue One");
-            MFXButton serieAButton = new MFXButton("Serie A");
-            MFXButton bundesligaButton = new MFXButton("Bundesliga");
-
-            premierLeagueButton.setOnAction(e -> handleLeagueButtonClick("Premier League"));
-            laLigaButton.setOnAction(e -> handleLeagueButtonClick("La Liga"));
-            ligueOneButton.setOnAction(e -> handleLeagueButtonClick("Ligue One"));
-            serieAButton.setOnAction(e -> handleLeagueButtonClick("Serie A"));
-            bundesligaButton.setOnAction(e -> handleLeagueButtonClick("Bundesliga"));
-
-            leagueButtonContainer.getChildren().add(premierLeagueButton);
-            leagueButtonContainer.getChildren().add(laLigaButton);
-            leagueButtonContainer.getChildren().add(ligueOneButton);
-            leagueButtonContainer.getChildren().add(serieAButton);
-            leagueButtonContainer.getChildren().add(bundesligaButton);
-        }
-
-        Tools.endTimer();
+        leagueButtonContainer.getChildren().add(premierLeagueButton);
+        leagueButtonContainer.getChildren().add(laLigaButton);
+        leagueButtonContainer.getChildren().add(ligueOneButton);
+        leagueButtonContainer.getChildren().add(serieAButton);
+        leagueButtonContainer.getChildren().add(bundesligaButton);
     }
 
     @FXML
@@ -67,11 +71,13 @@ public class mainController {
         Button season2122Button = new Button("2021 / 2022");
         Button season2021Button = new Button("2020 / 2021");
         Button season1920Button = new Button("2019 / 2020");
+
         season2324Button.setOnAction(e -> handleSeasonButtonClick("2023 / 2024"));
         season2223Button.setOnAction(e -> handleSeasonButtonClick("2022 / 2023"));
         season2122Button.setOnAction(e -> handleSeasonButtonClick("2021 / 2022"));
         season2021Button.setOnAction(e -> handleSeasonButtonClick("2020 / 2021"));
         season1920Button.setOnAction(e -> handleSeasonButtonClick("2019 / 2020"));
+
         seasonButtonContainer.getChildren().add(season2324Button);
         seasonButtonContainer.getChildren().add(season2223Button);
         seasonButtonContainer.getChildren().add(season2122Button);
