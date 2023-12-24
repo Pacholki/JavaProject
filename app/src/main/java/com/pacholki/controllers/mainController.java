@@ -21,6 +21,9 @@ public class mainController implements Initializable {
     private MainPane mainPane;
     private String currentLeagueName;
 
+    private List<MFXButton> leagueButtons;
+    private List<MFXButton> seasonButtons;
+
     @FXML
     private MFXButton chooseLeagueButton;
     @FXML
@@ -35,6 +38,8 @@ public class mainController implements Initializable {
         mainPane = new MainPane();
         mainPane.readSeasons();
         mainPane.readLeagues();
+        this.leagueButtons = generateLeagueButtons();
+        this.seasonButtons = generateSeasonButtons();
     }
 
     @FXML
@@ -47,7 +52,7 @@ public class mainController implements Initializable {
             leagueButtonContainer.getChildren().clear();
             if (wasActive)  continue;
 
-            leagueButtonContainer.getChildren().setAll(generateLeagueButtons());
+            leagueButtonContainer.getChildren().setAll(leagueButtons);
         }
 
         Tools.endTimer();
@@ -60,7 +65,7 @@ public class mainController implements Initializable {
         seasonButtonContainer.getChildren().clear();
         if (wasActive)  return;
 
-        seasonButtonContainer.getChildren().setAll(generateSeasonButtons());
+        seasonButtonContainer.getChildren().setAll(seasonButtons);
     }
 
     public List<MFXButton> generateLeagueButtons() {
