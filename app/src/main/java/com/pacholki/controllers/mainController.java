@@ -39,12 +39,18 @@ public class mainController implements Initializable {
 
     @FXML
     private void handleChooseLeague() {
-        
-        boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
-        leagueButtonContainer.getChildren().clear();
-        if (wasActive)  return;
 
-        leagueButtonContainer.getChildren().setAll(generateLeagueButtons());
+        Tools.startTimer();
+        
+        for (int i = 0; i < 11111; i++) {
+            boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
+            leagueButtonContainer.getChildren().clear();
+            if (wasActive)  continue;
+
+            leagueButtonContainer.getChildren().setAll(generateLeagueButtons());
+        }
+
+        Tools.endTimer();
     }
 
     @FXML
