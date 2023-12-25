@@ -55,8 +55,11 @@ public class MainController implements Initializable {
     private void handleChooseSeason() {
 
         boolean wasActive = seasonButtonContainer.getChildren().size() != 0;
-        seasonButtonContainer.getChildren().clear();
-        if (wasActive)  return;
+        if (wasActive) {
+            VBoxCleaner cleaner = new VBoxCleaner(seasonButtonContainer);
+            cleaner.start();
+            return;
+        }
 
         seasonButtonContainer.getChildren().setAll(seasonButtons);
     }
