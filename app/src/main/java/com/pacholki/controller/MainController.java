@@ -98,6 +98,7 @@ public class MainController implements Initializable {
         
         mainPane.setCurrentLeague(league);
         chooseLeagueButton.setText(league.getName());
+        System.out.println("Changing league to " + mainPane.getCurrentLeague());
     }
 
     public void changeSeason(Season season) {
@@ -107,6 +108,7 @@ public class MainController implements Initializable {
 
         mainPane.setCurrentSeason(season);
         chooseSeasonButton.setText(season.getLabel());
+        System.out.println("Changing season to " + mainPane.getCurrentSeason());
     }
 
     public String getLeagueName() {
