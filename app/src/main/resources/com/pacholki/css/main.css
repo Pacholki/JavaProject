@@ -1,7 +1,7 @@
 * {
-    -fx-primary: #3c3e7d;
+    -fx-primary: #2c3e7d;
     -fx-secondary: #acaefd;
-    -fx-complementary: #f2e9c3;
+    -fx-complementary: #f1e9c3;
     -fx-contrast: crimson;
 }
 
@@ -16,7 +16,8 @@
     max-height: 7em;
     -fx-max-height: 7em;
 
-    /* max-width: ; */
+    z-index: -1;
+    -fx-view-order: -1;
 }
 
 .header,
@@ -25,8 +26,6 @@
     -fx-background-color: -fx-complementary;
     padding: 1em;
     -fx-padding: 1em;
-    z-index: 9999;
-    -fx-view-order: 9999;
 }
 
 /* .listSelect {

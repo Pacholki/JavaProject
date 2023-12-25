@@ -61,7 +61,7 @@ public class MainController implements Initializable {
         seasonButtonContainer.getChildren().setAll(seasonButtons);
     }
 
-    public List<MFXButton> generateLeagueButtons() {
+    private List<MFXButton> generateLeagueButtons() {
 
         List<MFXButton> leagueButtons = new ArrayList<>();
 
@@ -74,7 +74,7 @@ public class MainController implements Initializable {
         return leagueButtons;
     }
 
-    public List<MFXButton> generateSeasonButtons() {
+    private List<MFXButton> generateSeasonButtons() {
 
         List<MFXButton> seasonButtons = new ArrayList<>();
 

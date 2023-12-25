@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -27,6 +28,6 @@
       </HBox>
    </top>
    <left>
-      <VBox fx:id="navbar" prefHeight="717.0" prefWidth="150.0" style="-fx-view-order: -1;" BorderPane.alignment="CENTER" />
+      <VBox fx:id="navbar" prefHeight="717.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>
