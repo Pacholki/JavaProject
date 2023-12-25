@@ -9,10 +9,10 @@ module com.pacholki {
     requires transitive MaterialFX;
 
     opens com.pacholki to javafx.fxml;
-    opens com.pacholki.controllers to javafx.fxml;
+    opens com.pacholki.controller to javafx.fxml;
 
     exports com.pacholki;
-    exports com.pacholki.controllers;
+    exports com.pacholki.controller;
     exports com.pacholki.pane;
     exports com.pacholki.pane.league;
 }

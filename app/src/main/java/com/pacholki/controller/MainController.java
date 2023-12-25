@@ -1,4 +1,4 @@
-package com.pacholki.controllers;
+package com.pacholki.controller;
 
 import java.net.URL;
 import java.util.ArrayList;
