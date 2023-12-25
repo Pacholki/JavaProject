@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="591.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.MainController">
+   <center>
+      <HBox alignment="CENTER" styleClass="body" BorderPane.alignment="CENTER">
+         <Label text="body">
+         </Label>
+      </HBox>
+   </center>
+   <top>
+      <HBox alignment="TOP_CENTER" styleClass="header" BorderPane.alignment="CENTER">
+         <VBox styleClass="selectList">
+            <MFXButton onAction="#addButtons" />
+            <VBox fx:id="addedButtonsContainer">
+            </VBox>
+         </VBox>
+         <Label text="header" />
+         <VBox>
+            <MFXButton />
+         </VBox>
+      </HBox>
+   </top>
+</BorderPane>

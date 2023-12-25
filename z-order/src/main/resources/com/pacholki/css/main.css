@@ -1,0 +1,71 @@
+* {
+    -fx-primary: #2c3e7d;
+    -fx-secondary: #b1ccff;
+    -fx-complementary: #f1e9c3;
+    -fx-contrast: crimson;
+}
+
+HBox {
+    margin: 1em 0;
+    -fx-spacing: 1em;
+    padding: 1em;
+    -fx-padding: 1em;
+}
+
+.header {
+
+    min-height: 4em;
+    -fx-min-height: 4em;
+    max-height: 4em;
+    -fx-max-height: 4em;
+    
+    background-color: -fx-primary;
+    -fx-background-color: -fx-primary;
+
+    font-size: 3em;
+    -fx-font-size: 3em;
+    font-weight: 800;
+    -fx-font-weight: 800;
+}
+
+.body {
+    background-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+
+    font-size: 2em;
+    -fx-font-size: 2em;
+    font-weight: 600;
+    -fx-font-weight: 600;
+}
+
+.header .label,
+.body .label {
+    background-color: -fx-contrast;
+    -fx-background-color: -fx-contrast;
+    border-radius: 15px;
+    -fx-background-radius: 15 15 15 15;
+
+    padding: 0.2em 1em;
+    -fx-padding: 0.2em 1em;
+
+    color: whitesmoke;
+    -fx-text-fill: whitesmoke;
+}
+
+/* .selectList {
+    margin: 1em 0 0 0;
+    -fx-margin: 1em 0 0 0;
+} */
+
+MFXButton {
+    background-color: -fx-complementary;
+    -fx-background-color: -fx-complementary;
+    border-radius: 15px;
+    -fx-background-radius: 15 15 15 15; 
+
+    min-width: 8em;
+    -fx-min-width: 8em;
+
+    cursor: hand;
+    -fx-cursor: hand;
+}

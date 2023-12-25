@@ -1,0 +1,11 @@
+* {
+    -fx-primary: #2c3e7d;
+    -fx-secondary: #acaefd;
+    -fx-complementary: #f1e9c3;
+    -fx-contrast: crimson;
+}
+
+.header {
+    background-color: -fx-primary;
+    -fx-background-color: -fx-primary;
+}
