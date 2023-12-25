@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.pacholki.Tools;
 import com.pacholki.pane.MainPane;
 import com.pacholki.pane.league.League;
 import com.pacholki.pane.league.Season;
@@ -45,17 +44,11 @@ public class mainController implements Initializable {
     @FXML
     private void handleChooseLeague() {
 
-        Tools.startTimer();
-        
-        for (int i = 0; i < 11111; i++) {
-            boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
-            leagueButtonContainer.getChildren().clear();
-            if (wasActive)  continue;
+        boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
+        leagueButtonContainer.getChildren().clear();
+        if (wasActive)  return;
 
-            leagueButtonContainer.getChildren().setAll(leagueButtons);
-        }
-
-        Tools.endTimer();
+        leagueButtonContainer.getChildren().setAll(leagueButtons);
     }
 
     @FXML
@@ -95,15 +88,21 @@ public class mainController implements Initializable {
     }
 
     public void changeLeague(League league) {
+
+        leagueButtonContainer.getChildren().clear();
+        if (league.equals(mainPane.getCurrentLeague())) return;
+        
         mainPane.setCurrentLeague(league);
         chooseLeagueButton.setText(league.getName());
-        leagueButtonContainer.getChildren().clear();
     }
 
     public void changeSeason(Season season) {
+
+        seasonButtonContainer.getChildren().clear();
+        if (season.equals(mainPane.getCurrentSeason())) return;
+
         mainPane.setCurrentSeason(season);
         chooseSeasonButton.setText(season.getLabel());
-        seasonButtonContainer.getChildren().clear();
     }
 
     public String getLeagueName() {
