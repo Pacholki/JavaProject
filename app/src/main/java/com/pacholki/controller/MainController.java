@@ -44,6 +44,7 @@ public class MainController implements Initializable {
     @FXML
     private void handleChooseLeague() {
 
+        seasonButtonContainer.getChildren().clear();
         boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
         leagueButtonContainer.getChildren().clear();
         if (wasActive)  return;
@@ -54,10 +55,10 @@ public class MainController implements Initializable {
     @FXML
     private void handleChooseSeason() {
 
+        leagueButtonContainer.getChildren().clear();
         boolean wasActive = seasonButtonContainer.getChildren().size() != 0;
         if (wasActive) {
-            VBoxCleaner cleaner = new VBoxCleaner(seasonButtonContainer);
-            cleaner.start();
+            seasonButtonContainer.getChildren().clear();
             return;
         }
 
