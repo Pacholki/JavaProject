@@ -1,4 +1,4 @@
-package com.pacholki.pane.league;
+package com.pacholki.pane;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pacholki.pane.league.League;
-import com.pacholki.pane.league.Season;
 
 public class MainPane {
 

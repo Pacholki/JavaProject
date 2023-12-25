@@ -10,17 +10,17 @@
    <top>
       <HBox fx:id="header" styleClass="header" BorderPane.alignment="CENTER">
          <children>
-            <VBox styleClass="listSelect">
+            <VBox styleClass="choiceContainer">
                <children>
                   <MFXButton fx:id="chooseLeagueButton" onAction="#handleChooseLeague" styleClass="selectButton" text="Choose league" />
-                  <VBox fx:id="leagueButtonContainer">
+                  <VBox fx:id="leagueButtonContainer" styleClass="choiceButtonList">
                   </VBox>
                </children>
             </VBox>
-            <VBox styleClass="listSelect">
+            <VBox styleClass="choiceContainer">
                <children>
                   <MFXButton fx:id="chooseSeasonButton" onAction="#handleChooseSeason" styleClass="selectButton" text="Choose season" />
-                  <VBox fx:id="seasonButtonContainer">
+                  <VBox fx:id="seasonButtonContainer" styleClass="choiceButtonList">
                   </VBox>
                </children>
             </VBox>

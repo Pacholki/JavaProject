@@ -1,53 +1,84 @@
 * {
     -fx-primary: #2c3e7d;
+    -fx-primary-light: #334585;
     -fx-secondary: #acaefd;
     -fx-complementary: #f1e9c3;
     -fx-contrast: crimson;
+    -fx-darktext: #3f3e3e;
 }
 
 .root {
-    background-color: -fx-primary;
-    -fx-background-color: -fx-primary;
+    background-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
 }
 
-.header {
-    min-height: 7em;
-    -fx-min-height: 7em;
-    max-height: 7em;
-    -fx-max-height: 7em;
-
-    z-index: -1;
-    -fx-view-order: -1;
-}
-
-.header,
-.listSelect {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
+HBox {
+    margin: 1em 0;
+    -fx-spacing: 1em;
     padding: 1em;
     -fx-padding: 1em;
 }
 
-/* .listSelect {
-} */
+.header {
+    min-height: 8em;
+    -fx-min-height: 8em;
+    max-height: 8em;
+    -fx-max-height: 8em;
+
+    z-index: -1;
+    -fx-view-order: -1;
+
+    background-color: -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+
+.choiceContainer {
+    background-color: -fx-primary;
+    -fx-background-color: -fx-primary;
+    border-radius: 1em;
+    -fx-background-radius: 1em;
+    
+    padding: 1em;
+    -fx-padding: 1em;
+
+    margin: 0 0.5em;
+    -fx-spacing: 0.5em;
+}
+
+.choiceButtonList {
+    margin: 0 0.2em;
+    -fx-spacing: 0.2em;
+}
 
 .button,
 .selectButton {
-    background-color: -fx-secondary;
-    -fx-background-color: -fx-secondary;
+    background-color: -fx-complementary;
+    -fx-background-color: -fx-complementary;
     cursor: hand;
     -fx-cursor: hand;
     min-width: 10em;
     -fx-min-width: 10em;
-    font-size: 1.5em;
-    -fx-font-size: 1.5em;
+    font-size: 2em;
+    -fx-font-size: 2em;
     font-weight: 800;
     -fx-font-weight: 800;
 }
 
-.selectButton{
-    color: whitesmoke;
-    -fx-text-fill: whitesmoke;
+MFXButton .mfx-ripple-generator {
+    color: -fx-darktext;
+    -fx-text-fill: -fx-darktext;
+
+    border-radius: 0.5em;
+    -fx-background-radius: 0.5em;
+
+    cursor: hand;
+    -fx-cursor: hand;
+
+    -mfx-ripple-color: -fx-contrast;
+    -mfx-background-opacity: 0.2;
+    -mfx-ripple-opacity: 0.2;
+    -mfx-ripple-radius: 0.5em;
+    -mfx-auto-clip: true;
 }
 
 #navbar {
