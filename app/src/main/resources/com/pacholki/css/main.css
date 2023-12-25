@@ -1,7 +1,7 @@
 * {
     -fx-primary: #2c3e7d;
     -fx-primary-light: #334585;
-    -fx-secondary: #acaefd;
+    -fx-secondary: #a3b8ff;
     -fx-complementary: #f1e9c3;
     -fx-contrast: crimson;
     -fx-darktext: #3f3e3e;
@@ -74,7 +74,7 @@ MFXButton .mfx-ripple-generator {
     cursor: hand;
     -fx-cursor: hand;
 
-    -mfx-ripple-color: -fx-contrast;
+    -mfx-ripple-color: -fx-secondary;
     -mfx-background-opacity: 0.2;
     -mfx-ripple-opacity: 0.2;
     -mfx-ripple-radius: 0.5em;
