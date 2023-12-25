@@ -15,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 
-public class mainController implements Initializable {
+public class MainController implements Initializable {
 
     private MainPane mainPane;
     private String currentLeagueName;
