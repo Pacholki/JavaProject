@@ -1,8 +1,6 @@
 package com.pacholki.getter;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import com.pacholki.pane.League;
 import com.pacholki.pane.Season;
@@ -37,12 +35,6 @@ public class LeagueDataGetter extends DataGetter {
 
         try {
             Process process = processBuilder.start();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-
             int exitCode = process.waitFor();
             System.out.println("Script exited with code: " + exitCode);
         } catch (IOException e) {
