@@ -52,7 +52,7 @@ public class MainPane {
     public void getData() {
 
         LeagueDataGetter getter = new LeagueDataGetter(currentLeague, currentSeason);
-        getter.run();
+        getter.start();
 
         // for (League league : leagues) {
         //     for (Season season : seasons) {
