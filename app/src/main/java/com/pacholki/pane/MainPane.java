@@ -72,14 +72,7 @@ public class MainPane {
         if (! competitionFound) {
             currentCompetition = new Competition(league, season);
             competitions.add(currentCompetition);
-            System.out.println("----------------------------");
-            System.out.println("New competition created: ");
-            System.out.println(currentCompetition);
-            System.out.println("----------------------------");
         }
-
-        System.out.println("Switching to:");
-        System.out.println(currentCompetition);
 
         // if (! currentCompetition.isValid()) {
         //     System.out.println(currentCompetition);
