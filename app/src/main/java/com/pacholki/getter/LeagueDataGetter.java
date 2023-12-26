@@ -31,8 +31,8 @@ public class LeagueDataGetter extends DataGetter {
     public int getTeams() {
 
         String scriptName = "get_league_teams.py";
-
         String scriptPath = SCRIPT_DIR + scriptName;
+
         ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath, league.getFBrefID(), season.getFBrefID());
         processBuilder.redirectErrorStream(false);
 

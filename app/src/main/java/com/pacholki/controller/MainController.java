@@ -35,8 +35,6 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainPane = new MainPane();
-        mainPane.readSeasons();
-        mainPane.readLeagues();
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
     }
@@ -92,25 +90,17 @@ public class MainController implements Initializable {
     }
 
     public void changeLeague(League league) {
-
         leagueButtonContainer.getChildren().clear();
-        if (league.equals(mainPane.getCurrentLeague())) return;
-        
-        mainPane.setCurrentLeague(league);
-        chooseLeagueButton.setText(league.getName());
-        if (mainPane.getCurrentSeason() != null)    mainPane.getData();
-        System.out.println("Changing league to " + mainPane.getCurrentLeague());
+        if (mainPane.changeCompetition(league)) {
+            chooseLeagueButton.setText(league.getName());
+        }
     }
 
     public void changeSeason(Season season) {
-
         seasonButtonContainer.getChildren().clear();
-        if (season.equals(mainPane.getCurrentSeason())) return;
-
-        mainPane.setCurrentSeason(season);
-        chooseSeasonButton.setText(season.getLabel());
-        if (mainPane.getCurrentLeague() != null)    mainPane.getData();
-        System.out.println("Changing season to " + mainPane.getCurrentSeason());
+        if (mainPane.changeCompetition(season)) {
+            chooseSeasonButton.setText(season.getLabel());
+        }
     }
 
     public String getLeagueName() {

@@ -1,6 +1,7 @@
 package com.pacholki.pane;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,22 +10,21 @@ import com.pacholki.getter.LeagueDataGetter;
 
 public class MainPane {
 
-    private final String DATAPATH = "src/main/resources/com/pacholki/data/";
-    private final String LEAGUENAMESFILEPATH = DATAPATH + "leagues.json";
-    private final String SEASONNAMESFILEPATH = DATAPATH + "seasons.json";
+    private final String DATA_DIR = "src/main/resources/com/pacholki/data/";
+    private final String LEAGUENAMESFILEPATH = DATA_DIR + "leagues.json";
+    private final String SEASONNAMESFILEPATH = DATA_DIR + "seasons.json";
 
     private List<League> leagues;
     private List<Season> seasons;
+    private List<Competition> competitions;
     
-    private League currentLeague;
-    private Season currentSeason;
+    private Competition currentCompetition;
 
     public MainPane() {
-    }
-
-    public MainPane(League currentLeagueName, Season currentSeason) {
-        this.currentLeague = currentLeagueName;
-        this.currentSeason = currentSeason;
+        readLeagues();
+        readSeasons();
+        competitions = new ArrayList<>();
+        changeCompetition(leagues.get(0), seasons.get(0));
     }
 
     public void readSeasons() {
@@ -50,9 +50,46 @@ public class MainPane {
         }
     }
 
-    public void getData() {
-        LeagueDataGetter getter = new LeagueDataGetter(currentLeague, currentSeason);
-        getter.start();
+    public boolean changeCompetition(League league) {
+        if (league.equals(currentCompetition.getLeague()))  return false;
+        return changeCompetition(league, currentCompetition.getSeason());
+    }
+
+    public boolean changeCompetition(Season season) {
+        if (season.equals(currentCompetition.getSeason()))  return false;
+        return changeCompetition(currentCompetition.getLeague(), season);
+    }
+
+    private boolean changeCompetition(League league, Season season) {
+
+        boolean competitionFound = false;
+        for (Competition competition : competitions) {
+            if (competition.getLeague().equals(league) & competition.getSeason().equals(season)) {
+                currentCompetition = competition;
+                competitionFound = true;
+            }
+        }
+        if (! competitionFound) {
+            currentCompetition = new Competition(league, season);
+            competitions.add(currentCompetition);
+            System.out.println("----------------------------");
+            System.out.println("New competition created: ");
+            System.out.println(currentCompetition);
+            System.out.println("----------------------------");
+        }
+
+        System.out.println("Switching to:");
+        System.out.println(currentCompetition);
+
+        // if (! currentCompetition.isValid()) {
+        //     System.out.println(currentCompetition);
+        //     return true;
+        // }
+        
+        // System.out.println("Changing competition to: \n" + currentCompetition;
+        // // if (isValidCompetition(currentCompetition)):
+
+        return true;
     }
 
     public List<League> getLeagues() {
@@ -64,26 +101,10 @@ public class MainPane {
     }
 
     public League getCurrentLeague() {
-        return currentLeague;
+        return currentCompetition.getLeague();
     }
 
     public Season getCurrentSeason() {
-        return currentSeason;
-    }
-
-    public void setCurrentLeague() {
-        this.currentLeague = leagues.get(0);
-    }
-
-    public void setCurrentLeague(League league) {
-        this.currentLeague = league;
-    }
-
-    public void setCurrentSeason() {
-        this.currentSeason = seasons.get(0);
-    }
-
-    public void setCurrentSeason(Season season) {
-        this.currentSeason = season;
+        return currentCompetition.getSeason();
     }
 }

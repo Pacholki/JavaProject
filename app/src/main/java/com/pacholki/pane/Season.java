@@ -30,5 +30,9 @@ public class Season {
     public void setFBrefID(String FBrefID) {
         this.FBrefID = FBrefID;
     }
+
+    public String toString() {
+        return label;
+    }
 }
 

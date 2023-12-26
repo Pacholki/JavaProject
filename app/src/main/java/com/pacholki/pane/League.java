@@ -32,9 +32,6 @@ public class League {
 
     @Override
     public String toString() {
-        return "League{" +
-                "name='" + name + "\', " +
-                "FBrefID='" + FBrefID +"\'" +
-                '}';
+        return name;
     }
 }
