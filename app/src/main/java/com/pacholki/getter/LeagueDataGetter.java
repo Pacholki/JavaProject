@@ -17,15 +17,18 @@ public class LeagueDataGetter extends DataGetter {
 
     @Override
     public void run() {
-        System.out.println("Trying to download data for:\t" + league.getName() + "\t" + season.getLabel());
+        System.out.println("-----\nTrying to download data for:\n" + league.getName() + "\t" + season.getLabel() + "\n-----");
 
-        getTeams();
+        int exitCode = getTeams();
 
-        System.out.println("Download finished: \t" + league.getName() + "\t" + season.getLabel());
-
+        if (exitCode == 0) {
+            System.out.println("-----\nDownload successful: \n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+        } else {
+            System.out.println("-----\nFailed to download: \n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+        }
     }
 
-    public void getTeams() {
+    public int getTeams() {
 
         String scriptName = "get_league_teams.py";
 
@@ -33,14 +36,16 @@ public class LeagueDataGetter extends DataGetter {
         ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath, league.getFBrefID(), season.getFBrefID());
         processBuilder.redirectErrorStream(false);
 
+        int exitCode = 2;
         try {
             Process process = processBuilder.start();
-            int exitCode = process.waitFor();
-            System.out.println("Script exited with code: " + exitCode);
+            exitCode = process.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        return exitCode;
     }
 }
