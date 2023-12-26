@@ -84,4 +84,7 @@ MFXButton .mfx-ripple-generator {
 #navbar {
     background-color: -fx-contrast;
     -fx-background-color: -fx-contrast;
+
+    padding: 1em;
+    -fx-padding: 1em;
 }

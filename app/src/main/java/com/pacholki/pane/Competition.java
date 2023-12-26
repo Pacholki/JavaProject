@@ -4,11 +4,13 @@ import com.pacholki.getter.CompetitionDataGetter;
 
 public class Competition {
     
-    private static final String DATA_DIR = "src/main/resources/com/pacholki/data/";
+    private static final String DATA_DIR = "src/main/resources/com/pacholki/data/leagues/";
 
     private League league;
     private Season season;
     private String compDir;
+    @SuppressWarnings("unused")
+    private String compTeamsFilePath;
 
     public Competition() {
 
@@ -18,13 +20,14 @@ public class Competition {
         this.league = league;
         this.season = season;
         if (isValid())  {
-            makeCompDir();
+            prepPaths();
             getData();
         }
     }
 
-    private void makeCompDir() {
-        compDir = DATA_DIR + league.getName() + "/" + season.getFBrefID();
+    private void prepPaths() {
+        compDir = DATA_DIR + league.getName() + "/" + season.getFBrefID() + "/";
+        compTeamsFilePath = compDir + "teams.json";
     }
 
     public League getLeague() {

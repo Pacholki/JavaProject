@@ -2,6 +2,6 @@
     {"name":"Premier League", "FBrefID":"ENG-Premier League"},
     {"name":"La Liga", "FBrefID":"ESP-La Liga"},
     {"name":"Ligue 1", "FBrefID":"FRA-Ligue 1"},
-    {"name":"Serie A", "FBrefID":"GER-Bundesliga"},
-    {"name":"Bundeslilga", "FBrefID":"ITA-Serie A"}
+    {"name":"Bundesliga", "FBrefID":"GER-Bundesliga"},
+    {"name":"Serie A", "FBrefID":"ITA-Serie A"}
 ]

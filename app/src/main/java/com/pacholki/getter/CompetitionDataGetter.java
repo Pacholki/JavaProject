@@ -10,24 +10,26 @@ public class CompetitionDataGetter extends DataGetter {
     
     League league;
     Season season;
-    // Competition competition;
 
     public CompetitionDataGetter(Competition competition) {
-        // this.competition = competition;
         this.league = competition.getLeague();
         this.season = competition.getSeason();
     }
 
     @Override
     public void run() {
-        System.out.println("-----\nTrying to download data for:\n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+        downloadsStarted += 1;
+        int id = downloadsStarted;
+
+        System.out.println(id + ". -----\nTrying to download data for:\n" + league.getName() + "\t" + season.getLabel() + "\n-----");
 
         int exitCode = getTeams();
+        downloadsFinished += 1;
 
         if (exitCode == 0) {
-            System.out.println("-----\nDownload successful: \n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+            System.out.println(id + ". -----\nDownload successful: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + (downloadsStarted - downloadsFinished) + "\n-----");
         } else {
-            System.out.println("-----\nFailed to download: \n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+            System.out.println(id + ". -----\nFailed to download: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + (downloadsStarted - downloadsFinished) + "\n-----");
         }
     }
 
