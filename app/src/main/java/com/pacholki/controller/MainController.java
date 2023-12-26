@@ -24,11 +24,11 @@ public class MainController implements Initializable {
     private List<MFXButton> seasonButtons;
 
     @FXML
-    private MFXButton chooseLeagueButton;
+    private MFXButton leagueChoiceButton;
     @FXML
     private VBox leagueButtonContainer;
     @FXML
-    private MFXButton chooseSeasonButton;
+    private MFXButton seasonChoiceButton;
     @FXML
     private VBox seasonButtonContainer;
 
@@ -37,10 +37,12 @@ public class MainController implements Initializable {
         mainPane = new MainPane();
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
+        leagueChoiceButton.setText(mainPane.getCurrentLeague().getName());
+        seasonChoiceButton.setText(mainPane.getCurrentSeason().getLabel());
     }
 
     @FXML
-    private void handleChooseLeague() {
+    private void handleLeagueChoice() {
 
         seasonButtonContainer.getChildren().clear();
         boolean wasActive = leagueButtonContainer.getChildren().size() != 0;
@@ -51,7 +53,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void handleChooseSeason() {
+    private void handleSeasonChoice() {
 
         leagueButtonContainer.getChildren().clear();
         boolean wasActive = seasonButtonContainer.getChildren().size() != 0;
@@ -92,14 +94,14 @@ public class MainController implements Initializable {
     public void changeLeague(League league) {
         leagueButtonContainer.getChildren().clear();
         if (mainPane.changeCompetition(league)) {
-            chooseLeagueButton.setText(league.getName());
+            leagueChoiceButton.setText(league.getName());
         }
     }
 
     public void changeSeason(Season season) {
         seasonButtonContainer.getChildren().clear();
         if (mainPane.changeCompetition(season)) {
-            chooseSeasonButton.setText(season.getLabel());
+            seasonChoiceButton.setText(season.getLabel());
         }
     }
 
