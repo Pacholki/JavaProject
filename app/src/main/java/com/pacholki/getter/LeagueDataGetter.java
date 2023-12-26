@@ -1,8 +1,11 @@
-package com.pacholki.pane;
+package com.pacholki.getter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import com.pacholki.pane.League;
+import com.pacholki.pane.Season;
 
 public class LeagueDataGetter extends DataGetter {
     
@@ -28,8 +31,8 @@ public class LeagueDataGetter extends DataGetter {
 
         String scriptName = "get_league_teams.py";
 
-        String pythonScript = SCRIPT_PATH + scriptName;
-        ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScript, league.getFBrefID(), season.getFBrefID());
+        String scriptPath = SCRIPT_DIR + scriptName;
+        ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath, league.getFBrefID(), season.getFBrefID());
         processBuilder.redirectErrorStream(false);
 
         try {
