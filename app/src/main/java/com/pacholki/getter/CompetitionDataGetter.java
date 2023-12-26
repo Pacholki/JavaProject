@@ -2,17 +2,20 @@ package com.pacholki.getter;
 
 import java.io.IOException;
 
+import com.pacholki.pane.Competition;
 import com.pacholki.pane.League;
 import com.pacholki.pane.Season;
 
-public class LeagueDataGetter extends DataGetter {
+public class CompetitionDataGetter extends DataGetter {
     
     League league;
     Season season;
+    // Competition competition;
 
-    public LeagueDataGetter(League league, Season season) {
-        this.league = league;
-        this.season = season;
+    public CompetitionDataGetter(Competition competition) {
+        // this.competition = competition;
+        this.league = competition.getLeague();
+        this.season = competition.getSeason();
     }
 
     @Override

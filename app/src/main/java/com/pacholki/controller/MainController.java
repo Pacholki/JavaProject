@@ -93,6 +93,7 @@ public class MainController implements Initializable {
 
     public void changeLeague(League league) {
         leagueButtonContainer.getChildren().clear();
+        
         if (mainPane.changeCompetition(league)) {
             leagueChoiceButton.setText(league.getName());
         }
