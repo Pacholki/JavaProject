@@ -39,6 +39,8 @@ public class MainController implements Initializable {
         mainPane.readLeagues();
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
+
+        mainPane.getData();
     }
 
     @FXML

@@ -34,7 +34,6 @@ public class MainPane {
                 season.generateLabel();
             }
             this.seasons = seasons;
-            
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -45,9 +44,19 @@ public class MainPane {
             ObjectMapper mapper = new ObjectMapper();
             List<League> leagues = mapper.readValue(new File(LEAGUENAMESFILEPATH), new TypeReference<List<League>>() {});
             this.leagues = leagues;
-
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void getData() {
+
+        for (League league : leagues) {
+            for (Season season : seasons) {
+
+                LeagueDataGetter getter = new LeagueDataGetter(league, season);
+                getter.start();
+            }
         }
     }
 
