@@ -8,7 +8,7 @@ season = "2223"
 
 def teams(leagueID, season):
 
-    fbref = sd.FBref(leagues=leagueID, seasons=season)
+    fbref = sd.FBref(leagues=leagueID, seasons=season, no_store=True)
     schedule = fbref.read_schedule()
 
     teams = schedule.loc[leagueID, season, :]["home_team"].values
@@ -49,6 +49,3 @@ if __name__ == "__main__":
     season = sys.argv[2]
 
     teams(leagueID, season)
-
-    # with open(leagueID, "w") as file:
-    #     file.write(season)

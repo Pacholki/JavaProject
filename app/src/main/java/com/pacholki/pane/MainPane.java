@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pacholki.getter.LeagueDataGetter;
 
 public class MainPane {
 
@@ -73,14 +72,6 @@ public class MainPane {
             currentCompetition = new Competition(league, season);
             competitions.add(currentCompetition);
         }
-
-        // if (! currentCompetition.isValid()) {
-        //     System.out.println(currentCompetition);
-        //     return true;
-        // }
-        
-        // System.out.println("Changing competition to: \n" + currentCompetition;
-        // // if (isValidCompetition(currentCompetition)):
 
         return true;
     }
