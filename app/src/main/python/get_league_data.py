@@ -45,7 +45,10 @@ def teams(leagueID, season):
         file.write("\n]")
 
 if __name__ == "__main__":
-    # leagueID = sys.argv[1]
-    # season = sys.argv[2]
+    leagueID = sys.argv[1]
+    season = sys.argv[2]
 
-    teams(leagueID, season)
+    # teams(leagueID, season)
+
+    with open(leagueID, "w") as file:
+        file.write(season)
