@@ -50,17 +50,8 @@ public class MainPane {
     }
 
     public void getData() {
-
         LeagueDataGetter getter = new LeagueDataGetter(currentLeague, currentSeason);
         getter.start();
-
-        // for (League league : leagues) {
-        //     for (Season season : seasons) {
-
-        //         LeagueDataGetter getter = new LeagueDataGetter(league, season);
-        //         getter.start();
-        //     }
-        // }
     }
 
     public List<League> getLeagues() {
