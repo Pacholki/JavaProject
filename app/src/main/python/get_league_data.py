@@ -1,11 +1,10 @@
 import soccerdata as sd
 import os
+import sys
 
-BASE_DIR = "src/main/resources/data/"
-leagueID="ENG-Premier League"
-season="2122"
-
-
+BASE_DIR = "src/main/resources/com/pacholki/data/";
+leagueID = "ENG-Premier League"
+season = "2223"
 
 def teams(leagueID, season):
 
@@ -16,7 +15,7 @@ def teams(leagueID, season):
     teams = sorted(set([team.split('-')[0].strip() for team in teams]))
 
     league = leagueID[4:]
-    league_path = BASE_DIR + league + season + "/"
+    league_path = BASE_DIR + league + "/" +  season + "/"
     
     try:
         os.makedirs(league_path)
@@ -32,8 +31,21 @@ def teams(leagueID, season):
         league_size = len(teams)
 
         for team in teams:
+            
+            team_path = league_path + team
+            try:
+                os.mkdir(team_path)
+            except:
+                pass
+            
             file.write("\t{\"team\":\"" + team + "\"}")
             if team_number < league_size-1:
                 file.write(",\n")
             team_number += 1
         file.write("\n]")
+
+if __name__ == "__main__":
+    # leagueID = sys.argv[1]
+    # season = sys.argv[2]
+
+    teams(leagueID, season)

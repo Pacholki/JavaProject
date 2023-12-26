@@ -51,13 +51,16 @@ public class MainPane {
 
     public void getData() {
 
-        for (League league : leagues) {
-            for (Season season : seasons) {
+        LeagueDataGetter getter = new LeagueDataGetter(currentLeague, currentSeason);
+        getter.run();
 
-                LeagueDataGetter getter = new LeagueDataGetter(league, season);
-                getter.start();
-            }
-        }
+        // for (League league : leagues) {
+        //     for (Season season : seasons) {
+
+        //         LeagueDataGetter getter = new LeagueDataGetter(league, season);
+        //         getter.start();
+        //     }
+        // }
     }
 
     public List<League> getLeagues() {
@@ -76,8 +79,16 @@ public class MainPane {
         return currentSeason;
     }
 
+    public void setCurrentLeague() {
+        this.currentLeague = leagues.get(0);
+    }
+
     public void setCurrentLeague(League league) {
         this.currentLeague = league;
+    }
+
+    public void setCurrentSeason() {
+        this.currentSeason = seasons.get(0);
     }
 
     public void setCurrentSeason(Season season) {

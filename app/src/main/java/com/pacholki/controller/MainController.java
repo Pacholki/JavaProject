@@ -39,8 +39,6 @@ public class MainController implements Initializable {
         mainPane.readLeagues();
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
-
-        mainPane.getData();
     }
 
     @FXML
@@ -100,6 +98,7 @@ public class MainController implements Initializable {
         
         mainPane.setCurrentLeague(league);
         chooseLeagueButton.setText(league.getName());
+        if (mainPane.getCurrentSeason() != null)    mainPane.getData();
         System.out.println("Changing league to " + mainPane.getCurrentLeague());
     }
 
@@ -110,6 +109,7 @@ public class MainController implements Initializable {
 
         mainPane.setCurrentSeason(season);
         chooseSeasonButton.setText(season.getLabel());
+        if (mainPane.getCurrentLeague() != null)    mainPane.getData();
         System.out.println("Changing season to " + mainPane.getCurrentSeason());
     }
 
