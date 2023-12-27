@@ -15,6 +15,6 @@ module com.pacholki {
 
     exports com.pacholki;
     exports com.pacholki.controller;
+    exports com.pacholki.entity;
     exports com.pacholki.pane;
-    exports com.pacholki.pane.league;
 }

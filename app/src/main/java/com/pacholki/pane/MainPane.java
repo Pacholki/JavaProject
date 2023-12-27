@@ -6,6 +6,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pacholki.entity.Competition;
+import com.pacholki.entity.League;
+import com.pacholki.entity.Season;
 
 public class MainPane {
 
@@ -16,7 +19,7 @@ public class MainPane {
     private List<League> leagues;
     private List<Season> seasons;
     private List<Competition> competitions;
-    
+
     private Competition currentCompetition;
 
     public MainPane() {
@@ -29,12 +32,13 @@ public class MainPane {
     public void readSeasons() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            List<Season> seasons = mapper.readValue(new File(SEASONNAMESFILEPATH), new TypeReference<List<Season>>() {});
+            List<Season> seasons = mapper.readValue(new File(SEASONNAMESFILEPATH), new TypeReference<List<Season>>() {
+            });
             for (Season season : seasons) {
                 season.generateLabel();
             }
             this.seasons = seasons;
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -42,7 +46,8 @@ public class MainPane {
     public void readLeagues() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            List<League> leagues = mapper.readValue(new File(LEAGUENAMESFILEPATH), new TypeReference<List<League>>() {});
+            List<League> leagues = mapper.readValue(new File(LEAGUENAMESFILEPATH), new TypeReference<List<League>>() {
+            });
             this.leagues = leagues;
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,12 +55,14 @@ public class MainPane {
     }
 
     public boolean changeCompetition(League league) {
-        if (league.equals(currentCompetition.getLeague()))  return false;
+        if (league.equals(currentCompetition.getLeague()))
+            return false;
         return changeCompetition(league, currentCompetition.getSeason());
     }
 
     public boolean changeCompetition(Season season) {
-        if (season.equals(currentCompetition.getSeason()))  return false;
+        if (season.equals(currentCompetition.getSeason()))
+            return false;
         return changeCompetition(currentCompetition.getLeague(), season);
     }
 
@@ -68,7 +75,7 @@ public class MainPane {
                 competitionFound = true;
             }
         }
-        if (! competitionFound) {
+        if (!competitionFound) {
             currentCompetition = new Competition(league, season);
             competitions.add(currentCompetition);
         }

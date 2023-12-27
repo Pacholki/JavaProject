@@ -2,9 +2,9 @@ package com.pacholki.getter;
 
 import java.io.IOException;
 
-import com.pacholki.pane.Competition;
-import com.pacholki.pane.League;
-import com.pacholki.pane.Season;
+import com.pacholki.entity.Competition;
+import com.pacholki.entity.League;
+import com.pacholki.entity.Season;
 
 public class CompetitionDataGetter extends DataGetter {
     

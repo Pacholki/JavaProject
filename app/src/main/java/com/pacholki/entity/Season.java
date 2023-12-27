@@ -1,4 +1,4 @@
-package com.pacholki.pane;
+package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

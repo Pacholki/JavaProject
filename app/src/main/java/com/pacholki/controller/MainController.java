@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.pacholki.pane.League;
+import com.pacholki.entity.League;
+import com.pacholki.entity.Season;
 import com.pacholki.pane.MainPane;
-import com.pacholki.pane.Season;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 
