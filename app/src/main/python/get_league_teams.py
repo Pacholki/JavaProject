@@ -21,7 +21,7 @@ def teams(leagueID, season):
     file_name = "teams.json"
     file_path = LEAGUE_DIR / file_name
     LEAGUE_DIR.mkdir(parents=True, exist_ok=True)
-    with open (file_path, "w") as file:
+    with open (file_path, "w", encoding="utf-8") as file:
 
         file.write("[\n")
         team_number = 0

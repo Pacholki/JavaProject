@@ -12,11 +12,13 @@ public class CompetitionDataGetter extends DataGetter {
     
     private League league;
     private Season season;
+    private Competition competition;
     private Runnable onDataDownloadedCallback;
 
     public CompetitionDataGetter(Competition competition) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
+        this.competition = competition;
     }
 
     public void setOnDataDownloaded(Runnable onDataDownloadedCallback) {
@@ -25,21 +27,30 @@ public class CompetitionDataGetter extends DataGetter {
 
     @Override
     public void run() {
+        run(1);
+    }
+
+    public void run(int verbose) {
         downloadsStarted += 1;
         int id = downloadsStarted;
 
-        System.out.println(id + ". -----\nTrying to download data for:\n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+        if (verbose > 1) {
+            System.out.println(id + ". -----\nTrying to download data for:\n" + league.getName() + "\t" + season.getLabel() + "\n-----");
+        }
 
         int exitCode = getTeams();
         downloadsFinished += 1;
+        int downloadsActive = downloadsStarted - downloadsFinished;
 
-        if (exitCode == 0) {
-            System.out.println(id + ". -----\nDownload successful: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + (downloadsStarted - downloadsFinished) + "\n-----");
-        } else {
-            System.out.println(id + ". -----\nFailed to download: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + (downloadsStarted - downloadsFinished) + "\n-----");
+        if (exitCode == 0 & verbose > 0) {
+            System.out.println(id + ". -----\nDownload successful: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + downloadsActive + "\n-----");
+        } else if (verbose > 0) {
+            System.out.println(id + ". -----\nFailed to download: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + downloadsActive + "\n-----");
         }
 
-        if (onDataDownloadedCallback != null) {
+        competition.prepareData();
+
+        if (onDataDownloadedCallback != null & downloadsActive == 0) {
             Platform.runLater(onDataDownloadedCallback);
         }
     }

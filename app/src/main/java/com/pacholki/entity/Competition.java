@@ -1,5 +1,11 @@
 package com.pacholki.entity;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.controller.MainController;
 import com.pacholki.getter.CompetitionDataGetter;
 
@@ -9,8 +15,9 @@ public class Competition {
 
     private League league;
     private Season season;
+    private List<Team> teams;
+
     private String compDir;
-    @SuppressWarnings("unused")
     private String compTeamsFilePath;
 
     private MainController controller;
@@ -42,10 +49,27 @@ public class Competition {
         return compDir;
     } 
 
-    public void getData() {
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    private void getData() {
         CompetitionDataGetter getter = new CompetitionDataGetter(this);
         getter.setOnDataDownloaded(() -> controller.hello());
         getter.start();
+    }
+
+    public void prepareData() {
+        readTeams();
+    }
+
+    private void readTeams() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            teams = mapper.readValue(new File(compTeamsFilePath), new TypeReference<List<Team>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isValid() {
