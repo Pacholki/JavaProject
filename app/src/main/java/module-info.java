@@ -11,7 +11,7 @@ module com.pacholki {
     opens com.pacholki to javafx.fxml;
     opens com.pacholki.controller to javafx.fxml;
 
-    opens com.pacholki.pane to com.fasterxml.jackson.databind;
+    opens com.pacholki.entity to com.fasterxml.jackson.databind;
 
     exports com.pacholki;
     exports com.pacholki.controller;

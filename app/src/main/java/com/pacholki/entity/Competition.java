@@ -1,5 +1,6 @@
 package com.pacholki.entity;
 
+import com.pacholki.controller.MainController;
 import com.pacholki.getter.CompetitionDataGetter;
 
 public class Competition {
@@ -12,13 +13,12 @@ public class Competition {
     @SuppressWarnings("unused")
     private String compTeamsFilePath;
 
-    public Competition() {
+    private MainController controller;
 
-    }
-
-    public Competition(League league, Season season) {
+    public Competition(League league, Season season, MainController controller) {
         this.league = league;
         this.season = season;
+        this.controller = controller;
         if (isValid())  {
             prepPaths();
             getData();
@@ -44,6 +44,7 @@ public class Competition {
 
     public void getData() {
         CompetitionDataGetter getter = new CompetitionDataGetter(this);
+        getter.setOnDataDownloaded(() -> controller.hello());
         getter.start();
     }
 

@@ -6,14 +6,21 @@ import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
 
+import javafx.application.Platform;
+
 public class CompetitionDataGetter extends DataGetter {
     
-    League league;
-    Season season;
+    private League league;
+    private Season season;
+    private Runnable onDataDownloadedCallback;
 
     public CompetitionDataGetter(Competition competition) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
+    }
+
+    public void setOnDataDownloaded(Runnable onDataDownloadedCallback) {
+        this.onDataDownloadedCallback = onDataDownloadedCallback;
     }
 
     @Override
@@ -30,6 +37,10 @@ public class CompetitionDataGetter extends DataGetter {
             System.out.println(id + ". -----\nDownload successful: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + (downloadsStarted - downloadsFinished) + "\n-----");
         } else {
             System.out.println(id + ". -----\nFailed to download: \n" + league.getName() + "\t" + season.getLabel() + "\nActive downloads: " + (downloadsStarted - downloadsFinished) + "\n-----");
+        }
+
+        if (onDataDownloadedCallback != null) {
+            Platform.runLater(onDataDownloadedCallback);
         }
     }
 

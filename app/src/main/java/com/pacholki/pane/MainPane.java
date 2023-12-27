@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pacholki.controller.MainController;
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
@@ -15,6 +16,7 @@ public class MainPane {
     private final String DATA_DIR = "src/main/resources/com/pacholki/data/";
     private final String LEAGUENAMESFILEPATH = DATA_DIR + "leagues.json";
     private final String SEASONNAMESFILEPATH = DATA_DIR + "seasons.json";
+    private MainController controller;
 
     private List<League> leagues;
     private List<Season> seasons;
@@ -22,7 +24,8 @@ public class MainPane {
 
     private Competition currentCompetition;
 
-    public MainPane() {
+    public MainPane(MainController controller) {
+        this.controller = controller;
         readLeagues();
         readSeasons();
         competitions = new ArrayList<>();
@@ -76,7 +79,7 @@ public class MainPane {
             }
         }
         if (!competitionFound) {
-            currentCompetition = new Competition(league, season);
+            currentCompetition = new Competition(league, season, controller);
             competitions.add(currentCompetition);
         }
 

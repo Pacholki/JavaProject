@@ -15,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 
-public class MainController implements Initializable {
+public class MainController extends Controller implements Initializable {
 
     private MainPane mainPane;
     private String currentLeagueName;
@@ -34,7 +34,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        mainPane = new MainPane();
+        mainPane = new MainPane(this);
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
         leagueChoiceButton.setText(mainPane.getCurrentLeague().getName());
@@ -108,5 +108,9 @@ public class MainController implements Initializable {
 
     public String getLeagueName() {
         return currentLeagueName;
+    }
+
+    public void hello() {
+        System.out.println("hello");
     }
 }
