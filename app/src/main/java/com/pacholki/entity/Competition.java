@@ -55,7 +55,7 @@ public class Competition {
 
     private void getData() {
         CompetitionDataGetter getter = new CompetitionDataGetter(this);
-        getter.setOnDataDownloaded(() -> controller.hello());
+        getter.setOnDataDownloaded(() -> controller.updateMainPane());
         getter.start();
     }
 

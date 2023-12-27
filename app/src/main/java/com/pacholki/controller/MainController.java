@@ -7,12 +7,14 @@ import java.util.ResourceBundle;
 
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
+import com.pacholki.entity.Team;
 import com.pacholki.pane.MainPane;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class MainController extends Controller implements Initializable {
@@ -31,6 +33,8 @@ public class MainController extends Controller implements Initializable {
     private MFXButton seasonChoiceButton;
     @FXML
     private VBox seasonButtonContainer;
+    @FXML
+    private VBox navbar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -110,7 +114,16 @@ public class MainController extends Controller implements Initializable {
         return currentLeagueName;
     }
 
-    public void hello() {
-        System.out.println("hello");
+    public void updateMainPane() {
+        navbar.getChildren().setAll(generateTeamLabels());
+    }
+
+    public List<Label> generateTeamLabels() {
+        List<Label> teamLabels = new ArrayList<>();
+        for (Team team : mainPane.getCurrentCompetition().getTeams()) {
+            Label label = new Label(team.getName());
+            teamLabels.add(label);
+        }
+        return teamLabels;
     }
 }

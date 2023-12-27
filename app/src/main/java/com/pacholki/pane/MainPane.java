@@ -76,6 +76,7 @@ public class MainPane {
             if (competition.getLeague().equals(league) & competition.getSeason().equals(season)) {
                 currentCompetition = competition;
                 competitionFound = true;
+                controller.updateMainPane();
             }
         }
         if (!competitionFound) {
@@ -100,5 +101,9 @@ public class MainPane {
 
     public Season getCurrentSeason() {
         return currentCompetition.getSeason();
+    }
+
+    public Competition getCurrentCompetition() {
+        return currentCompetition;
     }
 }
