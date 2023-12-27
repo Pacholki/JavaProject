@@ -1,4 +1,4 @@
-package com.pacholki;
+package com.pacholki.util;
 
 public class Tools {
 
