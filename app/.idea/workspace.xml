@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cf85d5b-c978-4e5c-86c5-3764fcdc9d51" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/pacholki/cache/fbref/schedule_ENG-Premier League_2324.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/pacholki/cache/fbref/schedule_ENG-Premier League_2324.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_2324.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_2324.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/League.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/League.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Season.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Season.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/getter/CompetitionDataGetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/getter/CompetitionDataGetter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/getter/DataGetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/getter/DataGetter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/LeaguePane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/LeaguePane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/util/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/util/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +40,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
   <component name="ProjectId" id="2ZsVOwZmx0aTqdgEFILZZFKxb8D" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,9 +51,43 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/kornel/Desktop/college/javaproject/project/app"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/kornel/Desktop/college/javaproject/project/app",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pacholki.App" />
+      <module name="app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
