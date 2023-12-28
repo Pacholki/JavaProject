@@ -14,7 +14,6 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class MainController extends Controller implements Initializable {
@@ -115,15 +114,21 @@ public class MainController extends Controller implements Initializable {
     }
 
     public void updateMainPane() {
-        navbar.getChildren().setAll(generateTeamLabels());
+        navbar.getChildren().setAll(generateTeamButtons());
     }
 
-    public List<Label> generateTeamLabels() {
-        List<Label> teamLabels = new ArrayList<>();
+    public List<MFXButton> generateTeamButtons() {
+        List<MFXButton> teamButtons = new ArrayList<>();
         for (Team team : mainPane.getCurrentCompetition().getTeams()) {
-            Label label = new Label(team.getName());
-            teamLabels.add(label);
+            MFXButton button = new MFXButton(team.getName());
+            button.setOnAction(e -> viewTeam(team));
+            button.getStyleClass().add("teamButton");
+            teamButtons.add(button);
         }
-        return teamLabels;
+        return teamButtons;
+    }
+
+    private void viewTeam(Team team) {
+        System.out.println("You should now see the team of " + team);
     }
 }

@@ -81,10 +81,34 @@ MFXButton .mfx-ripple-generator {
     -mfx-auto-clip: true;
 }
 
-#navbar {
-    background-color: -fx-contrast;
-    -fx-background-color: -fx-contrast;
+.teamButton {
+    background-color: -fx-primary;
+    -fx-background-color: -fx-primary;
+
+    color: -fx-complementary;
+    -fx-text-fill: -fx-complementary;
+
+    font-size: 1.5em;
+    -fx-font-size: 1.5em;
+}
+
+.sidebar .mfx-scroll-pane {
+    background-color: transparent;
+    -fx-background-color: transparent;
+
+    color:white;
+    -track-color: rgb(255, 255, 255, 0.3);
+    -thumb-color: white;
+    -thumb-hover-color: -fx-primary;
+}
+
+#sidebar {
+    background-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
 
     padding: 1em;
     -fx-padding: 1em;
+
+    margin: 0.2em 0;
+    -fx-spacing: 0.2em;
 }
