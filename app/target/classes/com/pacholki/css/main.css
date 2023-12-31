@@ -81,6 +81,39 @@ MFXButton .mfx-ripple-generator {
     -mfx-auto-clip: true;
 }
 
+
+#scrollPane {
+    background-color: -fx-complementary;
+    -fx-background-color: -fx-complementary;
+
+    min-width: 20em;
+    -fx-min-width: 20em;
+
+    min-height: inherit;
+    -fx-min-height: inherit; 
+}
+
+/* MFXScrollPane .mfx-scroll-pane {
+    background-color: transparent;
+    -fx-background-color: transparent; */
+/* 
+    -track-color: rgb(255, 255, 255, 0.3);
+    -thumb-color: white;
+    -thumb-hover-color: -fx-primary; */
+/* } */
+
+#teamButtonContainer {
+    background-color: -fx-complementary;
+    -fx-background-color: -fx-complementary;
+
+    padding: 1em;
+    -fx-padding: 1em;
+
+    margin: 0.1em 0;
+    -fx-spacing: 0.1em;
+
+}
+
 .teamButton {
     background-color: -fx-primary;
     -fx-background-color: -fx-primary;
@@ -92,23 +125,7 @@ MFXButton .mfx-ripple-generator {
     -fx-font-size: 1.5em;
 }
 
-.sidebar .mfx-scroll-pane {
-    background-color: transparent;
-    -fx-background-color: transparent;
-
-    color:white;
-    -track-color: rgb(255, 255, 255, 0.3);
-    -thumb-color: white;
-    -thumb-hover-color: -fx-primary;
-}
-
-#sidebar {
-    background-color: -fx-secondary;
-    -fx-background-color: -fx-secondary;
-
-    padding: 1em;
-    -fx-padding: 1em;
-
-    margin: 0.2em 0;
-    -fx-spacing: 0.2em;
+.teamButton:hover {
+    background-color: -fx-contrast;
+    -fx-background-color: -fx-contrast;
 }

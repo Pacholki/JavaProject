@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.controller.MainController;
 import com.pacholki.getter.CompetitionDataGetter;
+import com.pacholki.util.Tools;
 
 public class Competition {
     
@@ -16,9 +17,11 @@ public class Competition {
     private League league;
     private Season season;
     private List<Team> teams;
+    private List<Game> schedule;
 
     private String compDir;
-    private String compTeamsFilePath;
+    private String teamsFilePath;
+    private String scheduleFilePath;
 
     private MainController controller;
 
@@ -34,7 +37,8 @@ public class Competition {
 
     private void prepPaths() {
         compDir = DATA_DIR + league.getName() + "/" + season.getFBrefID() + "/";
-        compTeamsFilePath = compDir + "teams.json";
+        teamsFilePath = compDir + "teams.json";
+        scheduleFilePath = compDir + "schedule.json";
     }
 
     public League getLeague() {
@@ -61,12 +65,24 @@ public class Competition {
 
     public void prepareData() {
         readTeams();
+        readSchedule();
     }
 
     private void readTeams() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            teams = mapper.readValue(new File(compTeamsFilePath), new TypeReference<List<Team>>() {});
+            teams = mapper.readValue(new File(teamsFilePath), new TypeReference<List<Team>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readSchedule() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            schedule = mapper.readValue(new File(scheduleFilePath), new TypeReference<List<Game>>() {});
+
+            Tools.display(schedule);
         } catch (IOException e) {
             e.printStackTrace();
         }

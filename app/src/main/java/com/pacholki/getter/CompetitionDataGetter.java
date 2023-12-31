@@ -57,7 +57,7 @@ public class CompetitionDataGetter extends DataGetter {
 
     public int getTeams() {
 
-        String scriptName = "get_league_teams.py";
+        String scriptName = "get_competition_data.py";
         String scriptPath = SCRIPT_DIR + scriptName;
 
         ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath, league.getFBrefID(), season.getFBrefID());

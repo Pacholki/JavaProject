@@ -33,7 +33,7 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private VBox seasonButtonContainer;
     @FXML
-    private VBox navbar;
+    private VBox teamButtonContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -114,7 +114,7 @@ public class MainController extends Controller implements Initializable {
     }
 
     public void updateMainPane() {
-        navbar.getChildren().setAll(generateTeamButtons());
+        teamButtonContainer.getChildren().setAll(generateTeamButtons());
     }
 
     public List<MFXButton> generateTeamButtons() {
@@ -129,6 +129,7 @@ public class MainController extends Controller implements Initializable {
     }
 
     private void viewTeam(Team team) {
+        
         System.out.println("You should now see the team of " + team);
     }
 }

@@ -8,19 +8,37 @@ CACHE_DIR = Path("src/main/resources/com/pacholki/cache/fbref/")
 
 def teams(leagueID, season):
 
+    league = leagueID[4:]
+    LEAGUE_DIR = BASE_DIR / league
+    LEAGUE_DIR = LEAGUE_DIR / season
+    LEAGUE_DIR.mkdir(parents=True, exist_ok=True)
+    
+
     fbref = sd.FBref(leagues=leagueID, seasons=season, data_dir = CACHE_DIR)
     schedule = fbref.read_schedule()
+
+    file_name = "schedule.json"
+    file_path = LEAGUE_DIR / file_name
+    schedule_data = schedule.to_json(orient="records", lines=True).split("\n")
+    
+    with open (file_path, "w", encoding="utf-8") as file:
+        file.write("[\n")
+        game_number = 0
+        schedule_size = len(schedule)
+
+        for row in schedule_data:
+            file.write("\t" + row)
+            if game_number < schedule_size-1:
+                file.write(",\n")
+            game_number += 1
+        file.write("\n]")
+
 
     teams = schedule.loc[leagueID, season, :]["home_team"].values
     teams = sorted(set([team.split('-')[0].strip() for team in teams]))
 
-    league = leagueID[4:]
-    LEAGUE_DIR = BASE_DIR / league
-    LEAGUE_DIR = LEAGUE_DIR / season
-    
     file_name = "teams.json"
     file_path = LEAGUE_DIR / file_name
-    LEAGUE_DIR.mkdir(parents=True, exist_ok=True)
     with open (file_path, "w", encoding="utf-8") as file:
 
         file.write("[\n")

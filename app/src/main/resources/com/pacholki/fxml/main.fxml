@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="742.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.MainController">
+<BorderPane prefHeight="742.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.MainController" styleClass="rootPane">
    <top>
       <HBox fx:id="header" styleClass="header" BorderPane.alignment="CENTER">
          <children>
@@ -29,10 +29,8 @@
       </HBox>
    </top>
    <left>
-      <Pane BorderPane.alignment="CENTER" styleClass="sidebar">
-         <MFXScrollPane fx:id="scrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
-            <VBox fx:id="navbar" />
-         </MFXScrollPane>
-      </Pane>
+      <MFXScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true">
+         <VBox fx:id="teamButtonContainer" />
+      </MFXScrollPane>
    </left>
 </BorderPane>
