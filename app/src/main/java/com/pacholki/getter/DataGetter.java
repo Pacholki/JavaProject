@@ -6,47 +6,55 @@ import javafx.application.Platform;
 
 public abstract class DataGetter extends Thread {
 
-    protected static int downloadsStarted = 0;
-    protected static int downloadsFinished = 0;
-    
     protected final String SCRIPT_DIR = "src/main/python/";
 
-    // protected Entity entity;
-    // private Runnable onDataDownloadedCallback;
+    private static int downloadsStarted = 0;
+    private static int downloadsFinished = 0;
 
-    // @Override
-    // public void run() {
-    //     run(1);
-    // }
+    protected Entity entity;
+    private Runnable onDataDownloadedCallback;
 
-    // public void setOnDataDownloaded(Runnable onDataDownloadedCallback) {
-    //     this.onDataDownloadedCallback = onDataDownloadedCallback;
-    // }
+    @Override
+    public void run() {
+        run(1);
+    }
 
-    // protected void run(int verbose) {
-    //     downloadsStarted += 1;
-    //     int id = downloadsStarted;
+    public void setOnDataDownloaded(Runnable onDataDownloadedCallback) {
+        this.onDataDownloadedCallback = onDataDownloadedCallback;
+    }
 
-    //     if (verbose > 1) {
-    //         System.out.println(id + ". -----\nTrying to download data for:\n" + entity + "\n-----");
-    //     }
+    protected void run(int verbose) {
+        downloadsStarted += 1;
+        int id = downloadsStarted;
 
-    //     int exitCode = getData();
-    //     downloadsFinished += 1;
-    //     int downloadsActive = downloadsStarted - downloadsFinished;
+        showTryDownloadMessage(verbose > 1, id);
 
-    //     if (exitCode == 0 & verbose > 0) {
-    //         System.out.println(id + ". -----\nDownload successful: \n" + entity + "\nActive downloads: " + downloadsActive + "\n-----");
-    //     } else if (verbose > 0) {
-    //         System.out.println(id + ". -----\nFailed to download: \n" + entity + "\nActive downloads: " + downloadsActive + "\n-----");
-    //     }
+        int exitCode = getData();
+        downloadsFinished += 1;
+        int downloadsActive = downloadsStarted - downloadsFinished;
 
-    //     entity.prepareData();
+        showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, id, downloadsActive);
+        showDownloadFailedMessage(exitCode != 0 & verbose > 0, id, downloadsActive);
 
-    //     if (onDataDownloadedCallback != null & downloadsActive == 0) {
-    //         Platform.runLater(onDataDownloadedCallback);
-    //     }
-    // }
+        entity.prepareData();
+
+        if (onDataDownloadedCallback != null & downloadsActive == 0) {
+            Platform.runLater(onDataDownloadedCallback);
+        }
+    }
+
+    private void showTryDownloadMessage(boolean condition, int id) {
+        if (! condition) return;
+        System.out.println(id + ". -----\nTrying to download data for:\n" + entity + "\n-----");
+    }
+    private void showDownloadSuccessfulMessage (boolean condition, int id, int downloadsActive) {
+        if (! condition) return;
+        System.out.println(id + ". -----\nDownload successful: \n" + entity + "\nActive downloads: " + downloadsActive + "\n-----");
+    }
+    private void showDownloadFailedMessage(boolean condition, int id, int downloadsActive) {
+        if (! condition) return;
+        System.out.println(id + ". -----\nFailed to download: \n" + entity + "\nActive downloads: " + downloadsActive + "\n-----");
+    }
 
     public abstract int getData();
     
