@@ -23,7 +23,7 @@ public abstract class DataGetter extends Thread {
         this.onDataDownloadedCallback = onDataDownloadedCallback;
     }
 
-    protected void run(int verbose) {
+    public void run(int verbose) {
         downloadsStarted += 1;
         int id = downloadsStarted;
 
@@ -38,7 +38,8 @@ public abstract class DataGetter extends Thread {
 
         entity.prepareData();
 
-        if (onDataDownloadedCallback != null & downloadsActive == 0) {
+        boolean isLastUserRequest = (downloadsStarted == id);
+        if (onDataDownloadedCallback != null & isLastUserRequest) {
             Platform.runLater(onDataDownloadedCallback);
         }
     }

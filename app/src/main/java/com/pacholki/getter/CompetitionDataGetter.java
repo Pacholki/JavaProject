@@ -6,8 +6,6 @@ import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
 
-// import javafx.application.Platform;
-
 public class CompetitionDataGetter extends DataGetter {
     
     private League league;
