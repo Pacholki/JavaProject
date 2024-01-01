@@ -19,7 +19,10 @@ def teams(leagueID, season):
 
     file_name = "schedule.json"
     file_path = LEAGUE_DIR / file_name
-    schedule_data = schedule.to_json(orient="records", lines=True).split("\n")
+    # schedule_data = schedule.to_json(orient="records", lines=True).split("\n")
+    schedule_data = schedule.to_json(orient="records", lines=True).replace("\\/", "/").encode().decode("unicode_escape").split("\n")
+    # print(schedule_data[16])
+    # print("hey, that's good")
     
     with open (file_path, "w", encoding="utf-8") as file:
         file.write("[\n")
@@ -27,6 +30,7 @@ def teams(leagueID, season):
         schedule_size = len(schedule)
 
         for row in schedule_data:
+            # print(f"writing row {game_number + 1}")
             file.write("\t" + row)
             if game_number < schedule_size-1:
                 file.write(",\n")
@@ -64,7 +68,7 @@ if __name__ == "__main__":
         leagueID = sys.argv[1]
         season = sys.argv[2]
     except:
-        leagueID = "ENG-Premier League"
-        season = "2223"
+        leagueID = "ESP-La Liga"
+        season = "2324"
 
     teams(leagueID, season)

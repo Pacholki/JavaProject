@@ -2,16 +2,16 @@ package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Game {
+public class Game extends Entity {
     @JsonProperty("week")
     private int gameweek;
     private String day;
     private String date;
     private String time;
     @JsonProperty("home_team")
-    private String homeTeam;
+    private String homeTeamName;
     @JsonProperty("away_team")
-    private String awayTeam;
+    private String awayTeamName;
     private String score;
     @JsonProperty("home_xg")
     private double homeXG;
@@ -25,6 +25,12 @@ public class Game {
     private String notes;
     @JsonProperty("game_id")
     private String gameID;
+
+    private Competition competition;
+    private Team homeTeam;
+    private Team awayTeam;
+    private int homeScore;
+    private int awayScore;
 
     // ---------------------------------------------
 
@@ -40,11 +46,11 @@ public class Game {
     public void setTime(String time) {
         this.time = time;
     }
-    public void setHomeTeam(String homeTeam) {
-        this.homeTeam = homeTeam;
+    public void setHomeTeamName(String homeTeam) {
+        this.homeTeamName = homeTeam;
     }
-    public void setAwayTeam(String awayTeam) {
-        this.awayTeam = awayTeam;
+    public void setAwayTeamName(String awayTeam) {
+        this.awayTeamName = awayTeam;
     }
     public void setScore(String score) {
         this.score = score;
@@ -74,6 +80,22 @@ public class Game {
         this.gameID = gameID;
     }
 
+    private void setHomeTeam(Team team) {
+        this.homeTeam = team;
+    }
+
+    private void setAwayTeam(Team team) {
+        this.awayTeam = team;
+    }
+
+    private void prepareScore() {
+
+        if (score == null) return;
+
+        this.homeScore = Integer.parseInt(score.split("\u2013")[0]);
+        this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
+    }
+
     // ---------------------------------------------
 
     public int getWeek() {
@@ -88,11 +110,11 @@ public class Game {
     public String getTime() {
         return time;
     }
-    public String getHomeTeam() {
-        return homeTeam;
+    public String getHomeTeamName() {
+        return homeTeamName;
     }
-    public String getAwayTeam() {
-        return awayTeam;
+    public String getAwayTeamName() {
+        return awayTeamName;
     }
     public String getScore() {
         return score;
@@ -122,10 +144,36 @@ public class Game {
         return gameID;
     }
 
+    public Team getHomeTeam() {
+        return homeTeam;
+    }
+    public Team getAwayTeam() {
+        return awayTeam;
+    }
+    public int getHomeScore() {
+        return homeScore;
+    }
+    public int getAwayScore() {
+        return awayScore;
+    }
+
+    // ---------------------------------------------
+
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
+    }
+
+    @Override
+    public void prepareData() {
+        setHomeTeam(competition.getTeamByName(getHomeTeamName()));
+        setAwayTeam(competition.getTeamByName(getAwayTeamName()));
+        prepareScore();
+    }
+
     // ---------------------------------------------
 
     @Override
     public String toString() {
-        return "gameweek " + gameweek + " " + homeTeam + " " + score + " " + awayTeam;
+        return "gameweek " + gameweek + " " + homeTeamName + " " + homeScore + "-" + awayScore + " " + awayTeamName;
     }
 }

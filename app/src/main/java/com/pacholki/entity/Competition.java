@@ -8,9 +8,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.controller.MainController;
 import com.pacholki.getter.CompetitionDataGetter;
-import com.pacholki.util.Tools;
 
-public class Competition {
+public class Competition extends Entity {
     
     private static final String DATA_DIR = "src/main/resources/com/pacholki/data/leagues/";
 
@@ -63,9 +62,11 @@ public class Competition {
         getter.start();
     }
 
+    @Override
     public void prepareData() {
         readTeams();
         readSchedule();
+        prepareSchedule();
     }
 
     private void readTeams() {
@@ -81,15 +82,29 @@ public class Competition {
         try {
             ObjectMapper mapper = new ObjectMapper();
             schedule = mapper.readValue(new File(scheduleFilePath), new TypeReference<List<Game>>() {});
-
-            Tools.display(schedule);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    private void prepareSchedule() {
+        for (Game game : schedule) {
+            game.setCompetition(this);
+            game.prepareData();
+        }
+    }
+
     public boolean isValid() {
         return (league != null & season != null);
+    }
+
+    public Team getTeamByName(String name) {
+
+        for (Team team : teams) {
+            if (team.getName().equals(name))    return team;
+        }
+
+        return null;
     }
 
     public String toString() {

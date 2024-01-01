@@ -38,7 +38,7 @@ public class CompetitionDataGetter extends DataGetter {
             System.out.println(id + ". -----\nTrying to download data for:\n" + league.getName() + "\t" + season.getLabel() + "\n-----");
         }
 
-        int exitCode = getTeams();
+        int exitCode = getData();
         downloadsFinished += 1;
         int downloadsActive = downloadsStarted - downloadsFinished;
 
@@ -55,7 +55,8 @@ public class CompetitionDataGetter extends DataGetter {
         }
     }
 
-    public int getTeams() {
+    @Override
+    public int getData() {
 
         String scriptName = "get_competition_data.py";
         String scriptPath = SCRIPT_DIR + scriptName;
