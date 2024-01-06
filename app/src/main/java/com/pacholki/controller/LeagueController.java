@@ -10,12 +10,21 @@ import com.pacholki.pane.MainPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 
 public class LeagueController extends Controller implements Initializable {
 
+    @FXML
+    private TableView leagueTable;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         leaguePane = new LeaguePane(this);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        leagueTable.getColumns().clear();
     }
 
     @Override
