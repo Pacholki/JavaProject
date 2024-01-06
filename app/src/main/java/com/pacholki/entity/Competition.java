@@ -40,6 +40,8 @@ public class Competition extends Entity {
     }
 
     private void prepPaths() {
+        fxmlPath = "/com/pacholki/fxml/league.fxml";
+
         compDir = DATA_DIR + league.getName() + "/" + season.getFBrefID() + "/";
         teamsFilePath = compDir + "teams.json";
         scheduleFilePath = compDir + "schedule.json";

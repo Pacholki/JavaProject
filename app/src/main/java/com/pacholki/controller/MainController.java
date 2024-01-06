@@ -19,7 +19,6 @@ import javafx.scene.layout.VBox;
 
 public class MainController extends Controller implements Initializable {
     
-    private MainPane mainPane;
     private String currentLeagueName;
 
     private List<MFXButton> leagueButtons;
@@ -120,12 +119,16 @@ public class MainController extends Controller implements Initializable {
     public void updatePane(Entity entity) {
         Competition competition = (Competition) entity;
         teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
+        
+        updateEntityPane(competition);
+    }
 
+    public void updateEntityPane(Entity entity) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pacholki/fxml/league.fxml"));
-            Pane testPane;
-            testPane = loader.load();
-            entityPane.getChildren().setAll(testPane);
+            String fxmlPath = entity.getFXMLPath();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Pane pane = loader.load();
+            entityPane.getChildren().setAll(pane);
         } catch (IOException e) {
             e.printStackTrace();
         }

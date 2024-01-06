@@ -6,6 +6,8 @@ import com.pacholki.changer.DataWaiter;
 
 public abstract class Entity {
 
+    protected String fxmlPath;
+
     protected Controller controller;
     protected DataGetter getter;
     public abstract void prepareData();
@@ -18,5 +20,9 @@ public abstract class Entity {
 
     public Controller getController() {
         return controller;
+    }
+
+    public String getFXMLPath() {
+        return fxmlPath;
     }
 }
