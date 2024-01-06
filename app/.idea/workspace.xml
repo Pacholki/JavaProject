@@ -7,6 +7,15 @@
     <list default="true" id="2cf85d5b-c978-4e5c-86c5-3764fcdc9d51" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/controller/LeagueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/controller/LeagueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/pacholki/fxml/league.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/pacholki/fxml/league.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/LeaguePane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/LeaguePane.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703210747030</updated>
-      <workItem from="1704558878126" duration="22325000" />
+      <workItem from="1704558878126" duration="23315000" />
     </task>
     <servers />
   </component>
