@@ -29,27 +29,20 @@ public class Team {
 
     // ---------------------------------------------
 
-    public String toString() {
-        return name;
-    }
-
     public void setGamesPlayed(Integer gameweek) {
         gamesPlayed[gameweek] = gamesPlayed[gameweek - 1] + 1;
     }
 
     public void setGamesWon(Integer gameweek, int result) {
         gamesWon[gameweek] = gamesWon[gameweek - 1] + result;
-        points[gameweek] = points[gameweek - 1] + 3;
     }
 
     public void setGamesDrawn(Integer gameweek, int result) {
         gamesDrawn[gameweek] = gamesDrawn[gameweek - 1] + result;
-        points[gameweek] = points[gameweek - 1] + 1;
     }
 
     public void setGamesLost(Integer gameweek, int result) {
         gamesLost[gameweek] = gamesLost[gameweek - 1] + result;
-        points[gameweek] = points[gameweek - 1];
     }
 
     public void setGoalsFor(Integer gameweek, int goals) {
@@ -58,6 +51,10 @@ public class Team {
 
     public void setGoalsAgainst(Integer gameweek, int goals) {
         goalsAgainst[gameweek] = goalsAgainst[gameweek - 1] + goals;
+    }
+
+    public void setPoints(Integer gameweek, int newPoints) {
+        points[gameweek] = points[gameweek - 1] + newPoints;
     }
     
     
@@ -92,5 +89,8 @@ public class Team {
     }
 
     //-------------------------------------------------
-    
+
+    public String toString() {
+        return name;
+    }
 }

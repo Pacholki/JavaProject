@@ -3,7 +3,9 @@ package com.pacholki.entity;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -104,43 +106,17 @@ public class Competition extends Entity {
         for (Game game : gamesToBeRemoved) {
             schedule.remove(game);
         }
+
+        schedule = schedule.stream()
+                .sorted(Comparator.comparing(Game::getGameweek))
+                .collect(Collectors.toList());
+
     }
 
     public void prepareTable() {
         for (Game game : schedule) {
-            Integer gameweek = game.getGameweek();
-            game.getHomeTeam().setGamesPlayed(gameweek);
-            game.getAwayTeam().setGamesPlayed(gameweek);
-
-            if(game.getHomeScore() > game.getAwayScore()) {
-                game.getHomeTeam().setGamesWon(gameweek, 1);
-                game.getAwayTeam().setGamesWon(gameweek, 0);
-                game.getHomeTeam().setGamesDrawn(gameweek, 0);
-                game.getAwayTeam().setGamesDrawn(gameweek, 0);
-                game.getHomeTeam().setGamesLost(gameweek, 0);
-                game.getAwayTeam().setGamesLost(gameweek, 1);
-            } else if (game.getHomeScore() < game.getAwayScore()) {
-                game.getHomeTeam().setGamesWon(gameweek, 0);
-                game.getAwayTeam().setGamesWon(gameweek, 1);
-                game.getHomeTeam().setGamesDrawn(gameweek, 0);
-                game.getAwayTeam().setGamesDrawn(gameweek, 0);
-                game.getHomeTeam().setGamesLost(gameweek, 1);
-                game.getAwayTeam().setGamesLost(gameweek, 0);
-            } else {
-                game.getHomeTeam().setGamesWon(gameweek, 0);
-                game.getAwayTeam().setGamesWon(gameweek, 0);
-                game.getHomeTeam().setGamesDrawn(gameweek, 1);
-                game.getAwayTeam().setGamesDrawn(gameweek, 1);
-                game.getHomeTeam().setGamesLost(gameweek, 0);
-                game.getAwayTeam().setGamesLost(gameweek, 0);
-            }
-            
-            game.getHomeTeam().setGoalsFor(gameweek, game.getHomeScore());
-            game.getAwayTeam().setGoalsFor(gameweek, game.getAwayScore());
-
-            game.getHomeTeam().setGoalsAgainst(gameweek, game.getHomeScore());
-            game.getHomeTeam().setGoalsAgainst(gameweek, game.getAwayScore());
-            
+            game.recordGoals();
+            game.recordGame();
         }
     }
 
@@ -156,13 +132,6 @@ public class Competition extends Entity {
 
         return null;
     }
-
-//    @Override
-//    public void setMe() {
-//        DataWaiter waiter = new DataWaiter(controller, getter);
-//        waiter.start();
-//
-//    }
 
     public String toString() {
         if (! isValid())    return "Null values!!!";

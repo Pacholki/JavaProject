@@ -115,6 +115,11 @@ public class MainController extends Controller implements Initializable {
     public void updatePane(Entity entity) {
         Competition competition = (Competition) entity;
         teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
+        int gameweek = 10;
+        for(Team team : competition.getTeams()){
+            System.out.println(team);
+            System.out.println(team.getGamesWon(gameweek));
+        }
     }
 
     public List<MFXButton> generateTeamButtons(Competition competition) {

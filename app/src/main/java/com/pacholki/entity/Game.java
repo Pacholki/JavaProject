@@ -173,6 +173,45 @@ public class Game extends Entity {
         this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
     }
 
+    public void recordGoals(){
+        homeTeam.setGoalsFor(gameweek, homeScore);
+        homeTeam.setGoalsAgainst(gameweek, awayScore);
+        awayTeam.setGoalsFor(gameweek, awayScore);
+        awayTeam.setGoalsAgainst(gameweek, homeScore);
+    }
+
+    public void recordGame() {
+        if(homeScore > awayScore){
+            handleWin(homeTeam);
+            handleLoss(awayTeam);
+        } else if (awayScore > homeScore) {
+            handleWin(awayTeam);
+            handleLoss(homeTeam);
+        } else {
+            handleDraw(homeTeam);
+            handleDraw(awayTeam);
+        }
+        homeTeam.setGamesPlayed(gameweek);
+        awayTeam.setGamesPlayed(gameweek);
+    }
+    public void handleWin(Team team) {
+        team.setGamesWon(gameweek, 1);
+        team.setGamesLost(gameweek, 0);
+        team.setGamesDrawn(gameweek, 0);
+        team.setPoints(gameweek, 3);
+    }
+    public void handleDraw(Team team) {
+        team.setGamesWon(gameweek, 0);
+        team.setGamesLost(gameweek, 0);
+        team.setGamesDrawn(gameweek, 1);
+        team.setPoints(gameweek, 1);
+    }
+    public void handleLoss(Team team) {
+        team.setGamesWon(gameweek, 0);
+        team.setGamesLost(gameweek, 1);
+        team.setGamesDrawn(gameweek, 0);
+        team.setPoints(gameweek, 0);
+    }
 
     @Override
     public void setMe() {
