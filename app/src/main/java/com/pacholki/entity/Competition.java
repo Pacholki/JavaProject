@@ -25,10 +25,6 @@ public class Competition extends Entity {
     private String teamsFilePath;
     private String scheduleFilePath;
 
-//    private MainController controller;
-
-//    private CompetitionDataGetter getter;
-
     public Competition(League league, Season season, MainController controller) {
         this.league = league;
         this.season = season;

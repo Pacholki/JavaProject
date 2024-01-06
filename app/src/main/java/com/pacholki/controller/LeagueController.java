@@ -13,14 +13,9 @@ import javafx.scene.control.Label;
 
 public class LeagueController extends Controller implements Initializable {
 
-    @FXML
-    private Label leagueNameLabel;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         leaguePane = new LeaguePane(this);
-        leagueNameLabel.setText("dupadupa");
-        System.out.println(mainPane.getCurrentCompetition());
     }
 
     @Override

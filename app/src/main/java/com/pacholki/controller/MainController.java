@@ -136,7 +136,6 @@ public class MainController extends Controller implements Initializable {
 
     public List<MFXButton> generateTeamButtons(Competition competition) {
         List<MFXButton> teamButtons = new ArrayList<>();
-        System.out.println(competition);
         for (Team team : competition.getTeams()) {
             MFXButton button = new MFXButton(team.getName());
             button.setOnAction(e -> viewTeam(team));
