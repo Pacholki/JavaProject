@@ -6,6 +6,6 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.LeagueController">
    <center>
-      <Label fx:id="leagueNameLabel" text="Liga" BorderPane.alignment="CENTER" />
+      <Label fx:id="leagueNameLabel" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
