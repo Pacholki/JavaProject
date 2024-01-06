@@ -5,38 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cf85d5b-c978-4e5c-86c5-3764fcdc9d51" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/changer/Changer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/changer/DataWaiter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Competition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Competition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/getter/CompetitionDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/changer/CompetitionDataGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/getter/DataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/changer/DataGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/pane/MainPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/pane/MainPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Competition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/League.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/League.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Season.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Season.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/entity/Team.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/getter/CompetitionDataGetter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/getter/DataGetter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/LeaguePane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/LeaguePane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/pane/MainPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pacholki/util/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pacholki/util/Tools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pacholki/entity/Team.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703210747030</updated>
-      <workItem from="1704558878126" duration="8114000" />
+      <workItem from="1704558878126" duration="12193000" />
     </task>
     <servers />
   </component>

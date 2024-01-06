@@ -88,15 +88,8 @@ public class Game extends Entity {
         this.awayTeam = team;
     }
 
+    @SuppressWarnings("unused")
     private void setRound(String round) {}
-
-    private void prepareScore() {
-
-        if (score == null) return;
-
-        this.homeScore = Integer.parseInt(score.split("\u2013")[0]);
-        this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
-    }
 
     // ---------------------------------------------
 
@@ -171,6 +164,15 @@ public class Game extends Entity {
         setAwayTeam(competition.getTeamByName(getAwayTeamName()));
         prepareScore();
     }
+
+    private void prepareScore() {
+
+        if (score == null) return;
+
+        this.homeScore = Integer.parseInt(score.split("\u2013")[0]);
+        this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
+    }
+
 
     @Override
     public void setMe() {
