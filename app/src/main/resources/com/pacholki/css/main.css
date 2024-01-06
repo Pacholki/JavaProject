@@ -74,7 +74,7 @@ MFXButton .mfx-ripple-generator {
     cursor: hand;
     -fx-cursor: hand;
 
-    -mfx-ripple-color: -fx-secondary;
+    -mfx-ripple-color: -fx-contrast;
     -mfx-background-opacity: 0.2;
     -mfx-ripple-opacity: 0.2;
     -mfx-ripple-radius: 0.5em;
