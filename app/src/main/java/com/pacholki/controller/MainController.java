@@ -18,7 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class MainController extends Controller implements Initializable {
-
+    
     private MainPane mainPane;
     private String currentLeagueName;
 
@@ -121,9 +121,8 @@ public class MainController extends Controller implements Initializable {
         Competition competition = (Competition) entity;
         teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
 
-        
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/league.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pacholki/fxml/league.fxml"));
             Pane testPane;
             testPane = loader.load();
             entityPane.getChildren().setAll(testPane);
