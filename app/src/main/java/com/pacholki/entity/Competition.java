@@ -2,12 +2,13 @@ package com.pacholki.entity;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.controller.MainController;
-import com.pacholki.getter.CompetitionDataGetter;
+import com.pacholki.changer.CompetitionDataGetter;
 
 public class Competition extends Entity {
     
@@ -22,7 +23,9 @@ public class Competition extends Entity {
     private String teamsFilePath;
     private String scheduleFilePath;
 
-    private MainController controller;
+//    private MainController controller;
+
+//    private CompetitionDataGetter getter;
 
     public Competition(League league, Season season, MainController controller) {
         this.league = league;
@@ -57,8 +60,7 @@ public class Competition extends Entity {
     }
 
     private void getData() {
-        CompetitionDataGetter getter = new CompetitionDataGetter(this);
-        getter.setOnDataDownloaded(() -> controller.updateMainPane());
+        getter = new CompetitionDataGetter(this);
         getter.start();
     }
 
@@ -88,9 +90,18 @@ public class Competition extends Entity {
     }
 
     private void prepareSchedule() {
+        List <Game> gamesToBeRemoved = new ArrayList<>();
         for (Game game : schedule) {
+            if(game.getGameweek() == null) {
+                gamesToBeRemoved.add(game);
+                continue;
+            }
             game.setCompetition(this);
             game.prepareData();
+        }
+
+        for (Game game : gamesToBeRemoved) {
+            schedule.remove(game);
         }
     }
 
@@ -106,6 +117,13 @@ public class Competition extends Entity {
 
         return null;
     }
+
+//    @Override
+//    public void setMe() {
+//        DataWaiter waiter = new DataWaiter(controller, getter);
+//        waiter.start();
+//
+//    }
 
     public String toString() {
         if (! isValid())    return "Null values!!!";

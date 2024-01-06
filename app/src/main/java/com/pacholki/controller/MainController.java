@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.pacholki.entity.League;
-import com.pacholki.entity.Season;
-import com.pacholki.entity.Team;
+import com.pacholki.entity.*;
 import com.pacholki.pane.MainPane;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -113,13 +111,16 @@ public class MainController extends Controller implements Initializable {
         return currentLeagueName;
     }
 
-    public void updateMainPane() {
-        teamButtonContainer.getChildren().setAll(generateTeamButtons());
+    @Override
+    public void updatePane(Entity entity) {
+        Competition competition = (Competition) entity;
+        teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
     }
 
-    public List<MFXButton> generateTeamButtons() {
+    public List<MFXButton> generateTeamButtons(Competition competition) {
         List<MFXButton> teamButtons = new ArrayList<>();
-        for (Team team : mainPane.getCurrentCompetition().getTeams()) {
+        System.out.println(competition);
+        for (Team team : competition.getTeams()) {
             MFXButton button = new MFXButton(team.getName());
             button.setOnAction(e -> viewTeam(team));
             button.getStyleClass().add("teamButton");

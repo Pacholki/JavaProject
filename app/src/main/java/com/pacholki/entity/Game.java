@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Game extends Entity {
     @JsonProperty("week")
-    private int gameweek;
+    private Integer gameweek;
     private String day;
     private String date;
     private String time;
@@ -34,7 +34,7 @@ public class Game extends Entity {
 
     // ---------------------------------------------
 
-    public void setGameweek(int gameweek) {
+    public void setGameweek(Integer gameweek) {
         this.gameweek = gameweek;
     }
     public void setDay(String day) {
@@ -88,6 +88,8 @@ public class Game extends Entity {
         this.awayTeam = team;
     }
 
+    private void setRound(String round) {}
+
     private void prepareScore() {
 
         if (score == null) return;
@@ -98,7 +100,7 @@ public class Game extends Entity {
 
     // ---------------------------------------------
 
-    public int getWeek() {
+    public Integer getGameweek() {
         return gameweek;
     }
     public String getDay() {
@@ -168,6 +170,11 @@ public class Game extends Entity {
         setHomeTeam(competition.getTeamByName(getHomeTeamName()));
         setAwayTeam(competition.getTeamByName(getAwayTeamName()));
         prepareScore();
+    }
+
+    @Override
+    public void setMe() {
+
     }
 
     // ---------------------------------------------

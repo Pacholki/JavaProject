@@ -1,46 +1,37 @@
-package com.pacholki.getter;
+package com.pacholki.changer;
 
 import com.pacholki.entity.Entity;
-
 import javafx.application.Platform;
 
-public abstract class DataGetter extends Thread {
+public abstract class DataGetter extends Changer {
 
     protected final String SCRIPT_DIR = "src/main/python/";
 
-    private static int downloadsStarted = 0;
-    private static int downloadsFinished = 0;
-
     protected Entity entity;
-    private Runnable onDataDownloadedCallback;
 
     @Override
     public void run() {
         run(1);
     }
 
-    public void setOnDataDownloaded(Runnable onDataDownloadedCallback) {
-        this.onDataDownloadedCallback = onDataDownloadedCallback;
-    }
-
     public void run(int verbose) {
-        downloadsStarted += 1;
-        int id = downloadsStarted;
+        requests += 1;
+        int id = requests;
 
         showTryDownloadMessage(verbose > 1, id);
 
         int exitCode = getData();
-        downloadsFinished += 1;
-        int downloadsActive = downloadsStarted - downloadsFinished;
+        requestsReady += 1;
+        int downloadsActive = requests - requestsReady;
 
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, id, downloadsActive);
         showDownloadFailedMessage(exitCode != 0 & verbose > 0, id, downloadsActive);
 
         entity.prepareData();
 
-        boolean isLastUserRequest = (downloadsStarted == id);
-        if (onDataDownloadedCallback != null & isLastUserRequest) {
-            Platform.runLater(onDataDownloadedCallback);
+        boolean isLastUserRequest = (requests == id);
+        if (isLastUserRequest) {
+            Platform.runLater(() -> entity.getController().updatePane(entity));
         }
     }
 

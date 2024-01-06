@@ -1,4 +1,4 @@
-package com.pacholki.getter;
+package com.pacholki.changer;
 
 import java.io.IOException;
 

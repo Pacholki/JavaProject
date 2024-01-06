@@ -1,5 +1,8 @@
 package com.pacholki.controller;
 
-public class Controller {
-    
+import com.pacholki.entity.Entity;
+
+public abstract class Controller {
+
+    public abstract void updatePane(Entity entity);
 }
