@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65936445-d8b7-431d-8804-780e9de4c473" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/leagues.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ENG-Premier League_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ENG-Premier League_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ENG-Premier League_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ENG-Premier League_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ENG-Premier League_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ESP-La Liga_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ESP-La Liga_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ESP-La Liga_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ESP-La Liga_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ESP-La Liga_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_FRA-Ligue 1_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_GER-Bundesliga_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_GER-Bundesliga_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_GER-Bundesliga_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_GER-Bundesliga_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ITA-Serie A_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ITA-Serie A_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ITA-Serie A_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ITA-Serie A_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/schedule_ITA-Serie A_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/seasons_ENG-Premier League.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/seasons_ESP-La Liga.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/seasons_FRA-Ligue 1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/seasons_GER-Bundesliga.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/seasons_ITA-Serie A.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ENG-Premier League_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ENG-Premier League_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ENG-Premier League_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ENG-Premier League_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ENG-Premier League_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ESP-La Liga_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ESP-La Liga_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ESP-La Liga_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ESP-La Liga_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ESP-La Liga_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_FRA-Ligue 1_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_FRA-Ligue 1_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_FRA-Ligue 1_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_FRA-Ligue 1_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_FRA-Ligue 1_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_GER-Bundesliga_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_GER-Bundesliga_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_GER-Bundesliga_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_GER-Bundesliga_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ITA-Serie A_1920.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ITA-Serie A_2021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ITA-Serie A_2122.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ITA-Serie A_2223.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/cache/fbref/teams_ITA-Serie A_2324.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Bundesliga/1920/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Bundesliga/2021/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Bundesliga/2122/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Bundesliga/2223/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Bundesliga/2324/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/La Liga/1920/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/La Liga/2021/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/La Liga/2122/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/La Liga/2223/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/La Liga/2324/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Ligue 1/1920/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Ligue 1/2021/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Ligue 1/2122/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Ligue 1/2223/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Ligue 1/2324/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Premier League/1920/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Premier League/2021/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Premier League/2122/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Premier League/2223/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Premier League/2324/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Serie A/1920/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Serie A/2021/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Serie A/2122/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Serie A/2223/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/leagues/Serie A/2324/teams.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/data/seasons.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/target/classes/com/pacholki/fxml/main.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2a8KsOtBYsvtGooO5XiJqS6RUwu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/kornel/Desktop/college/javaproject/project/app"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65936445-d8b7-431d-8804-780e9de4c473" name="Changes" comment="" />
+      <created>1703694973157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703694973157</updated>
+    </task>
+    <servers />
+  </component>
+</project>
