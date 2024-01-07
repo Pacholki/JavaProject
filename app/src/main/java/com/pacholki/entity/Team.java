@@ -17,6 +17,27 @@ public class Team {
     private int[] points = new int[40];
     // ---------------------------------------------
 
+    public class TeamTableRow {
+
+        private String name;
+        private int gamesPlayed;
+        private int gamesWon;
+        private int gamesDrawn;
+        private int gamesLost;
+        private int goalsFor;
+        private int goalsAgainst;
+        private int points;
+        public TeamTableRow(Team team, Integer gameweek){
+            this.name = team.name;
+            this.gamesPlayed = team.gamesPlayed[gameweek];
+            this.gamesWon = team.gamesWon[gameweek];
+            this.gamesDrawn = team.gamesDrawn[gameweek];
+            this.gamesLost = team.gamesLost[gameweek];
+            this.goalsFor = team.goalsFor[gameweek];
+            this.goalsAgainst = team.goalsAgainst[gameweek];
+            this.points = team.points[gameweek];
+        }
+    }
     public String getName() {
         return name;
     }
