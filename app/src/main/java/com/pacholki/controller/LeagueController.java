@@ -56,7 +56,6 @@ public class LeagueController extends Controller implements Initializable {
         }
 
         leagueTable.getColumns().setAll(columns);
-        System.out.println("siemaneczko");
         leagueTable.setItems(teamTableData);
     }
 
