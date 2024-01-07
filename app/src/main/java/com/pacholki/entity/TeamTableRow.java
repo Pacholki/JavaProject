@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TeamTableRow {
 
-    public static final List<String> colNames = List.of("Team name", "Played", "Won", "Drawn", "Lost", "GF", "GA", "Points");
+    public static final List<String> colNames = List.of("Team name", "Played", "Won", "Drawn", "Lost", "GF", "GA", "GD", "Points");
 
     private String name;
     private int gamesPlayed;
@@ -13,6 +13,7 @@ public class TeamTableRow {
     private int gamesLost;
     private int goalsFor;
     private int goalsAgainst;
+    private int goalDifference;
     private int points;
 
     public TeamTableRow(Team team, Integer gameweek){
@@ -23,6 +24,7 @@ public class TeamTableRow {
         this.gamesLost = team.getGamesLost(gameweek);
         this.goalsFor = team.getGoalsFor(gameweek);
         this.goalsAgainst = team.getGoalsAgainst(gameweek);
+        this.goalDifference = goalsFor - goalsAgainst;
         this.points = team.getPoints(gameweek);
     }
 
@@ -52,6 +54,10 @@ public class TeamTableRow {
 
     public int getGoalsAgainst() {
         return goalsAgainst;
+    }
+
+    public int getGoalDifference() {
+        return goalDifference;
     }
 
     public int getPoints() {

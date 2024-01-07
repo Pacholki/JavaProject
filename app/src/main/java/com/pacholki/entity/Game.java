@@ -173,27 +173,48 @@ public class Game extends Entity {
         this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
     }
 
-    public void recordGoals(){
-        homeTeam.setGoalsFor(gameweek, homeScore);
-        homeTeam.setGoalsAgainst(gameweek, awayScore);
-        awayTeam.setGoalsFor(gameweek, awayScore);
-        awayTeam.setGoalsAgainst(gameweek, homeScore);
+    public void record() {
+        
+        try {
+            if (! hasBeenPlayed()) {
+                recordIfNotPlayed(homeTeam);
+                recordIfNotPlayed(awayTeam);
+                return;
+            }
+
+            homeTeam.setGoalsFor(gameweek, homeScore);
+            homeTeam.setGoalsAgainst(gameweek, awayScore);
+            awayTeam.setGoalsFor(gameweek, awayScore);
+            awayTeam.setGoalsAgainst(gameweek, homeScore);
+
+            if(homeScore > awayScore){
+                handleWin(homeTeam);
+                handleLoss(awayTeam);
+            } else if (awayScore > homeScore) {
+                handleWin(awayTeam);
+                handleLoss(homeTeam);
+            } else {
+                handleDraw(homeTeam);
+                handleDraw(awayTeam);
+            }
+            homeTeam.setGamesPlayed(gameweek, 1);
+            awayTeam.setGamesPlayed(gameweek, 1);
+        } catch (Exception e) {
+            System.out.println(this);
+        }
     }
 
-    public void recordGame() {
-        if(homeScore > awayScore){
-            handleWin(homeTeam);
-            handleLoss(awayTeam);
-        } else if (awayScore > homeScore) {
-            handleWin(awayTeam);
-            handleLoss(homeTeam);
-        } else {
-            handleDraw(homeTeam);
-            handleDraw(awayTeam);
-        }
-        homeTeam.setGamesPlayed(gameweek);
-        awayTeam.setGamesPlayed(gameweek);
+    public void recordIfNotPlayed(Team team) {
+        team.setGamesPlayed(gameweek, 0);
+        team.setGamesWon(gameweek, 0);
+        team.setGamesDrawn(gameweek, 0);
+        team.setGamesLost(gameweek, 0);
+
+        team.setGoalsFor(gameweek, 0);
+        team.setGoalsAgainst(gameweek, 0);
+        team.setPoints(gameweek, 0);
     }
+
     public void handleWin(Team team) {
         team.setGamesWon(gameweek, 1);
         team.setGamesLost(gameweek, 0);
@@ -211,6 +232,11 @@ public class Game extends Entity {
         team.setGamesLost(gameweek, 1);
         team.setGamesDrawn(gameweek, 0);
         team.setPoints(gameweek, 0);
+    }
+
+    public boolean hasBeenPlayed() {
+        if (score == null)  return false;
+        return true;
     }
 
     @Override

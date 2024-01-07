@@ -27,28 +27,28 @@ public class Team {
 
     // ---------------------------------------------
 
-    public void setGamesPlayed(Integer gameweek) {
-        gamesPlayed[gameweek] = gamesPlayed[gameweek - 1] + 1;
+    public void setGamesPlayed(Integer gameweek, int increase) {
+        this.gamesPlayed[gameweek] = gamesPlayed[gameweek-1] + increase;
     }
 
-    public void setGamesWon(Integer gameweek, int result) {
-        gamesWon[gameweek] = gamesWon[gameweek - 1] + result;
+    public void setGamesWon(Integer gameweek, int increase) {
+        gamesWon[gameweek] = gamesWon[gameweek - 1] + increase;
     }
 
-    public void setGamesDrawn(Integer gameweek, int result) {
-        gamesDrawn[gameweek] = gamesDrawn[gameweek - 1] + result;
+    public void setGamesDrawn(Integer gameweek, int increase) {
+        gamesDrawn[gameweek] = gamesDrawn[gameweek - 1] + increase;
     }
 
-    public void setGamesLost(Integer gameweek, int result) {
-        gamesLost[gameweek] = gamesLost[gameweek - 1] + result;
+    public void setGamesLost(Integer gameweek, int increase) {
+        gamesLost[gameweek] = gamesLost[gameweek - 1] + increase;
     }
 
-    public void setGoalsFor(Integer gameweek, int goals) {
-        goalsFor[gameweek] = goalsFor[gameweek - 1] + goals;
+    public void setGoalsFor(Integer gameweek, int newGoals) {
+        goalsFor[gameweek] = goalsFor[gameweek - 1] + newGoals;
     }
 
-    public void setGoalsAgainst(Integer gameweek, int goals) {
-        goalsAgainst[gameweek] = goalsAgainst[gameweek - 1] + goals;
+    public void setGoalsAgainst(Integer gameweek, int newGoals) {
+        goalsAgainst[gameweek] = goalsAgainst[gameweek - 1] + newGoals;
     }
 
     public void setPoints(Integer gameweek, int newPoints) {

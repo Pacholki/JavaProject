@@ -113,8 +113,7 @@ public class Competition extends Entity {
 
     public void prepareTable() {
         for (Game game : schedule) {
-            game.recordGoals();
-            game.recordGame();
+            game.record();
         }
     }
 
