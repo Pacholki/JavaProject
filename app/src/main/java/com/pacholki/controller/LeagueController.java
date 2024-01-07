@@ -3,16 +3,17 @@ package com.pacholki.controller;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.Entity;
-import com.pacholki.entity.Team;
 import com.pacholki.entity.TeamTableRow;
 import com.pacholki.pane.LeaguePane;
 
-import com.pacholki.util.Tools;
+// import com.pacholki.util.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -40,10 +41,13 @@ public class LeagueController extends Controller implements Initializable {
 
     public void generateTable() {
         
-        ObservableList<TeamTableRow> teamTableData = FXCollections.observableArrayList();
-        for (Team team : competition.getTeams()) {
-            teamTableData.add(new TeamTableRow(team, gameweek));
-        }
+        List<TeamTableRow> sortedTeamTableData = competition.getTeams().stream()
+            .map(team -> new TeamTableRow(team, gameweek))
+            .sorted(Comparator.comparingInt(TeamTableRow::getPoints)
+                .thenComparingInt(TeamTableRow::getGoalDifference).reversed())
+            .collect(Collectors.toList());
+
+        ObservableList<TeamTableRow> teamTableData = FXCollections.observableArrayList(sortedTeamTableData);
 
         List<TableColumn<TeamTableRow, ?>> columns = new ArrayList<>();
         Field[] fields = TeamTableRow.class.getDeclaredFields();
@@ -56,21 +60,8 @@ public class LeagueController extends Controller implements Initializable {
             i++;
         }
 
-        // @SuppressWarnings("unchecked")
-        TableColumn<TeamTableRow, Integer> pointsColumn = (TableColumn<TeamTableRow, Integer>) columns.get(Tools.getIndexForName(columns, "Points"));
-        pointsColumn.setSortType(TableColumn.SortType.DESCENDING);
-        pointsColumn.setComparator(Integer::compare);
-
-        // @SuppressWarnings("unchecked")
-        TableColumn<TeamTableRow, Integer> gdColumn = (TableColumn<TeamTableRow, Integer>) columns.get(Tools.getIndexForName(columns, "GD"));
-        gdColumn.setSortType(TableColumn.SortType.DESCENDING);
-        gdColumn.setComparator(Integer::compare);
-
         leagueTable.getColumns().setAll(columns);
         leagueTable.setItems(teamTableData);
-
-        leagueTable.getSortOrder().addAll(pointsColumn, gdColumn);
-        leagueTable.sort();
     }
 
 
