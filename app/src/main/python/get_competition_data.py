@@ -1,4 +1,5 @@
 import soccerdata as sd
+import pandas as pd
 import os
 import sys
 from pathlib import Path
@@ -12,17 +13,15 @@ def teams(leagueID, season):
     LEAGUE_DIR = BASE_DIR / league
     LEAGUE_DIR = LEAGUE_DIR / season
     LEAGUE_DIR.mkdir(parents=True, exist_ok=True)
-    
 
     fbref = sd.FBref(leagues=leagueID, seasons=season, data_dir = CACHE_DIR)
     schedule = fbref.read_schedule()
+    schedule = schedule[~pd.isnull(schedule["week"])]
 
     file_name = "schedule.json"
     file_path = LEAGUE_DIR / file_name
-    # schedule_data = schedule.to_json(orient="records", lines=True).split("\n")
     schedule_data = schedule.to_json(orient="records", lines=True).replace("\\/", "/").encode().decode("unicode_escape").split("\n")
-    # print(schedule_data[16])
-    # print("hey, that's good")
+
     
     with open (file_path, "w", encoding="utf-8") as file:
         file.write("[\n")
@@ -30,7 +29,6 @@ def teams(leagueID, season):
         schedule_size = len(schedule)
 
         for row in schedule_data:
-            # print(f"writing row {game_number + 1}")
             file.write("\t" + row)
             if game_number < schedule_size-1:
                 file.write(",\n")
@@ -39,7 +37,7 @@ def teams(leagueID, season):
 
 
     teams = schedule.loc[leagueID, season, :]["home_team"].values
-    teams = sorted(set([team.split('-')[0].strip() for team in teams]))
+    teams = sorted(set([team.strip() for team in teams]))
 
     file_name = "teams.json"
     file_path = LEAGUE_DIR / file_name
@@ -68,7 +66,7 @@ if __name__ == "__main__":
         leagueID = sys.argv[1]
         season = sys.argv[2]
     except:
-        leagueID = "ESP-La Liga"
-        season = "2324"
+        leagueID = "FRA-Ligue 1"
+        season = "2122"
 
     teams(leagueID, season)
