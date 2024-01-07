@@ -12,6 +12,7 @@ import com.pacholki.entity.Team;
 import com.pacholki.entity.TeamTableRow;
 import com.pacholki.pane.LeaguePane;
 
+import com.pacholki.util.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -55,20 +56,21 @@ public class LeagueController extends Controller implements Initializable {
             i++;
         }
 
+        TableColumn<TeamTableRow, Integer> pointsColumn = (TableColumn<TeamTableRow, Integer>) columns.get(Tools.getIndexForName(columns, "Points"));
+        pointsColumn.setSortType(TableColumn.SortType.DESCENDING);
+        pointsColumn.setComparator(Integer::compare);
+
+        TableColumn<TeamTableRow, Integer> gdColumn = (TableColumn<TeamTableRow, Integer>) columns.get(Tools.getIndexForName(columns, "GD"));
+        gdColumn.setSortType(TableColumn.SortType.DESCENDING);
+        gdColumn.setComparator(Integer::compare);
+
         leagueTable.getColumns().setAll(columns);
         leagueTable.setItems(teamTableData);
+        leagueTable.getSortOrder().addAll(pointsColumn, gdColumn);
+        leagueTable.sort();
     }
 
-    // public List<TableColumn> generateTableColumns() {
-    //     List<String> colNames = List.of("Team name", "Played", "Won", "Drawn", "Lost", "GF", "GA", "GD", "Points");
-    //     List<TableColumn> columns = new ArrayList<>();
-    //     for(String colName : colNames) {
-    //         TableColumn column = new TableColumn();
-    //         column.setText(colName);
-    //         columns.add(column);
-    //     }
-    //     return columns;
-    // }
+
     @Override
     public void updatePane(Entity entity) {
         System.out.println("this league pane should now be updated");

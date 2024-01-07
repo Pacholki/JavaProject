@@ -1,5 +1,7 @@
 package com.pacholki.util;
 
+import com.pacholki.entity.TeamTableRow;
+import javafx.scene.control.TableColumn;
 import java.util.List;
 
 public class Tools {
@@ -27,6 +29,17 @@ public class Tools {
             System.out.println(entry);
         }
         System.out.println();
+    }
+
+    public static int getIndexForName (List<TableColumn<TeamTableRow, ?>> list, String name) {
+        int i = 0;
+        for (TableColumn column : list) {
+            if (column.getText().equals(name)) {
+                return i;
+            }
+            i++;
+        }
+        return i;
     }
 
 
