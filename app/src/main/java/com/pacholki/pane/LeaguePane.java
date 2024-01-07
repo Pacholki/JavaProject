@@ -9,4 +9,8 @@ public class LeaguePane {
     public LeaguePane(Controller controller) {
         this.controller = controller;
     }
+
+    public Controller getController() {
+        return controller;
+    }
 }

@@ -56,16 +56,19 @@ public class LeagueController extends Controller implements Initializable {
             i++;
         }
 
+        // @SuppressWarnings("unchecked")
         TableColumn<TeamTableRow, Integer> pointsColumn = (TableColumn<TeamTableRow, Integer>) columns.get(Tools.getIndexForName(columns, "Points"));
         pointsColumn.setSortType(TableColumn.SortType.DESCENDING);
         pointsColumn.setComparator(Integer::compare);
 
+        // @SuppressWarnings("unchecked")
         TableColumn<TeamTableRow, Integer> gdColumn = (TableColumn<TeamTableRow, Integer>) columns.get(Tools.getIndexForName(columns, "GD"));
         gdColumn.setSortType(TableColumn.SortType.DESCENDING);
         gdColumn.setComparator(Integer::compare);
 
         leagueTable.getColumns().setAll(columns);
         leagueTable.setItems(teamTableData);
+
         leagueTable.getSortOrder().addAll(pointsColumn, gdColumn);
         leagueTable.sort();
     }

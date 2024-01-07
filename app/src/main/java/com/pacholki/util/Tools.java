@@ -33,7 +33,7 @@ public class Tools {
 
     public static int getIndexForName (List<TableColumn<TeamTableRow, ?>> list, String name) {
         int i = 0;
-        for (TableColumn column : list) {
+        for (TableColumn<TeamTableRow, ?> column : list) {
             if (column.getText().equals(name)) {
                 return i;
             }
