@@ -13,7 +13,6 @@ import com.pacholki.entity.Entity;
 import com.pacholki.entity.TeamTableRow;
 import com.pacholki.pane.LeaguePane;
 
-// import com.pacholki.util.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,7 +34,7 @@ public class LeagueController extends Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         leaguePane = new LeaguePane(this);
         competition = mainPane.getCurrentCompetition();
-        gameweek = 20;
+        gameweek = 34;
         generateTable();
     }
 
