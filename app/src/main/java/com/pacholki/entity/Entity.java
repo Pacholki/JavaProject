@@ -6,11 +6,11 @@ import com.pacholki.changer.DataWaiter;
 
 public abstract class Entity {
 
-    protected String fxmlPath;
+    protected static final String DATA_DIR = "src/main/resources/com/pacholki/data/";
+    protected static final String FXML_DIR = "/com/pacholki/fxml/";
 
     protected Controller controller;
     protected DataGetter getter;
-    public abstract void prepareData();
 
     public void setMe() {
         System.out.println("Trying to set " + toString());
@@ -22,7 +22,6 @@ public abstract class Entity {
         return controller;
     }
 
-    public String getFXMLPath() {
-        return fxmlPath;
-    }
+    public abstract void prepareData();
+    public abstract String getFXMLPath();
 }

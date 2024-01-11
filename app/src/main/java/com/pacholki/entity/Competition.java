@@ -14,7 +14,8 @@ import com.pacholki.changer.CompetitionDataGetter;
 
 public class Competition extends Entity {
     
-    private static final String DATA_DIR = "src/main/resources/com/pacholki/data/leagues/";
+    private static final String LEAGUES_DIR = DATA_DIR + "leagues/";
+    private static final String FXML_PATH = FXML_DIR + "league.fxml";
 
     private League league;
     private Season season;
@@ -36,9 +37,7 @@ public class Competition extends Entity {
     }
 
     private void prepPaths() {
-        fxmlPath = "/com/pacholki/fxml/league.fxml";
-
-        compDir = DATA_DIR + league.getName() + "/" + season.getFBrefID() + "/";
+        compDir = LEAGUES_DIR + league.getName() + "/" + season.getFBrefID() + "/";
         teamsFilePath = compDir + "teams.json";
         scheduleFilePath = compDir + "schedule.json";
     }
@@ -128,6 +127,11 @@ public class Competition extends Entity {
         }
 
         return null;
+    }
+
+    @Override
+    public String getFXMLPath() {
+        return FXML_PATH;
     }
 
     public String toString() {

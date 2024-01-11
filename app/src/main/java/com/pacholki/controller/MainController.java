@@ -127,6 +127,7 @@ public class MainController extends Controller implements Initializable {
         try {
             String fxmlPath = entity.getFXMLPath();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            System.out.println(fxmlPath);
             Pane pane = loader.load();
             entityPane.getChildren().setAll(pane);
         } catch (IOException e) {

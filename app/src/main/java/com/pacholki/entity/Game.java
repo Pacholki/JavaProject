@@ -3,6 +3,9 @@ package com.pacholki.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Game extends Entity {
+
+    private static final String FXML_PATH = DATA_DIR + "fxml/game.fxml";
+
     @JsonProperty("week")
     private Integer gameweek;
     private String day;
@@ -242,6 +245,11 @@ public class Game extends Entity {
     @Override
     public void setMe() {
 
+    }
+
+    @Override
+    public String getFXMLPath() {
+        return FXML_PATH;
     }
 
     // ---------------------------------------------
