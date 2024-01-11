@@ -9,7 +9,6 @@ public class TeamPane extends MyPane {
 
     public TeamPane(TeamController controller) {
         this.controller = controller;
-        System.out.println("team changed");
     }
 
     public Team getCurrentTeam() {

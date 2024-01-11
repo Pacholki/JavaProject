@@ -10,6 +10,7 @@ import com.pacholki.controller.MainController;
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
+import com.pacholki.entity.Team;
 
 public class MainPane extends MyPane {
 
@@ -101,7 +102,7 @@ public class MainPane extends MyPane {
         return currentCompetition.getSeason();
     }
 
-    public Competition getCurrentCompetition() {
-        return currentCompetition;
+    public void setCurrentTeam(Team team) {
+        currentTeam = team;
     }
 }

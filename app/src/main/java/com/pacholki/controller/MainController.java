@@ -146,6 +146,7 @@ public class MainController extends Controller implements Initializable {
     }
 
     private void viewTeam(Team team) {
+        mainPane.setCurrentTeam(team);
         updateEntityPane(team);
     }
 }
