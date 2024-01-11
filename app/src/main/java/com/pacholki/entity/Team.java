@@ -2,7 +2,9 @@ package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Team {
+public class Team extends Entity {
+
+    private static final String FXML_PATH = FXML_DIR + "team.fxml";
     
     @JsonProperty("team")
     private String name;
@@ -89,6 +91,19 @@ public class Team {
     }
 
     //-------------------------------------------------
+
+    @Override
+    public void prepareData() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'prepareData'");
+    }
+
+    @Override
+    public String getFXMLPath() {
+        return FXML_PATH;
+    }
+
+    // ---------------------------------------------
 
     public String toString() {
         return name;

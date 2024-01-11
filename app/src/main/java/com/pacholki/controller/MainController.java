@@ -127,7 +127,6 @@ public class MainController extends Controller implements Initializable {
         try {
             String fxmlPath = entity.getFXMLPath();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            System.out.println(fxmlPath);
             Pane pane = loader.load();
             entityPane.getChildren().setAll(pane);
         } catch (IOException e) {
@@ -147,7 +146,6 @@ public class MainController extends Controller implements Initializable {
     }
 
     private void viewTeam(Team team) {
-        
-        System.out.println("You should now see the team of " + team);
+        updateEntityPane(team);
     }
 }
