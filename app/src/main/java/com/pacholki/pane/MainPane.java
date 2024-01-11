@@ -11,7 +11,7 @@ import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
 
-public class MainPane {
+public class MainPane extends MyPane {
 
     private final String DATA_DIR = "src/main/resources/com/pacholki/data/";
     private final String LEAGUENAMESFILEPATH = DATA_DIR + "leagues.json";
@@ -21,8 +21,6 @@ public class MainPane {
     private List<League> leagues;
     private List<Season> seasons;
     private List<Competition> competitions;
-
-    private Competition currentCompetition;
 
     public MainPane(MainController controller) {
         this.controller = controller;

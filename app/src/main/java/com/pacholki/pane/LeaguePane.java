@@ -2,7 +2,7 @@ package com.pacholki.pane;
 
 import com.pacholki.controller.Controller;
 
-public class LeaguePane {
+public class LeaguePane extends MyPane {
 
     private Controller controller;
     
