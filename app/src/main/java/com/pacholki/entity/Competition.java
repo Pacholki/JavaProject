@@ -15,7 +15,7 @@ import com.pacholki.changer.CompetitionDataGetter;
 public class Competition extends Entity {
     
     private static final String LEAGUES_DIR = DATA_DIR + "leagues/";
-    private static final String FXML_PATH = FXML_DIR + "league.fxml";
+    private static final String FXML_PATH = FXML_DIR + "competition.fxml";
 
     private League league;
     private Season season;

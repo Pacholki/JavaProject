@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.TeamTableRow;
-import com.pacholki.pane.LeaguePane;
+import com.pacholki.pane.CompetitionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class LeagueController extends Controller implements Initializable {
+public class CompetitionController extends Controller implements Initializable {
 
     private int gameweek;
 
@@ -32,7 +32,7 @@ public class LeagueController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        leaguePane = new LeaguePane(this);
+        competitionPane = new CompetitionPane(this);
         competition = mainPane.getCurrentCompetition();
         gameweek = 34;
         generateTable();
