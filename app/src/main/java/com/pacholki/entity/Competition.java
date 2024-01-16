@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pacholki.changer.DataGetter;
 import com.pacholki.changer.PlayersDataGetter;
 import com.pacholki.controller.MainController;
 import com.pacholki.changer.CompetitionDataGetter;
@@ -27,7 +26,6 @@ public class Competition extends Entity {
     private String compDir;
     private String teamsFilePath;
     private String scheduleFilePath;
-
     private String playersFilePath;
 
     public Competition(League league, Season season, MainController controller) {

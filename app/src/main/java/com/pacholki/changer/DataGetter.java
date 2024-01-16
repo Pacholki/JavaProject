@@ -1,7 +1,6 @@
 package com.pacholki.changer;
 
 import com.pacholki.entity.Entity;
-import javafx.application.Platform;
 
 public abstract class DataGetter extends Changer {
 

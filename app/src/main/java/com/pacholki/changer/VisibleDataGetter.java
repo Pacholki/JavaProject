@@ -9,10 +9,6 @@ public abstract class VisibleDataGetter extends DataGetter{
         id = requests;
 
         super.run(verbose);
-
-        requestsReady += 1;
-        int downloadsActive = requests - requestsReady;
-
         entity.prepareData();
 
         boolean isLastUserRequest = (requests == id);
