@@ -12,7 +12,7 @@ def players(leagueID, season):
     LEAGUE_DIR = LEAGUE_DIR / season
     LEAGUE_DIR.mkdir(parents=True, exist_ok=True)
 
-    fbref = sd.FBref(leagues=leagueID, seasons=season, data_dir=Path())
+    fbref = sd.FBref(leagues=leagueID, seasons=season, data_dir=CACHE_DIR)
     players_data = fbref.read_player_season_stats()
 
     file_name = "players.json"
