@@ -20,7 +20,10 @@ def players(leagueID, season):
 
     players_data = players_data.reset_index()
 
-    players_data = players_data.fillna(0.0)
+    string_columns = players_data.select_dtypes(include=['object', 'string']).columns
+    numeric_columns = players_data.select_dtypes(include=['int', 'float']).columns
+    players_data[string_columns] = players_data[string_columns].fillna("bench_warmer")
+    players_data[numeric_columns] = players_data[numeric_columns].fillna(0.0)
 
     with open(file_path, "w", encoding="utf-8") as file:
         file.write("[\n")
