@@ -2,3 +2,4 @@ app/src/main/resources/com/pacholki/data/leagues/*
 app/src/main/resources/com/pacholki/cache/*
 app/target/*
 app/.idea/*
+app/.vscode/*
