@@ -9,43 +9,40 @@ public abstract class DataGetter extends Changer {
 
     protected Entity entity;
 
+    protected int id;
+
+    protected String message;
+
+    protected int verbose = 1;
+
     @Override
     public void run() {
-        run(1);
+        run(verbose);
     }
 
     public void run(int verbose) {
-        requests += 1;
-        int id = requests;
 
-        showTryDownloadMessage(verbose > 1, id);
+        showTryDownloadMessage(verbose > 1, message);
 
         int exitCode = getData();
-        requestsReady += 1;
-        int downloadsActive = requests - requestsReady;
 
-        showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, id, downloadsActive);
-        showDownloadFailedMessage(exitCode != 0 & verbose > 0, id, downloadsActive);
 
-        entity.prepareData();
+        showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
+        showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
 
-        boolean isLastUserRequest = (requests == id);
-        if (isLastUserRequest) {
-            Platform.runLater(() -> entity.getController().updatePane(entity));
-        }
     }
 
-    private void showTryDownloadMessage(boolean condition, int id) {
+    protected void showTryDownloadMessage(boolean condition, String message) {
         if (! condition) return;
-        System.out.println(id + ". -----\nTrying to download data for:\n" + entity + "\n-----");
+        System.out.println("-----\nTrying to download data for:\n" + entity + "\n-----");
     }
-    private void showDownloadSuccessfulMessage (boolean condition, int id, int downloadsActive) {
+    protected void showDownloadSuccessfulMessage (boolean condition, String message) {
         if (! condition) return;
-        System.out.println(id + ". -----\nDownload successful: \n" + entity + "\nActive downloads: " + downloadsActive + "\n-----");
+        System.out.println("-----\nDownload successful: \n" + entity + "\n" + message + "\n-----");
     }
-    private void showDownloadFailedMessage(boolean condition, int id, int downloadsActive) {
+    protected void showDownloadFailedMessage(boolean condition, String message) {
         if (! condition) return;
-        System.out.println(id + ". -----\nFailed to download: \n" + entity + "\nActive downloads: " + downloadsActive + "\n-----");
+        System.out.println("-----\nFailed to download: \n" + entity + "\n" + message +  "\n-----");
     }
 
     public abstract int getData();

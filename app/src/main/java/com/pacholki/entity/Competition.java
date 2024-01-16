@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pacholki.changer.DataGetter;
+import com.pacholki.changer.PlayersDataGetter;
 import com.pacholki.controller.MainController;
 import com.pacholki.changer.CompetitionDataGetter;
 
@@ -26,6 +28,8 @@ public class Competition extends Entity {
     private String teamsFilePath;
     private String scheduleFilePath;
 
+    private String playersFilePath;
+
     public Competition(League league, Season season, MainController controller) {
         this.league = league;
         this.season = season;
@@ -33,6 +37,12 @@ public class Competition extends Entity {
         if (isValid())  {
             prepPaths();
             getData();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            getPlayersData();
         }
     }
 
@@ -40,6 +50,7 @@ public class Competition extends Entity {
         compDir = LEAGUES_DIR + league.getName() + "/" + season.getFBrefID() + "/";
         teamsFilePath = compDir + "teams.json";
         scheduleFilePath = compDir + "schedule.json";
+        playersFilePath = compDir + "players.json";
     }
 
     public League getLeague() {
@@ -63,12 +74,22 @@ public class Competition extends Entity {
         getter.start();
     }
 
+    private void getPlayersData() {
+        PlayersDataGetter playerGetter = new PlayersDataGetter(this);
+        playerGetter.start();
+    }
+
+
     @Override
     public void prepareData() {
         readTeams();
         readSchedule();
         prepareSchedule();
         prepareTable();
+    }
+
+    public void preparePlayerData(){
+        System.out.println("Preparing player objects");
     }
 
     private void readTeams() {
