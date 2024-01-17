@@ -16,7 +16,7 @@ public class PlayersDataGetter extends DataGetter {
         this.season = competition.getSeason();
         this.entity = competition;
         this.message = "PlayerData";
-        this.verbose = 2;
+        this.verbose = 1;
     }
 
     @Override

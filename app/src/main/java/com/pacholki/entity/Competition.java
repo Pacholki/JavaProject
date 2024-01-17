@@ -87,7 +87,7 @@ public class Competition extends Entity {
     }
 
     public void preparePlayerData(){
-        System.out.println("Preparing player objects");
+        // System.out.println("Preparing player objects");
     }
 
     private void readTeams() {
