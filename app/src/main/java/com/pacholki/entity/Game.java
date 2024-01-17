@@ -163,8 +163,8 @@ public class Game extends Entity {
 
     @Override
     public void prepareData() {
-        setHomeTeam(competition.getTeamByName(getHomeTeamName()));
-        setAwayTeam(competition.getTeamByName(getAwayTeamName()));
+        setHomeTeam(competition.getTeamByName(homeTeamName));
+        setAwayTeam(competition.getTeamByName(awayTeamName));
         prepareScore();
     }
 
