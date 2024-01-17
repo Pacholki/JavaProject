@@ -23,6 +23,8 @@ public class Competition extends Entity {
     private List<Team> teams;
     private List<Game> schedule;
 
+    private List<Player> players;
+
     private String compDir;
     private String teamsFilePath;
     private String scheduleFilePath;
@@ -87,7 +89,7 @@ public class Competition extends Entity {
     }
 
     public void preparePlayerData(){
-        // System.out.println("Preparing player objects");
+        readPlayers();
     }
 
     private void readTeams() {
@@ -103,6 +105,15 @@ public class Competition extends Entity {
         try {
             ObjectMapper mapper = new ObjectMapper();
             schedule = mapper.readValue(new File(scheduleFilePath), new TypeReference<List<Game>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readPlayers() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            players = mapper.readValue(new File(playersFilePath), new TypeReference<List<Player>>() {});
         } catch (IOException e) {
             e.printStackTrace();
         }
