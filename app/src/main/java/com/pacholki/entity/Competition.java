@@ -11,7 +11,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.changer.PlayersDataGetter;
 import com.pacholki.controller.MainController;
-import com.pacholki.util.Tools;
 import com.pacholki.changer.CompetitionDataGetter;
 
 public class Competition extends Entity {
@@ -31,10 +30,13 @@ public class Competition extends Entity {
     private String scheduleFilePath;
     private String playersFilePath;
 
+    private boolean playerDataReady;
+
     public Competition(League league, Season season, MainController controller) {
         this.league = league;
         this.season = season;
         this.controller = controller;
+        this.playerDataReady = false;
         if (isValid())  {
             prepPaths();
             getData();
@@ -87,11 +89,12 @@ public class Competition extends Entity {
         readSchedule();
         prepareSchedule();
         prepareTable();
+        preparePlayers();
     }
 
     public void preparePlayerData(){
         readPlayers();
-        Tools.display(players);
+        preparePlayers();
     }
 
     private void readTeams() {
@@ -145,6 +148,18 @@ public class Competition extends Entity {
     public void prepareTable() {
         for (Game game : schedule) {
             game.record();
+        }
+    }
+
+    private void preparePlayers() {
+        if (! playerDataReady) {
+            playerDataReady = true;
+            return;
+        }
+
+        for (Player player : players) {
+            player.setCompetition(this);
+            player.prepareData();
         }
     }
 

@@ -4,12 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Player extends Entity {
 
+    private Team team;
+    private Competition competition;
+
     @JsonProperty("league")
     private String league;
     @JsonProperty("season")
     private String season;
     @JsonProperty("team")
-    private String team;
+    private String teamName;
     @JsonProperty("player")
     private String playerName;
     @JsonProperty("nation")
@@ -81,6 +84,14 @@ public class Player extends Entity {
 
     // ---------------------------------------------
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public Competition getCompetition() {
+        return competition;
+    }
+
     public String getLeague() {
         return league;
     }
@@ -89,8 +100,9 @@ public class Player extends Entity {
         return season;
     }
 
-    public String getTeam() {
-        return team;
+    @JsonProperty("team")
+    public String getTeamName() {
+        return teamName;
     }
 
     public String getPlayerName() {
@@ -231,6 +243,14 @@ public class Player extends Entity {
 
     // ---------------------------------------------
 
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
+    }
+
     public void setLeague(String league) {
         this.league = league;
     }
@@ -239,8 +259,8 @@ public class Player extends Entity {
         this.season = season;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
     public void setPlayerName(String playerName) {
@@ -383,7 +403,7 @@ public class Player extends Entity {
 
     @Override
     public void prepareData() {
-
+        setTeam(competition.getTeamByName(teamName));
     }
 
     @Override
