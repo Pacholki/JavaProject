@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pacholki.changer.PlayersDataGetter;
 import com.pacholki.controller.MainController;
+import com.pacholki.util.Tools;
 import com.pacholki.changer.CompetitionDataGetter;
 
 public class Competition extends Entity {
@@ -90,6 +91,7 @@ public class Competition extends Entity {
 
     public void preparePlayerData(){
         readPlayers();
+        Tools.display(players);
     }
 
     private void readTeams() {
