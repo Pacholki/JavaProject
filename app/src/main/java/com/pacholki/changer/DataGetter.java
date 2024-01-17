@@ -27,8 +27,11 @@ public abstract class DataGetter extends Changer {
 
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
         showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
-        System.out.println("Downloads successful: " + downloadsSuccessful);
-        System.out.println("Downloads failed: " + downloadsFailed);
+        
+        if (verbose > 0) {
+            System.out.println("Downloads successful: " + downloadsSuccessful);
+            System.out.println("Downloads failed: " + downloadsFailed);
+        }
     }
 
     protected void showTryDownloadMessage(boolean condition, String message) {
