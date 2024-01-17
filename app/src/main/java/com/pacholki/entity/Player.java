@@ -404,6 +404,7 @@ public class Player extends Entity {
     @Override
     public void prepareData() {
         setTeam(competition.getTeamByName(teamName));
+        team.addPlayer(this);
     }
 
     @Override

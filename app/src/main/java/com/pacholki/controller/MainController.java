@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import com.pacholki.entity.*;
 import com.pacholki.pane.MainPane;
 
+import com.pacholki.util.Tools;
 import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
@@ -147,6 +148,7 @@ public class MainController extends Controller implements Initializable {
 
     private void viewTeam(Team team) {
         mainPane.setCurrentTeam(team);
+        Tools.display(team.getPlayers());
         updateEntityPane(team);
     }
 }
