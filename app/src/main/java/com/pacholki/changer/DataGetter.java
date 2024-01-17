@@ -6,13 +6,13 @@ public abstract class DataGetter extends Changer {
 
     protected final String SCRIPT_DIR = "src/main/python/";
 
-    protected Entity entity;
+    private static int downloadsSuccessful = 0;
+    private static int downloadsFailed = 0;
 
     protected int id;
-
-    protected String message;
-
     protected int verbose = 1;
+    protected String message;
+    protected Entity entity;
 
     @Override
     public void run() {
@@ -25,10 +25,10 @@ public abstract class DataGetter extends Changer {
 
         int exitCode = getData();
 
-
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
         showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
-
+        System.out.println("Downloads successful: " + downloadsSuccessful);
+        System.out.println("Downloads failed: " + downloadsFailed);
     }
 
     protected void showTryDownloadMessage(boolean condition, String message) {
@@ -37,10 +37,12 @@ public abstract class DataGetter extends Changer {
     }
     protected void showDownloadSuccessfulMessage (boolean condition, String message) {
         if (! condition) return;
+        downloadsSuccessful++;
         System.out.println("-----\nDownload successful: \n" + entity + "\n" + message + "\n-----");
     }
     protected void showDownloadFailedMessage(boolean condition, String message) {
         if (! condition) return;
+        downloadsFailed++;
         System.out.println("-----\nFailed to download: \n" + entity + "\n" + message +  "\n-----");
     }
 
