@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.CompetitionController">
    <center>
-      
-   </center>
-   <center>
-      <TableView fx:id="leagueTable" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" minWidth="600.0" prefWidth="600.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="300.0" prefHeight="600.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <MFXComboBox />
+        <TableView fx:id="leagueTable" BorderPane.alignment="CENTER" GridPane.rowIndex="1">
+          <columns>
+          </columns>
+        </TableView>
+      </GridPane>
    </center>
 </BorderPane>
