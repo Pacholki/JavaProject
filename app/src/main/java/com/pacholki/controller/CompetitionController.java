@@ -13,6 +13,7 @@ import com.pacholki.entity.Entity;
 import com.pacholki.entity.TeamTableRow;
 import com.pacholki.pane.CompetitionPane;
 
+import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,22 +24,31 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CompetitionController extends Controller implements Initializable {
 
-    private int gameweek;
-
     private Competition competition;
 
     @FXML
     private TableView<TeamTableRow> leagueTable;
+    @FXML
+    private MFXComboBox gameweekChoiceBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         competitionPane = new CompetitionPane(this);
         competition = mainPane.getCurrentCompetition();
-        gameweek = 34;
-        generateTable();
+        generateTable(competition.getMaxGameweek());
+        gameweekChoiceBox.setText("Choose gameweek");
+        gameweekChoiceBox.setItems(generateGameweekChoices());
     }
 
-    public void generateTable() {
+    public ObservableList<String> generateGameweekChoices() {
+        List<String> choices = new ArrayList<>();
+        for(int i = 1; i <= competitionPane.getGameweek(); i++) {
+            choices.add("gameweek " + i);
+        }
+        return FXCollections.observableArrayList(choices);
+    }
+
+    public void generateTable(Integer gameweek) {
         
         List<TeamTableRow> sortedTeamTableData = competition.getTeams().stream()
             .map(team -> new TeamTableRow(team, gameweek))
