@@ -2,10 +2,13 @@ package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class Player extends Entity {
 
     private Team team;
     private Competition competition;
+    private String[] positions;
 
     @JsonProperty("league")
     private String league;
@@ -90,6 +93,14 @@ public class Player extends Entity {
 
     public Competition getCompetition() {
         return competition;
+    }
+
+    public String[] getPositions() {
+        return positions;
+    }
+
+    public String getPrimaryPosition() {
+        return positions[0];
     }
 
     public String getLeague() {
@@ -251,6 +262,10 @@ public class Player extends Entity {
         this.competition = competition;
     }
 
+    public void setPositions(){
+        positions = position.split(",");
+    }
+
     public void setLeague(String league) {
         this.league = league;
     }
@@ -405,6 +420,7 @@ public class Player extends Entity {
     public void prepareData() {
         setTeam(competition.getTeamByName(teamName));
         team.addPlayer(this);
+        setPositions();
     }
 
     @Override
@@ -414,6 +430,6 @@ public class Player extends Entity {
 
     @Override
     public String toString() {
-        return "Player: " + team + " " + playerName + " " + nation;
+        return "Player: " + team + " " + playerName + " " + nation + " " + getPrimaryPosition();
     }
 }
