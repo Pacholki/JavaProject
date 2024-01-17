@@ -6,9 +6,6 @@ public abstract class DataGetter extends Changer {
 
     protected final String SCRIPT_DIR = "src/main/python/";
 
-    private static int downloadsSuccessful = 0;
-    private static int downloadsFailed = 0;
-
     protected int id;
     protected int verbose = 1;
     protected String message;
