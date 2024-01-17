@@ -32,12 +32,10 @@ public abstract class DataGetter extends Changer {
     }
     protected void showDownloadSuccessfulMessage (boolean condition, String message) {
         if (! condition) return;
-        downloadsSuccessful++;
         System.out.println("-----\nDownload successful: \n" + entity + "\n" + message + "\n-----");
     }
     protected void showDownloadFailedMessage(boolean condition, String message) {
         if (! condition) return;
-        downloadsFailed++;
         System.out.println("-----\nFailed to download: \n" + entity + "\n" + message +  "\n-----");
     }
 
