@@ -2,14 +2,10 @@ package com.pacholki.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Team;
-import com.pacholki.pane.Page;
-import com.pacholki.pane.PlayerPage;
 import com.pacholki.pane.TeamPane;
 
 import javafx.fxml.FXML;
@@ -41,8 +37,8 @@ public class TeamController extends Controller implements Initializable {
 
     private void addButtons() {
         navbar.getChildren().clear();
-        String[] fxmlPaths = {"/com/pacholki/fxml/infoPage.fxml", "/com/pacholki/fxml/playerPage.fxml"};
-        String[] buttonLabels = {"InfoPage", "Players"};
+        String[] fxmlPaths = {"/com/pacholki/fxml/infoPage.fxml", "/com/pacholki/fxml/playerPage.fxml", "/com/pacholki/fxml/statsPage.fxml"};
+        String[] buttonLabels = {"InfoPage", "Players", "Stats"};
         for(int i=0; i < buttonLabels.length; i++) {
             Button button = new Button(buttonLabels[i]);
             int finalI = i;
