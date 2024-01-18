@@ -11,7 +11,5 @@ public abstract class Controller {
     protected static CompetitionPane competitionPane;
     protected static TeamPane teamPane;
 
-    protected static PlayerPage playerPage;
-
     public abstract void updatePane(Entity entity);
 }
