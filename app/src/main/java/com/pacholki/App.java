@@ -32,7 +32,7 @@ public class App extends Application {
         stage.setTitle("Football Dashboard");
         stage.setScene(scene);
         stage.show();
-        music();
+        playMusic();
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -44,9 +44,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public void music() {
-        String s = "src\\main\\resources\\com\\pacholki\\media\\Circo Loco.mp3";
-        Media h = new Media(Paths.get(s).toUri().toString());
+    public void playMusic() {
+        String path = "src\\main\\resources\\com\\pacholki\\media\\Circo Loco.mp3";
+        Media h = new Media(Paths.get(path).toUri().toString());
         mediaPlayer = new MediaPlayer(h);
         mediaPlayer.play();
     }
