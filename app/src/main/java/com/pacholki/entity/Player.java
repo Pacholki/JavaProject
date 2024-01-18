@@ -103,6 +103,8 @@ public class Player extends Entity {
         return positions[0];
     }
 
+    public int getPlayerAgeInYears() {return Integer.parseInt(age.substring(0, 2)); }
+
     public String getLeague() {
         return league;
     }
