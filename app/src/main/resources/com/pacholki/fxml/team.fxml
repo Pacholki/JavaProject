@@ -25,7 +25,7 @@
         </VBox>
     </top>
     <center>
-      <Pane fx:id="entityPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="pagePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>
 
