@@ -36,7 +36,7 @@ public class StatsPageController extends Controller implements Initializable {
                         .thenComparingInt(StatsTableRow::getPlayTime).reversed())
                 .collect(Collectors.toList());
 
-        ObservableList<StatsTableRow> teamTableData = FXCollections.observableArrayList(sortedStatsTableData);
+        ObservableList<StatsTableRow> statTableData = FXCollections.observableArrayList(sortedStatsTableData);
 
         List<TableColumn<StatsTableRow, ?>> columns = new ArrayList<>();
         Field[] fields = StatsTableRow.class.getDeclaredFields();
@@ -50,7 +50,7 @@ public class StatsPageController extends Controller implements Initializable {
         }
 
         statsTable.getColumns().setAll(columns);
-        statsTable.setItems(teamTableData);
+        statsTable.setItems(statTableData);
     }
     @Override
     public void updatePane(Entity entity) {

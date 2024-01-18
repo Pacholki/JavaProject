@@ -29,6 +29,7 @@ public class StatsTableRow {
         this.redCards = player.getPerformanceRedCards();
     }
 
+    //---------------------------------------------------------
     public String getName() {return name;}
     public String getPosition() {return position;}
     public int getAge() {return age;}
