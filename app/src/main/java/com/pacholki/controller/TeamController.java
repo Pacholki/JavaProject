@@ -37,8 +37,11 @@ public class TeamController extends Controller implements Initializable {
 
     private void addButtons() {
         navbar.getChildren().clear();
-        String[] fxmlPaths = {"/com/pacholki/fxml/infoPage.fxml", "/com/pacholki/fxml/playerPage.fxml", "/com/pacholki/fxml/statsPage.fxml"};
-        String[] buttonLabels = {"InfoPage", "Players", "Stats"};
+        String[] fxmlPaths = {"/com/pacholki/fxml/infoPage.fxml",
+                "/com/pacholki/fxml/playerPage.fxml",
+                "/com/pacholki/fxml/statsPage.fxml",
+                "/com/pacholki/fxml/analysisPage.fxml"};
+        String[] buttonLabels = {"InfoPage", "Players", "Stats", "Advanced"};
         for(int i=0; i < buttonLabels.length; i++) {
             Button button = new Button(buttonLabels[i]);
             int finalI = i;
