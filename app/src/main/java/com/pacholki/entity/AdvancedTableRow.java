@@ -48,7 +48,7 @@ public class AdvancedTableRow {
 
     public AdvancedTableRow(Player player) {
         this.name = player.getPlayerName();
-        this.position = player.getPosition();
+        this.position = player.getPrimaryPosition();
         this.expectedxG = player.getExpectedxG();
         this.expectednpxG = player.getExpectednpxG();
         this.expectedxAG = player.getExpectedxAG();

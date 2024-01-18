@@ -52,7 +52,6 @@ public class TeamController extends Controller implements Initializable {
 
     private void updatePagePane(String fxmlPath) {
         try {
-            System.out.println(fxmlPath);
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Pane pane = loader.load();
             pagePane.getChildren().setAll(pane);
