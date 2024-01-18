@@ -32,7 +32,7 @@ public class App extends Application {
         stage.setTitle("Football Dashboard");
         stage.setScene(scene);
         stage.show();
-        playMusic();
+//        playMusic();
     }
 
     static void setRoot(String fxml) throws IOException {
