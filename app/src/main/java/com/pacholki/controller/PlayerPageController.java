@@ -1,33 +1,54 @@
 package com.pacholki.controller;
 
 import com.pacholki.entity.Entity;
+import com.pacholki.entity.Player;
 import com.pacholki.entity.Team;
 import com.pacholki.pane.TeamPane;
 import com.pacholki.util.Tools;
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class PlayerPageController extends Controller implements Initializable {
 
     @FXML
-    private VBox Goalkeepers;
+    private VBox goalkeepersBox;
     @FXML
-    private VBox Defenders;
+    private VBox defendersBox;
     @FXML
-    private VBox Midfielders;
+    private VBox midfieldersBox;
     @FXML
-    private VBox Attackers;
+    private VBox forwardsBox;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        generatePlayersList(teamPane.getCurrentTeam());
+        goalkeepersBox.getChildren().addAll(generatePlayersButtons("GK"));
+        defendersBox.getChildren().addAll(generatePlayersButtons("DF"));
+        midfieldersBox.getChildren().addAll(generatePlayersButtons("MF"));
+        forwardsBox.getChildren().addAll(generatePlayersButtons("FW"));
     }
 
-    public void generatePlayersList(Team team){
-        Tools.display(team.getPlayers());
+    public List<Player> getPlayersByPosition(String position) {
+        List<Player> players = teamPane.getCurrentTeam().getPlayers();
+        return players.stream()
+                .filter(player -> player.getPrimaryPosition().equals(position))
+                .collect(Collectors.toList());
+    }
+    public List<MFXButton> generatePlayersButtons(String position){
+        List<MFXButton> playerButtons = new ArrayList<>();
+        for (Player player : getPlayersByPosition(position)) {
+            MFXButton button = new MFXButton(player.getPlayerName());
+            button.setOnAction(e -> System.out.println("Mam " + player.getAge() + " lat"));
+            button.getStyleClass().add("teamButton");
+            playerButtons.add(button);
+        }
+        return playerButtons;
     }
 
     @Override
