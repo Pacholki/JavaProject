@@ -3,33 +3,37 @@ package com.pacholki.controller;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-import java.awt.*;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class PlayerOverviewPageController extends Controller implements Initializable {
+public class PlayerOverviewPageController extends Controller{
 
     @FXML
     private Label text;
+    @FXML
+    private Label teamLabel;
+    @FXML
+    private Label nationLabel;
+    @FXML
+    private Label positionLabel;
 
     private Player currentPlayer;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
+        // w inicie nic bo wywala bo jeszcze nie ma załadowanego currentPlayer dlatego wszystko
+        // w updatePlayerInformation()
     }
 
     public void setPlayer(Player player) {
         currentPlayer = player;
-        updatePlayerInfo();
+        updatePlayerInformation();
     }
 
-    private void updatePlayerInfo() {
+    private void updatePlayerInformation() {
         if (currentPlayer != null) {
-            text.setText("Player Name: " + currentPlayer.getPlayerName() + "\n"
-                    + "Position: " + currentPlayer.getPrimaryPosition());
+            text.setText(currentPlayer.getPlayerName());
+            teamLabel.setText(currentPlayer.getTeam().getName());
+            nationLabel.setText(currentPlayer.getNation());
+            positionLabel.setText(currentPlayer.getPosition());
         }
     }
 
@@ -37,4 +41,3 @@ public class PlayerOverviewPageController extends Controller implements Initiali
     public void updatePane(Entity entity) {
     }
 }
-
