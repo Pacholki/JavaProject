@@ -6,15 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;  
 import javafx.scene.media.MediaPlayer;  
-import javafx.scene.media.MediaView;  
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
@@ -50,8 +46,4 @@ public class App extends Application {
         mediaPlayer = new MediaPlayer(h);
         mediaPlayer.play();
     }
-
-    // public static void main(String[] args) {
-    //     launch();
-    // }
 }

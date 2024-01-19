@@ -2,7 +2,6 @@ package com.pacholki.controller;
 
 import com.pacholki.entity.AdvancedTableRow;
 import com.pacholki.entity.Entity;
-import com.pacholki.entity.StatsTableRow;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
