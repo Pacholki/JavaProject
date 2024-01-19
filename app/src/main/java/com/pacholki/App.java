@@ -12,13 +12,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+import com.pacholki.util.MusicPlayer;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
 
     private static Scene scene;
-    private static MediaPlayer mediaPlayer;
+    private static MusicPlayer musicPlayer;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -32,7 +34,8 @@ public class App extends Application {
         stage.setTitle("Football Dashboard");
         stage.setScene(scene);
         stage.show();
-        playMusic();
+        musicPlayer = new MusicPlayer();
+        musicPlayer.playMusic();
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -42,13 +45,6 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/" + fxml + ".fxml"));
         return fxmlLoader.load();
-    }
-
-    public void playMusic() {
-        String path = "src\\main\\resources\\com\\pacholki\\media\\Circo Loco.mp3";
-        Media h = new Media(Paths.get(path).toUri().toString());
-        mediaPlayer = new MediaPlayer(h);
-        mediaPlayer.play();
     }
 
     // public static void main(String[] args) {
