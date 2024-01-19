@@ -2,10 +2,7 @@ package com.pacholki.controller;
 
 import java.lang.reflect.Field;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.pacholki.entity.Competition;
@@ -13,6 +10,7 @@ import com.pacholki.entity.Entity;
 import com.pacholki.entity.TeamTableRow;
 import com.pacholki.pane.CompetitionPane;
 
+import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,22 +21,50 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CompetitionController extends Controller implements Initializable {
 
-    private int gameweek;
-
     private Competition competition;
 
     @FXML
     private TableView<TeamTableRow> leagueTable;
+    @FXML
+    private MFXComboBox gameweekChoiceBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         competitionPane = new CompetitionPane(this);
         competition = mainPane.getCurrentCompetition();
-        gameweek = 34;
-        generateTable();
+        generateTable(competition.getMaxGameweek());
+        gameweekChoiceBox.setText("Choose gameweek");
+        gameweekChoiceBox.setItems(generateGameweekChoices());
+        gameweekChoiceBox.setOnAction(event -> {
+            Object gameweekObject = gameweekChoiceBox.getValue();
+            Integer gameweek = ((GameweekChoice) gameweekObject).gameweek;
+            competitionPane.setGameweek(gameweek);
+            generateTable(gameweek);
+        });
     }
 
-    public void generateTable() {
+    class GameweekChoice {
+        protected String text;
+        protected Integer gameweek;
+        public GameweekChoice(String text, Integer gameweek) {
+            this.text = text;
+            this.gameweek = gameweek;
+        }
+        @Override
+        public String toString(){
+            return text;
+        }
+    }
+
+    public ObservableList<GameweekChoice> generateGameweekChoices() {
+        List<GameweekChoice> choices = new ArrayList<>();
+        for(int i = 1; i <= competitionPane.getGameweek(); i++) {
+            choices.add(new GameweekChoice("gameweek " + i, i));
+        }
+        return FXCollections.observableArrayList(choices);
+    }
+
+    public void generateTable(Integer gameweek) {
         
         List<TeamTableRow> sortedTeamTableData = competition.getTeams().stream()
             .map(team -> new TeamTableRow(team, gameweek))

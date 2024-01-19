@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.layout.VBox?>
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.TeamController">
-  <center>
-  </center>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="There will be some team info showing here soon" />
-            <Label text="Current team:" />
-            <Label fx:id = "teamName" text="" />
-         </children>
-      </VBox>
-   </center>
+    <top>
+        <Label text="Team Information" BorderPane.alignment="CENTER"/>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox fx:id="navbar">
+                    <Button text="Info"/>
+                    <Button text="Players"/>
+                    <Button text="Stats"/>
+                    <Button text="Advanced Stats"/>
+                </HBox>
+                <Label text="There will be some team info showing here soon" />
+                <Label text="Current team:" />
+                <Label fx:id="teamName" text="" />
+            </children>
+        </VBox>
+    </top>
+    <center>
+      <Pane fx:id="pagePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </center>
 </BorderPane>
+

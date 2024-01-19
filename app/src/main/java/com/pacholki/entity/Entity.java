@@ -13,7 +13,6 @@ public abstract class Entity {
     protected DataGetter getter;
 
     public void setMe() {
-        System.out.println("Trying to set " + toString());
         DataWaiter waiter = new DataWaiter(this, getter);
         waiter.start();
     };
