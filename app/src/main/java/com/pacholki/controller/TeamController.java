@@ -25,7 +25,7 @@ public class TeamController extends Controller implements Initializable {
     @FXML
     private Label teamName;
     @FXML
-    private Pane pagePane;
+    protected Pane pagePane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,10 +50,15 @@ public class TeamController extends Controller implements Initializable {
         }
     }
 
-    private void updatePagePane(String fxmlPath) {
+    public void updatePagePane(String fxmlPath) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Pane pane = loader.load();
+
+            if (loader.getController() instanceof PlayerPageController) {
+                PlayerPageController playerPageController = (PlayerPageController) loader.getController();
+                playerPageController.setPagePane(pagePane);
+            }
             pagePane.getChildren().setAll(pane);
         } catch (IOException e) {
             throw new RuntimeException(e);
