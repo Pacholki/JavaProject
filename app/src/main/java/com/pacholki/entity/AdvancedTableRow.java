@@ -26,7 +26,8 @@ public class AdvancedTableRow {
             "Per90 Expected Goals + Expected Assists",
             "Per90 Non-Penalty Expected Goals",
             "Per90 Non-Penalty Expected Goals + Expected Assists"
-    );    private String name;
+    );
+    private String name;
     private String position;
     private double expectedxG;
     private double expectednpxG;
