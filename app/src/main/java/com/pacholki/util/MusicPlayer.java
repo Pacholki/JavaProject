@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.animation.Timeline;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -34,7 +33,6 @@ public class MusicPlayer {
         mediaPlayer = new MediaPlayer(media);
 
         mediaPlayer.setOnEndOfMedia(() -> playNextSong());
-
     }
 
     public void playMusic() {

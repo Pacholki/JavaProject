@@ -5,7 +5,6 @@ import com.pacholki.entity.Player;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -16,7 +15,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class PlayerPageController extends TeamController implements Initializable {
+public class PlayerPageController extends TeamController {
 
     @FXML
     private VBox goalkeepersBox;
