@@ -14,6 +14,7 @@ import com.pacholki.util.MusicPlayer;
 public class App extends Application {
 
     private static Scene scene;
+    @SuppressWarnings("unused")
     private static MusicPlayer musicPlayer;
 
     @Override
