@@ -4,12 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;  
-import javafx.scene.media.MediaPlayer;  
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import com.pacholki.util.MusicPlayer;
 
@@ -17,6 +14,7 @@ import com.pacholki.util.MusicPlayer;
 public class App extends Application {
 
     private static Scene scene;
+    @SuppressWarnings("unused")
     private static MusicPlayer musicPlayer;
 
     @Override
@@ -32,7 +30,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         musicPlayer = new MusicPlayer();
-//        musicPlayer.playMusic();
+        // musicPlayer.playMusic();
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -44,7 +42,4 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    // public static void main(String[] args) {
-    //     launch();
-    // }
 }

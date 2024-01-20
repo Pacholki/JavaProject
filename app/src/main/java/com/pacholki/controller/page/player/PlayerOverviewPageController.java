@@ -1,11 +1,15 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.player;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.pacholki.controller.Controller;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class PlayerOverviewPageController extends Controller{
+public class PlayerOverviewPageController extends Controller {
 
     @FXML
     private Label text;
@@ -18,10 +22,9 @@ public class PlayerOverviewPageController extends Controller{
 
     private Player currentPlayer;
 
-    public void initialize() {
-        // w inicie nic bo wywala bo jeszcze nie ma załadowanego currentPlayer dlatego wszystko
-        // w updatePlayerInformation()
-    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {}
 
     public void setPlayer(Player player) {
         currentPlayer = player;
@@ -38,6 +41,5 @@ public class PlayerOverviewPageController extends Controller{
     }
 
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void updatePane(Entity entity) {}
 }

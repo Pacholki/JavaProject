@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <?import javafx.scene.layout.ColumnConstraints?>
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.PlayerOverviewPageController">
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.page.player.PlayerOverviewPageController">
     <center>
         <GridPane>
             <columnConstraints>

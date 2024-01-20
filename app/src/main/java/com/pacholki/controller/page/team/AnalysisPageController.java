@@ -1,11 +1,11 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.team;
 
+import com.pacholki.controller.Controller;
 import com.pacholki.entity.AdvancedTableRow;
 import com.pacholki.entity.Entity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,10 +18,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class AnalysisPageController extends Controller implements Initializable {
+public class AnalysisPageController extends Controller {
 
     @FXML
     private TableView<AdvancedTableRow> analysisTable;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         generateAnalysisTable();
@@ -52,6 +53,5 @@ public class AnalysisPageController extends Controller implements Initializable 
     }
 
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void updatePane(Entity entity) {}
 }

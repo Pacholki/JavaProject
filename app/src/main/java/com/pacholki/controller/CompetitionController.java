@@ -14,19 +14,18 @@ import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class CompetitionController extends Controller implements Initializable {
+public class CompetitionController extends Controller {
 
     private Competition competition;
 
     @FXML
     private TableView<TeamTableRow> leagueTable;
     @FXML
-    private MFXComboBox gameweekChoiceBox;
+    private MFXComboBox<GameweekChoice> gameweekChoiceBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,14 +35,14 @@ public class CompetitionController extends Controller implements Initializable {
         gameweekChoiceBox.setText("Choose gameweek");
         gameweekChoiceBox.setItems(generateGameweekChoices());
         gameweekChoiceBox.setOnAction(event -> {
-            Object gameweekObject = gameweekChoiceBox.getValue();
-            Integer gameweek = ((GameweekChoice) gameweekObject).gameweek;
+            GameweekChoice gameweekObject = gameweekChoiceBox.getValue();
+            Integer gameweek = gameweekObject.gameweek;
             competitionPane.setGameweek(gameweek);
             generateTable(gameweek);
         });
     }
 
-    class GameweekChoice {
+    public class GameweekChoice {
         protected String text;
         protected Integer gameweek;
         public GameweekChoice(String text, Integer gameweek) {
@@ -89,10 +88,6 @@ public class CompetitionController extends Controller implements Initializable {
         leagueTable.setItems(teamTableData);
     }
 
-
     @Override
-    public void updatePane(Entity entity) {
-        System.out.println("this league pane should now be updated");
-    }
-    
+    public void updatePane(Entity entity) {}
 }

@@ -4,7 +4,7 @@
 
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.StatsPageController">
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.page.team.StatsPageController">
    <center>
       <TableView fx:id="statsTable" BorderPane.alignment="CENTER">
          <columns>

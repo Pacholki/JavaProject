@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.pacholki.controller.page.team.PlayerPageController;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Team;
 import com.pacholki.pane.TeamPane;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-public class TeamController extends Controller implements Initializable {
+public class TeamController extends Controller {
 
     private Team team;
 
@@ -37,10 +37,10 @@ public class TeamController extends Controller implements Initializable {
 
     private void addButtons() {
         navbar.getChildren().clear();
-        String[] fxmlPaths = {"/com/pacholki/fxml/infoPage.fxml",
-                "/com/pacholki/fxml/playerPage.fxml",
-                "/com/pacholki/fxml/statsPage.fxml",
-                "/com/pacholki/fxml/analysisPage.fxml"};
+        String[] fxmlPaths = {"/com/pacholki/fxml/page/team/infoPage.fxml",
+                "/com/pacholki/fxml/page/team/playerPage.fxml",
+                "/com/pacholki/fxml/page/team/statsPage.fxml",
+                "/com/pacholki/fxml/page/team/analysisPage.fxml"};
         String[] buttonLabels = {"InfoPage", "Players", "Stats", "Advanced"};
         for(int i=0; i < buttonLabels.length; i++) {
             Button button = new Button(buttonLabels[i]);
@@ -64,10 +64,7 @@ public class TeamController extends Controller implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
     @Override
-    public void updatePane(Entity entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePane'");
-    }
-    
+    public void updatePane(Entity entity) {}
 }

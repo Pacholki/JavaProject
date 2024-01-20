@@ -1,11 +1,12 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.team;
 
+import com.pacholki.controller.TeamController;
+import com.pacholki.controller.page.player.PlayerOverviewPageController;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class PlayerPageController extends TeamController implements Initializable {
+public class PlayerPageController extends TeamController {
 
     @FXML
     private VBox goalkeepersBox;
@@ -54,7 +55,7 @@ public class PlayerPageController extends TeamController implements Initializabl
 
     public void updatePlayerPagePane(Player player) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pacholki/fxml/playerOverviewPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pacholki/fxml/page/player/playerOverviewPage.fxml"));
             Pane pane = loader.load();
             pagePane.getChildren().setAll(pane);
             PlayerOverviewPageController playerOverviewPageController = (PlayerOverviewPageController) loader.getController();
@@ -69,6 +70,5 @@ public class PlayerPageController extends TeamController implements Initializabl
     }
 
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void updatePane(Entity entity) {}
 }
