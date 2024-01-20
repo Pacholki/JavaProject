@@ -1,8 +1,9 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.player;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.pacholki.controller.Controller;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
 import javafx.fxml.FXML;

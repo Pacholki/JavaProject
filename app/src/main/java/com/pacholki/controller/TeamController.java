@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.pacholki.controller.page.team.PlayerPageController;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Team;
 import com.pacholki.pane.TeamPane;
@@ -36,10 +37,10 @@ public class TeamController extends Controller {
 
     private void addButtons() {
         navbar.getChildren().clear();
-        String[] fxmlPaths = {"/com/pacholki/fxml/infoPage.fxml",
-                "/com/pacholki/fxml/playerPage.fxml",
-                "/com/pacholki/fxml/statsPage.fxml",
-                "/com/pacholki/fxml/analysisPage.fxml"};
+        String[] fxmlPaths = {"/com/pacholki/fxml/page/team/infoPage.fxml",
+                "/com/pacholki/fxml/page/team/playerPage.fxml",
+                "/com/pacholki/fxml/page/team/statsPage.fxml",
+                "/com/pacholki/fxml/page/team/analysisPage.fxml"};
         String[] buttonLabels = {"InfoPage", "Players", "Stats", "Advanced"};
         for(int i=0; i < buttonLabels.length; i++) {
             Button button = new Button(buttonLabels[i]);

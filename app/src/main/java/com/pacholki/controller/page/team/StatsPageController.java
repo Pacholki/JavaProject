@@ -1,5 +1,6 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.team;
 
+import com.pacholki.controller.Controller;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.StatsTableRow;
 import javafx.collections.FXCollections;

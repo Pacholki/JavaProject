@@ -1,8 +1,9 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.team;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.pacholki.controller.Controller;
 import com.pacholki.entity.Entity;
 
 public class InfoPageController extends Controller {

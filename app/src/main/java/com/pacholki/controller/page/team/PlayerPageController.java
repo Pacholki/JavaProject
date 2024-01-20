@@ -1,5 +1,7 @@
-package com.pacholki.controller;
+package com.pacholki.controller.page.team;
 
+import com.pacholki.controller.TeamController;
+import com.pacholki.controller.page.player.PlayerOverviewPageController;
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -53,7 +55,7 @@ public class PlayerPageController extends TeamController {
 
     public void updatePlayerPagePane(Player player) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pacholki/fxml/playerOverviewPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/pacholki/fxml/page/player/playerOverviewPage.fxml"));
             Pane pane = loader.load();
             pagePane.getChildren().setAll(pane);
             PlayerOverviewPageController playerOverviewPageController = (PlayerOverviewPageController) loader.getController();
