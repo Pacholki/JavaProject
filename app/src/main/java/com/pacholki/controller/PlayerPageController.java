@@ -68,6 +68,5 @@ public class PlayerPageController extends TeamController {
     }
 
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void updatePane(Entity entity) {}
 }

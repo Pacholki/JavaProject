@@ -21,6 +21,7 @@ public class StatsPageController extends Controller {
 
     @FXML
     private TableView<StatsTableRow> statsTable;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         generateStatsTable();
@@ -50,7 +51,7 @@ public class StatsPageController extends Controller {
         statsTable.getColumns().setAll(columns);
         statsTable.setItems(statTableData);
     }
+
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void updatePane(Entity entity) {}
 }

@@ -21,6 +21,7 @@ public class AnalysisPageController extends Controller {
 
     @FXML
     private TableView<AdvancedTableRow> analysisTable;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         generateAnalysisTable();
@@ -51,6 +52,5 @@ public class AnalysisPageController extends Controller {
     }
 
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void updatePane(Entity entity) {}
 }

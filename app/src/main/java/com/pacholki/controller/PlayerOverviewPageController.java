@@ -21,10 +21,9 @@ public class PlayerOverviewPageController extends Controller {
 
     private Player currentPlayer;
 
-    public void initialize() {
-        // w inicie nic bo wywala bo jeszcze nie ma załadowanego currentPlayer dlatego wszystko
-        // w updatePlayerInformation()
-    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {}
 
     public void setPlayer(Player player) {
         currentPlayer = player;
@@ -41,12 +40,5 @@ public class PlayerOverviewPageController extends Controller {
     }
 
     @Override
-    public void updatePane(Entity entity) {
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
-    }
+    public void updatePane(Entity entity) {}
 }

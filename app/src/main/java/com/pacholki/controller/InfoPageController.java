@@ -8,12 +8,8 @@ import com.pacholki.entity.Entity;
 public class InfoPageController extends Controller {
 
     @Override
-    public void updatePane(Entity entity) {
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
-    }
+    public void updatePane(Entity entity) {}
 }

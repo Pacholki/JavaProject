@@ -63,10 +63,7 @@ public class TeamController extends Controller {
             throw new RuntimeException(e);
         }
     }
+
     @Override
-    public void updatePane(Entity entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePane'");
-    }
-    
+    public void updatePane(Entity entity) {}
 }

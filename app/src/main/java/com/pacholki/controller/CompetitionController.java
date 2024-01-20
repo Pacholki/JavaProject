@@ -88,10 +88,6 @@ public class CompetitionController extends Controller {
         leagueTable.setItems(teamTableData);
     }
 
-
     @Override
-    public void updatePane(Entity entity) {
-        System.out.println("this league pane should now be updated");
-    }
-    
+    public void updatePane(Entity entity) {}
 }
