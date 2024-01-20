@@ -5,7 +5,6 @@ import com.pacholki.entity.Entity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class AnalysisPageController extends Controller implements Initializable {
+public class AnalysisPageController extends Controller {
 
     @FXML
     private TableView<AdvancedTableRow> analysisTable;

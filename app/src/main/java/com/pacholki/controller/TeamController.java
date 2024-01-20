@@ -10,13 +10,12 @@ import com.pacholki.pane.TeamPane;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-public class TeamController extends Controller implements Initializable {
+public class TeamController extends Controller {
 
     private Team team;
 

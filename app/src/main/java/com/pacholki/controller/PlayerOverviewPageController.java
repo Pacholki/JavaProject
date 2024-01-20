@@ -1,11 +1,14 @@
 package com.pacholki.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class PlayerOverviewPageController extends Controller{
+public class PlayerOverviewPageController extends Controller {
 
     @FXML
     private Label text;
@@ -39,5 +42,11 @@ public class PlayerOverviewPageController extends Controller{
 
     @Override
     public void updatePane(Entity entity) {
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
     }
 }
