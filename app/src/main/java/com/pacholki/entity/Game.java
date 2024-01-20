@@ -166,6 +166,7 @@ public class Game extends Entity {
         setHomeTeam(competition.getTeamByName(homeTeamName));
         setAwayTeam(competition.getTeamByName(awayTeamName));
         prepareScore();
+        updateGameweek();
     }
 
     private void prepareScore() {
@@ -174,6 +175,11 @@ public class Game extends Entity {
 
         this.homeScore = Integer.parseInt(score.split("\u2013")[0]);
         this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
+    }
+
+    private void updateGameweek() {
+        if(!hasBeenPlayed()) return;
+        competition.setMaxGameweek(gameweek);
     }
 
     public void record() {

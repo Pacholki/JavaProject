@@ -29,14 +29,15 @@ public class Competition extends Entity {
     private String teamsFilePath;
     private String scheduleFilePath;
     private String playersFilePath;
-
     private boolean playerDataReady;
+    private Integer maxGameweek;
 
     public Competition(League league, Season season, MainController controller) {
         this.league = league;
         this.season = season;
         this.controller = controller;
         this.playerDataReady = false;
+        this.maxGameweek = 0;
         if (isValid())  {
             prepPaths();
             getData();
@@ -63,6 +64,8 @@ public class Competition extends Entity {
     public Season getSeason() {
         return season;
     }
+
+    public Integer getMaxGameweek() {return maxGameweek; }
 
     public String getCompDir() {
         return compDir;
@@ -176,10 +179,15 @@ public class Competition extends Entity {
         return null;
     }
 
+    public void setMaxGameweek(Integer gameweek) {
+        maxGameweek = gameweek;
+    }
+
     @Override
     public String getFXMLPath() {
         return FXML_PATH;
     }
+
 
     public String toString() {
         if (! isValid())    return "Null values!!!";

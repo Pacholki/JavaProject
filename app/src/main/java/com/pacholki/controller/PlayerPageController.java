@@ -2,9 +2,6 @@ package com.pacholki.controller;
 
 import com.pacholki.entity.Entity;
 import com.pacholki.entity.Player;
-import com.pacholki.entity.Team;
-import com.pacholki.pane.TeamPane;
-import com.pacholki.util.Tools;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
