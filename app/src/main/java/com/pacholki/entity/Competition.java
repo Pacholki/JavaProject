@@ -115,24 +115,14 @@ public class Competition extends Entity {
     }
 
     private void prepareSchedule() {
-        // List <Game> gamesToBeRemoved = new ArrayList<>();
         for (Game game : schedule) {
-        //     if(game.getGameweek() == null) {
-        //         gamesToBeRemoved.add(game);
-        //         continue;
-        //     }
             game.setCompetition(this);
             game.prepareData();
         }
 
-        // for (Game game : gamesToBeRemoved) {
-        //     schedule.remove(game);
-        // }
-
         schedule = schedule.stream()
                 .sorted(Comparator.comparing(Game::getGameweek))
                 .collect(Collectors.toList());
-
     }
 
     public void prepareTable() {
