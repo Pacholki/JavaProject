@@ -32,7 +32,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         musicPlayer = new MusicPlayer();
-        musicPlayer.playMusic();
+//        musicPlayer.playMusic();
     }
 
     static void setRoot(String fxml) throws IOException {
