@@ -117,11 +117,9 @@ public class Team extends Entity {
     public void addPlayer(Player player) {
         players.add(player);
     }
+
     @Override
-    public void prepareData() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'prepareData'");
-    }
+    public void prepareData() {}
 
     @Override
     public String getFXMLPath() {
