@@ -26,7 +26,7 @@ public class CompetitionController extends Controller implements Initializable {
     @FXML
     private TableView<TeamTableRow> leagueTable;
     @FXML
-    private MFXComboBox gameweekChoiceBox;
+    private MFXComboBox<GameweekChoice> gameweekChoiceBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,14 +36,14 @@ public class CompetitionController extends Controller implements Initializable {
         gameweekChoiceBox.setText("Choose gameweek");
         gameweekChoiceBox.setItems(generateGameweekChoices());
         gameweekChoiceBox.setOnAction(event -> {
-            Object gameweekObject = gameweekChoiceBox.getValue();
-            Integer gameweek = ((GameweekChoice) gameweekObject).gameweek;
+            GameweekChoice gameweekObject = gameweekChoiceBox.getValue();
+            Integer gameweek = gameweekObject.gameweek;
             competitionPane.setGameweek(gameweek);
             generateTable(gameweek);
         });
     }
 
-    class GameweekChoice {
+    public class GameweekChoice {
         protected String text;
         protected Integer gameweek;
         public GameweekChoice(String text, Integer gameweek) {
