@@ -7,7 +7,7 @@ public class Game extends Entity {
     private static final String FXML_PATH = DATA_DIR + "fxml/game.fxml";
 
     @JsonProperty("week")
-    private Integer gameweek;
+    private int gameweek;
     private String day;
     private String date;
     private String time;
@@ -37,7 +37,7 @@ public class Game extends Entity {
 
     // ---------------------------------------------
 
-    public void setGameweek(Integer gameweek) {
+    public void setGameweek(int gameweek) {
         this.gameweek = gameweek;
     }
     public void setDay(String day) {
@@ -96,7 +96,7 @@ public class Game extends Entity {
 
     // ---------------------------------------------
 
-    public Integer getGameweek() {
+    public int getGameweek() {
         return gameweek;
     }
     public String getDay() {
@@ -178,8 +178,9 @@ public class Game extends Entity {
     }
 
     private void updateGameweek() {
+        competition.setTotalGameweeks(Math.max(competition.getTotalGameweeks(), gameweek));
         if(!hasBeenPlayed()) return;
-        competition.setMaxGameweek(gameweek);
+        competition.setPlayedGameweeks(Math.max(competition.getPlayedGameweeks(), gameweek));
     }
 
     public void record() {
