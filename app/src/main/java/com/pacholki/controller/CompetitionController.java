@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.Entity;
+import com.pacholki.entity.FixtureRow;
 import com.pacholki.entity.TeamTableRow;
 import com.pacholki.pane.CompetitionPane;
 
@@ -25,7 +26,7 @@ public class CompetitionController extends Controller {
     @FXML
     private TableView<TeamTableRow> leagueTable;
     @FXML
-    private TableView<TeamTableRow> leagueFixtures;
+    private TableView<FixtureRow> leagueFixtures;
     @FXML
     private MFXComboBox<GameweekChoice> tableGameweekChoiceBox;
     @FXML
@@ -109,27 +110,23 @@ public class CompetitionController extends Controller {
 
     public void generateFixtures(Integer gameweek) {
         
-        List<TeamTableRow> sortedTeamTableData = competition.getTeams().stream()
-            .map(team -> new TeamTableRow(team, gameweek))
-            .sorted(Comparator.comparingInt(TeamTableRow::getPoints)
-                .thenComparingInt(TeamTableRow::getGoalDifference).reversed())
+        List<FixtureRow> sortedFixtureRows = competition.getSchedule().stream()
+            .filter(game -> game.getGameweek() == gameweek)
+            .map(game -> new FixtureRow(game))
             .collect(Collectors.toList());
+        
+        ObservableList<FixtureRow> fixtureRows = FXCollections.observableArrayList(sortedFixtureRows);
 
-        ObservableList<TeamTableRow> teamTableData = FXCollections.observableArrayList(sortedTeamTableData);
-
-        List<TableColumn<TeamTableRow, ?>> columns = new ArrayList<>();
-        Field[] fields = TeamTableRow.class.getDeclaredFields();
-        int i = 0;
+        List<TableColumn<FixtureRow, ?>> columns = new ArrayList<>();
+        Field[] fields = FixtureRow.class.getDeclaredFields();
         for (Field field : fields) {
-            if (field.getName().equals("colNames")) continue;
-            TableColumn<TeamTableRow, ?> column = new TableColumn<>(TeamTableRow.colNames.get(i));
+            TableColumn<FixtureRow, ?> column = new TableColumn<>();
             column.setCellValueFactory(new PropertyValueFactory<>(field.getName()));
             columns.add(column);
-            i++;
         }
 
         leagueFixtures.getColumns().setAll(columns);
-        leagueFixtures.setItems(teamTableData);
+        leagueFixtures.setItems(fixtureRows);
     }
 
     @Override

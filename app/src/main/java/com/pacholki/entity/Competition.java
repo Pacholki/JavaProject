@@ -167,6 +167,7 @@ public class Competition extends Entity {
     public League getLeague() {return league;}
     public Season getSeason() {return season;}
     public List<Team> getTeams() {return teams;}
+    public List<Game> getSchedule() {return schedule;}
     public String getCompDir() {return compDir;} 
     public int getPlayedGameweeks() {return playedGameweeks;}
     public int getTotalGameweeks() {return totalGameweeks;}
