@@ -14,11 +14,10 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class MainController extends Controller implements Initializable {
+public class MainController extends Controller {
     
     private String currentLeagueName;
 

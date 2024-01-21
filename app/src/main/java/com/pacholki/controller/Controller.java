@@ -5,7 +5,9 @@ import com.pacholki.pane.CompetitionPane;
 import com.pacholki.pane.MainPane;
 import com.pacholki.pane.TeamPane;
 
-public abstract class Controller {
+import javafx.fxml.Initializable;
+
+public abstract class Controller implements Initializable {
 
     protected static MainPane mainPane;
     protected static CompetitionPane competitionPane;
