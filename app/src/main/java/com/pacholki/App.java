@@ -19,13 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
-        String cssFilePath = "css/main.css";
-        String css = getClass().getResource(cssFilePath).toExternalForm();
-
         scene = new Scene(loadFXML("main"), 920, 640);
-        scene.getStylesheets().add(css);
-
         stage.setTitle("Football Dashboard");
         stage.setScene(scene);
         stage.show();
@@ -41,5 +35,4 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
 }

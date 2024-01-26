@@ -18,9 +18,6 @@
                     <Button text="Stats"/>
                     <Button text="Advanced Stats"/>
                 </HBox>
-                <Label text="There will be some team info showing here soon" />
-                <Label text="Current team:" />
-                <Label fx:id="teamName" text="" />
             </children>
         </VBox>
     </top>

@@ -2,7 +2,6 @@ package com.pacholki.entity;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,26 +17,28 @@ public class Competition extends Entity {
     private static final String LEAGUES_DIR = DATA_DIR + "leagues/";
     private static final String FXML_PATH = FXML_DIR + "competition.fxml";
 
-    private League league;
-    private Season season;
-    private List<Team> teams;
-    private List<Game> schedule;
-
-    private List<Player> players;
-
     private String compDir;
     private String teamsFilePath;
     private String scheduleFilePath;
     private String playersFilePath;
+
+    private League league;
+    private Season season;
+    private List<Team> teams;
+    private List<Game> schedule;
+    private List<Player> players;
+
+    private int playedGameweeks;
+    private int totalGameweeks;
     private boolean playerDataReady;
-    private Integer maxGameweek;
 
     public Competition(League league, Season season, MainController controller) {
         this.league = league;
         this.season = season;
         this.controller = controller;
         this.playerDataReady = false;
-        this.maxGameweek = 0;
+        this.playedGameweeks = 0;
+        this.totalGameweeks = 0;
         if (isValid())  {
             prepPaths();
             getData();
@@ -56,24 +57,7 @@ public class Competition extends Entity {
         scheduleFilePath = compDir + "schedule.json";
         playersFilePath = compDir + "players.json";
     }
-
-    public League getLeague() {
-        return league;
-    }
-
-    public Season getSeason() {
-        return season;
-    }
-
-    public Integer getMaxGameweek() {return maxGameweek; }
-
-    public String getCompDir() {
-        return compDir;
-    } 
-
-    public List<Team> getTeams() {
-        return teams;
-    }
+    // ---------------------------------------------
 
     private void getData() {
         getter = new CompetitionDataGetter(this);
@@ -99,6 +83,8 @@ public class Competition extends Entity {
         readPlayers();
         preparePlayers();
     }
+
+    // ---------------------------------------------
 
     private void readTeams() {
         try {
@@ -128,24 +114,14 @@ public class Competition extends Entity {
     }
 
     private void prepareSchedule() {
-        List <Game> gamesToBeRemoved = new ArrayList<>();
         for (Game game : schedule) {
-            if(game.getGameweek() == null) {
-                gamesToBeRemoved.add(game);
-                continue;
-            }
             game.setCompetition(this);
             game.prepareData();
-        }
-
-        for (Game game : gamesToBeRemoved) {
-            schedule.remove(game);
         }
 
         schedule = schedule.stream()
                 .sorted(Comparator.comparing(Game::getGameweek))
                 .collect(Collectors.toList());
-
     }
 
     public void prepareTable() {
@@ -171,23 +147,32 @@ public class Competition extends Entity {
     }
 
     public Team getTeamByName(String name) {
-
         for (Team team : teams) {
             if (team.getName().equals(name))    return team;
         }
-
         return null;
     }
 
-    public void setMaxGameweek(Integer gameweek) {
-        maxGameweek = gameweek;
+    public void setPlayedGameweeks(int gameweek) {
+        playedGameweeks = gameweek;
+    }
+
+    public void setTotalGameweeks(int gameweek) {
+        totalGameweeks = gameweek;
     }
 
     @Override
-    public String getFXMLPath() {
-        return FXML_PATH;
-    }
+    public String getFXMLPath() {return FXML_PATH;}
 
+    public League getLeague() {return league;}
+    public Season getSeason() {return season;}
+    public List<Team> getTeams() {return teams;}
+    public List<Game> getSchedule() {return schedule;}
+    public String getCompDir() {return compDir;} 
+    public int getPlayedGameweeks() {return playedGameweeks;}
+    public int getTotalGameweeks() {return totalGameweeks;}
+
+    // ---------------------------------------------
 
     public String toString() {
         if (! isValid())    return "Null values!!!";
