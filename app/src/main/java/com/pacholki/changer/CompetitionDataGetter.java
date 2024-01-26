@@ -38,8 +38,6 @@ public class CompetitionDataGetter extends VisibleDataGetter {
             e.printStackTrace();
         }
 
-//        Competition competition = (Competition) entity;
-//        competition.prepareData();
         return exitCode;
     }
 }
