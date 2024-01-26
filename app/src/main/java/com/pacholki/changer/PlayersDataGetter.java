@@ -38,8 +38,12 @@ public class PlayersDataGetter extends DataGetter {
             e.printStackTrace();
         }
 
+        return exitCode;
+    }
+    
+    @Override
+    protected void customDataAction() {
         Competition competition = (Competition) entity;
         competition.preparePlayerData();
-        return exitCode;
     }
 }
