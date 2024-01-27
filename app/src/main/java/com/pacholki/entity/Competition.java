@@ -140,6 +140,7 @@ public class Competition extends Entity {
             player.setCompetition(this);
             player.prepareData();
         }
+
     }
 
     public boolean isValid() {
@@ -171,6 +172,8 @@ public class Competition extends Entity {
     public String getCompDir() {return compDir;} 
     public int getPlayedGameweeks() {return playedGameweeks;}
     public int getTotalGameweeks() {return totalGameweeks;}
+
+    public List<Player> getPlayers() {return players;}
 
     // ---------------------------------------------
 

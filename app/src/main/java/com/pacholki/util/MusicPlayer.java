@@ -16,7 +16,7 @@ public class MusicPlayer {
 
     public MusicPlayer() {
         songs = new ArrayList<>();
-        directory = new File("src\\main\\resources\\com\\pacholki\\media");
+        directory = new File("src\\main\\resources\\com\\pacholki\\media\\music");
         File[] files = directory.listFiles();
         
         if (files != null) {
