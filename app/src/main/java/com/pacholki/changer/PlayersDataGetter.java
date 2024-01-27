@@ -46,4 +46,10 @@ public class PlayersDataGetter extends DataGetter {
         Competition competition = (Competition) entity;
         competition.preparePlayerData();
     }
+
+    @Override
+    protected boolean isDataAvailable() {
+        if (skipDownload)   return true;
+        return false;
+    }
 }
