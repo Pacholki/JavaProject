@@ -29,6 +29,20 @@ public class PlayerOverviewPageController extends Controller {
     private Label ageText;
     @FXML
     private Label positionsText;
+    @FXML
+    private Label matchesPlayedText;
+    @FXML
+    private Label first11Text;
+    @FXML
+    private Label playTimeMinutes;
+    @FXML
+    private Label goalsText;
+    @FXML
+    private Label assistsText;
+    @FXML
+    private Label yellowCardsText;
+    @FXML
+    private Label redCardsText;
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 
@@ -40,12 +54,26 @@ public class PlayerOverviewPageController extends Controller {
     private void updatePlayerInformation() {
         if (currentPlayer != null) {
             setImage(playerImage);
-            playerNameText.setText(currentPlayer.getPlayerName());
-            teamNameText.setText("Team: " + currentPlayer.getTeamName());
-            ageText.setText("Birthyear: " + currentPlayer.getBirthYear() + "      Age: " + currentPlayer.getAge().substring(0,2));
-            positionsText.setText("Positions: " + currentPlayer.getPosition());
+            playerNameText.setText(String.valueOf(currentPlayer.getPlayerName()));
+            teamNameText.setText("Team: " + String.valueOf(currentPlayer.getTeamName()));
+            ageText.setText("Birthyear: " + String.valueOf(currentPlayer.getBirthYear()) + "      Age: " + String.valueOf(currentPlayer.getAge().substring(0,2)) );
+            positionsText.setText("Positions: " + String.valueOf(currentPlayer.getPosition()));
+            matchesPlayedText.setText("Matches Played: " + String.valueOf(currentPlayer.getPlayingTimeMP()));
+            first11Text.setText("First 11: " + String.valueOf(currentPlayer.getPlayingTimeStarts()));
+            playTimeMinutes.setText("Playtime: " + String.valueOf(currentPlayer.getPlayingTimeMin()) + " minutes");
+            goalsText.setText("Goals: " + String.valueOf(currentPlayer.getPerformanceGoals()));
+            assistsText.setText("Assists: " + String.valueOf(currentPlayer.getPerformanceAssists()));
+            yellowCardsText.setText("Yellow Cards: " + String.valueOf(currentPlayer.getPerformanceYellowCards()));
+            redCardsText.setText("Red Cards: " + String.valueOf(currentPlayer.getPerformanceRedCards()));
         }
 
+    }
+
+    private Object checkNull(Object object) {
+        if (object == null) {
+            return "null";
+        }
+        return object;
     }
 
     private void setImage(ImageView image) {

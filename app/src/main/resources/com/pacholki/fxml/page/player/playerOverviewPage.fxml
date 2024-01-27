@@ -5,8 +5,6 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.page.player.PlayerOverviewPageController">
-    <center>
-    </center>
    <top>
       <HBox prefHeight="288.0" prefWidth="682.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,4 +18,21 @@
          </children>
       </HBox>
    </top>
+    <center>
+        <HBox prefHeight="288.0" BorderPane.alignment="CENTER">
+            <VBox>
+                <Label fx:id="matchesPlayedText" prefHeight="56.0" prefWidth="310.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+                <Label fx:id="first11Text" prefHeight="56.0" prefWidth="310.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+                <Label fx:id="playTimeMinutes" prefHeight="56.0" prefWidth="310.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox>
+                <Label fx:id="goalsText" prefHeight="56.0" prefWidth="200.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+                <Label fx:id="assistsText" prefHeight="56.0" prefWidth="200.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+                </VBox>
+            <VBox>
+                <Label fx:id="yellowCardsText" prefHeight="56.0" prefWidth="200.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+                <Label fx:id="redCardsText" prefHeight="56.0" prefWidth="200.0" style="-fx-font-size: 25px; -fx-font-family: 'Arial'; -fx-font-weight: bold;"/>
+            </VBox>
+        </HBox>
+    </center>
 </BorderPane>
