@@ -77,10 +77,4 @@ public abstract class DataGetter extends Loader {
 
         return false;
     }
-
-    // private void hashFiles() {
-    //     for (String filePath : requiredFiles) {
-            
-    //     }
-    // }
 }
