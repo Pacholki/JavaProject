@@ -25,7 +25,9 @@ public abstract class DataGetter extends Loader {
 
     public void run(int verbose) {
 
-        if (! isDataAvailable()) {
+        addRequiredFiles();
+
+        if (isDownloadNecessary()) {
             showTryDownloadMessage(verbose > 1, message);
             int exitCode = getData();
             showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
@@ -61,14 +63,13 @@ public abstract class DataGetter extends Loader {
         return;
     }
 
-    private boolean isDataAvailable() {
-        if (filesMissing()) return false;
-        if (skipDownload)   return true;
-        return false;
+    private boolean isDownloadNecessary() {
+        if (filesMissing()) return true;
+        if (skipDownload)   return false;
+        return true;
     }
 
     private boolean filesMissing() {
-        addRequiredFiles();
         for (String filePath : requiredFiles) {
             File file = new File(filePath);
             if (! file.exists())    return true;
