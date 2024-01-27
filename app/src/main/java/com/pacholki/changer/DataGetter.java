@@ -20,10 +20,11 @@ public abstract class DataGetter extends Changer {
 
         showTryDownloadMessage(verbose > 1, message);
 
-        int exitCode = getData();
+        // int exitCode = getData();
+        // showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
+        // showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
 
-        showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
-        showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
+        customDataAction();
     }
 
     protected void showTryDownloadMessage(boolean condition, String message) {
@@ -40,5 +41,8 @@ public abstract class DataGetter extends Changer {
     }
 
     public abstract int getData();
-    
+
+    protected void customDataAction() {
+        return;
+    }
 }
