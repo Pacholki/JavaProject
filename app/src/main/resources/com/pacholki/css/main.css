@@ -1,4 +1,4 @@
-@import url("fonts.css");
+@import "../fonts/fonts.css";
 
 * {
     -fx-primary: #2c3e7d;
