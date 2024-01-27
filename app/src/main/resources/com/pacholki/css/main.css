@@ -1,7 +1,7 @@
 @import "../fonts/fonts.css";
 
 * {
-    -fx-primary: #2c3e7d;
+    -fx-primary: #2b3254;
     -fx-primary-light: #334585;
     -fx-secondary: #a3b8ff;
     -fx-complementary: #f1e9c3;
@@ -10,13 +10,12 @@
 }
 
 .root {
-    background-color: -fx-secondary;
-    -fx-background-color: -fx-secondary;
+    -fx-background-color: #2b3254;
 }
 
 
 HBox {
-    margin: 1em 0;
+    margin: 1em 0 1em 0;
     -fx-spacing: 1em;
     padding: 1em;
     -fx-padding: 1em;
@@ -31,32 +30,34 @@ HBox {
     z-index: -1;
     -fx-view-order: -1;
 
-    background-color: -fx-primary;
-    -fx-background-color: -fx-primary;
+    -fx-background-color: #111836; /* to co w canvie kornela */
 }
 
+/* VBOX */
 .choiceContainer {
-    background-color: -fx-primary;
-    -fx-background-color: -fx-primary;
-    border-radius: 1em;
-    -fx-background-radius: 1em;
-    
-    padding: 1em;
-    -fx-padding: 1em;
+    -fx-background-color: #111836;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    /* -fx-padding: 1em; */
 
-    margin: 0 0.5em;
-    -fx-spacing: 0.5em;
+    /* margin: 0 0 0 50px; */
+    /* -fx-spacing: 0.5em; */
 }
 
+/* VBOX */
 .choiceButtonList {
-    margin: 0 0.2em;
+    -fx-margin: 0 0.2em; 
     -fx-spacing: 0.2em;
+    -fx-border-radius: 5px; /* idk czy działa */
 }
 
 .button,
 .selectButton {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
+    -fx-background-color: #3db7e4;
+    -fx-background-radius: 10px;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
     cursor: hand;
     -fx-cursor: hand;
     min-width: 10em;
@@ -132,18 +133,18 @@ MFXButton .mfx-ripple-generator {
     background-color: -fx-contrast;
     -fx-background-color: -fx-contrast;
 }
-
+/*     ******************************* */
 .gameweekChoiceBox {
     -fx-min-width: 100px;
-    -fx-max-width: 230px;
+    -fx-max-width: 220px;
     -fx-pref-height: 5px;
     -fx-padding: 0 0 0 15;
 	-fx-background-color: #3db7e4;
     -fx-border-color: white;
     -fx-border-radius: 10px;
-    -fx-background-radius: 15px;
-    -fx-border-width: 4px;
-    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #323232;
     -fx-font-family: 'Open Sans' Sans-Serif;
     -fx-font-weight: bold;
 }
@@ -161,7 +162,7 @@ MFXButton .mfx-ripple-generator {
 }
 
 .gameweekChoiceBox .floating-text { /* ten tekst co po kliknięciu idzie do góry */
-    -fx-text-fill: white;
+    -fx-text-fill: #323232;
     -fx-padding: 0 0 0 5;
     -fx-font-size: 18px;
     -fx-font-family: 'Open Sans' Sans-Serif;
