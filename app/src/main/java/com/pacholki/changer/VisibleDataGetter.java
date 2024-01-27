@@ -9,11 +9,15 @@ public abstract class VisibleDataGetter extends DataGetter{
         id = requests;
 
         super.run(verbose);
-        entity.prepareData();
 
         boolean isLastUserRequest = (requests == id);
         if (isLastUserRequest) {
             Platform.runLater(() -> entity.getController().updatePane(entity));
         }
+    }
+
+    @Override
+    protected void customDataAction() {
+        entity.prepareData();
     }
 }
