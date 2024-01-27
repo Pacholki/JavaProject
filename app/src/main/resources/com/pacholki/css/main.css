@@ -134,14 +134,22 @@ MFXButton .mfx-ripple-generator {
 }
 
 .gameweekChoiceBox {
-    -fx-min-width: 155px;
-    -fx-padding: 0 0 0 20;
-    -fx-border-color: #334585;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
+    -fx-min-width: 100px;
+    -fx-max-width: 230px;
+    -fx-pref-height: 5px;
+    -fx-padding: 0 0 0 15;
+	-fx-background-color: #3db7e4;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 15px;
+    -fx-border-width: 4px;
     -fx-text-fill: white;
-    -fx-font-size: 15px;
-    -fx-font-family: 'Open Sans', system-ui;
+    -fx-font-family: 'Open Sans' Sans-Serif;
+    -fx-font-weight: bold;
+}
+
+.gameweekChoiceBox * {
+    -fx-padding: 0;
 }
 
 .gameweekChoiceBox .text-input {
@@ -149,28 +157,25 @@ MFXButton .mfx-ripple-generator {
 }
 
 .gameweekChoiceBox .text-field {
+
 }
 
 .gameweekChoiceBox .floating-text { /* ten tekst co po kliknięciu idzie do góry */
-    -fx-text-fill: black;
-    -fx-padding: 3 3 3 20;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 5;
+    -fx-font-size: 18px;
+    -fx-font-family: 'Open Sans' Sans-Serif;
+    -fx-font-weight: bold;
 }
 
 .gameweekChoiceBox .caret .mfx-font-icon {  /* kolor strzałeczki */
     -mfx-color: white;
 }
 
+.gameweekChoiceBox .caret {
+
+}
+
 .gameweekChoiceBox .arrow-button {
     -fx-background-color: white;
-}
-
-#tableGameweekChoiceBox {
-	-fx-background-color: rgb(49, 240, 240);
-}
-    
-#fixtureGameweekChoiceBox {
-    -fx-background-color: rgb(207, 30, 183);
-    -fx-border-radius: 50px;
-    -fx-background-radius: 50px;
-
 }
