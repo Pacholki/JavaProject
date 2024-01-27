@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pacholki.changer.PlayersDataGetter;
 import com.pacholki.controller.MainController;
-import com.pacholki.changer.CompetitionDataGetter;
+import com.pacholki.loader.CompetitionDataGetter;
+import com.pacholki.loader.PlayerDataGetter;
 
 public class Competition extends Entity {
     
@@ -65,7 +65,7 @@ public class Competition extends Entity {
     }
 
     private void getPlayersData() {
-        PlayersDataGetter playerGetter = new PlayersDataGetter(this);
+        PlayerDataGetter playerGetter = new PlayerDataGetter(this);
         playerGetter.start();
     }
 

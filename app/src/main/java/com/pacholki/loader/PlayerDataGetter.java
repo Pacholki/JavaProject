@@ -1,28 +1,28 @@
-package com.pacholki.changer;
-
-import java.io.IOException;
+package com.pacholki.loader;
 
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
 
-public class CompetitionDataGetter extends VisibleDataGetter {
-    
+import java.io.IOException;
+
+public class PlayerDataGetter extends DataGetter {
+
     private League league;
     private Season season;
 
-    public CompetitionDataGetter(Competition competition) {
+    public PlayerDataGetter(Competition competition) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
         this.entity = competition;
-        this.message = "CompetitionOverview";
+        this.message = "PlayerData";
         this.verbose = 1;
     }
 
     @Override
     public int getData() {
 
-        String scriptName = "get_competition_data.py";
+        String scriptName = "get_player_data.py";
         String scriptPath = SCRIPT_DIR + scriptName;
 
         ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath, league.getFBrefID(), season.getFBrefID());
@@ -40,10 +40,10 @@ public class CompetitionDataGetter extends VisibleDataGetter {
 
         return exitCode;
     }
-
+    
     @Override
-    protected boolean isDataAvailable() {
-        if (skipDownload)   return true;
-        return false;
+    protected void customDataAction() {
+        Competition competition = (Competition) entity;
+        competition.preparePlayerData();
     }
 }
