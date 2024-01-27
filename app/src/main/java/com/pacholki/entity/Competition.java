@@ -164,6 +164,11 @@ public class Competition extends Entity {
 
     @Override
     public String getFXMLPath() {return FXML_PATH;}
+    public String getDATA_DIR() {return DATA_DIR;}
+
+    public String getTeamsFilePath() {return teamsFilePath;}
+    public String getScheduleFilePath() {return scheduleFilePath;}
+    public String getPlayersFilePath() {return playersFilePath;}
 
     public League getLeague() {return league;}
     public Season getSeason() {return season;}
