@@ -1,8 +1,8 @@
 package com.pacholki.entity;
 
 import com.pacholki.controller.Controller;
-import com.pacholki.changer.DataGetter;
-import com.pacholki.changer.DataWaiter;
+import com.pacholki.loader.DataGetter;
+import com.pacholki.loader.DataWaiter;
 
 public abstract class Entity {
 

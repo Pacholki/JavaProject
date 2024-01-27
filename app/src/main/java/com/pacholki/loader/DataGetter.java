@@ -1,8 +1,8 @@
-package com.pacholki.changer;
+package com.pacholki.loader;
 
 import com.pacholki.entity.Entity;
 
-public abstract class DataGetter extends Changer {
+public abstract class DataGetter extends Loader {
 
     protected final String SCRIPT_DIR = "src/main/python/";
 

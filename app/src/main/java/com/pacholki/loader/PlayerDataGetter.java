@@ -1,4 +1,4 @@
-package com.pacholki.changer;
+package com.pacholki.loader;
 
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
@@ -6,12 +6,12 @@ import com.pacholki.entity.Season;
 
 import java.io.IOException;
 
-public class PlayersDataGetter extends DataGetter {
+public class PlayerDataGetter extends DataGetter {
 
     private League league;
     private Season season;
 
-    public PlayersDataGetter(Competition competition) {
+    public PlayerDataGetter(Competition competition) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
         this.entity = competition;

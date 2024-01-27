@@ -1,10 +1,10 @@
-package com.pacholki.changer;
+package com.pacholki.loader;
 
 import com.pacholki.controller.Controller;
 import com.pacholki.entity.Entity;
 import javafx.application.Platform;
 
-public class DataWaiter extends Changer {
+public class DataWaiter extends Loader {
 
     Entity entity;
     Controller controller;
