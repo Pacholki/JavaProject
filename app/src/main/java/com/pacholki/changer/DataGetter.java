@@ -8,6 +8,7 @@ public abstract class DataGetter extends Changer {
 
     protected int id;
     protected int verbose = 1;
+    protected boolean skipDownload = true;
     protected String message;
     protected Entity entity;
 
@@ -20,9 +21,11 @@ public abstract class DataGetter extends Changer {
 
         showTryDownloadMessage(verbose > 1, message);
 
-        // int exitCode = getData();
-        // showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
-        // showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
+        if (! isDataAvailable()) {
+            int exitCode = getData();
+            showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
+            showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
+        }
 
         customDataAction();
     }
@@ -41,6 +44,7 @@ public abstract class DataGetter extends Changer {
     }
 
     public abstract int getData();
+    protected abstract boolean isDataAvailable();
 
     protected void customDataAction() {
         return;

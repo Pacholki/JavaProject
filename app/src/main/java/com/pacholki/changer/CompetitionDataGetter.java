@@ -40,4 +40,10 @@ public class CompetitionDataGetter extends VisibleDataGetter {
 
         return exitCode;
     }
+
+    @Override
+    protected boolean isDataAvailable() {
+        if (skipDownload)   return true;
+        return false;
+    }
 }
