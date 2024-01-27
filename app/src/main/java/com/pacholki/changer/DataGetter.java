@@ -19,9 +19,8 @@ public abstract class DataGetter extends Changer {
 
     public void run(int verbose) {
 
-        showTryDownloadMessage(verbose > 1, message);
-
         if (! isDataAvailable()) {
+            showTryDownloadMessage(verbose > 1, message);
             int exitCode = getData();
             showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
             showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
@@ -44,9 +43,15 @@ public abstract class DataGetter extends Changer {
     }
 
     public abstract int getData();
-    protected abstract boolean isDataAvailable();
 
     protected void customDataAction() {
         return;
     }
+
+    private boolean isDataAvailable() {
+        if (skipDownload)   return true;
+        return false;
+    }
+
+    // private check
 }
