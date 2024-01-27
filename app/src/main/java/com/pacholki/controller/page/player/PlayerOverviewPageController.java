@@ -1,6 +1,5 @@
 package com.pacholki.controller.page.player;
 
-import java.awt.*;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -67,13 +66,6 @@ public class PlayerOverviewPageController extends Controller {
             redCardsText.setText("Red Cards: " + String.valueOf(currentPlayer.getPerformanceRedCards()));
         }
 
-    }
-
-    private Object checkNull(Object object) {
-        if (object == null) {
-            return "null";
-        }
-        return object;
     }
 
     private void setImage(ImageView image) {

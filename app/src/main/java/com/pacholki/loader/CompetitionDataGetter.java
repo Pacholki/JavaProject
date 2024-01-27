@@ -1,4 +1,4 @@
-package com.pacholki.changer;
+package com.pacholki.loader;
 
 import java.io.IOException;
 
@@ -10,11 +10,13 @@ public class CompetitionDataGetter extends VisibleDataGetter {
     
     private League league;
     private Season season;
+    private Competition competition;
 
     public CompetitionDataGetter(Competition competition) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
         this.entity = competition;
+        this.competition = competition;
         this.message = "CompetitionOverview";
         this.verbose = 1;
     }
@@ -39,5 +41,11 @@ public class CompetitionDataGetter extends VisibleDataGetter {
         }
 
         return exitCode;
+    }
+
+    @Override
+    protected void addRequiredFiles() {
+        requiredFiles.add(competition.getScheduleFilePath());
+        requiredFiles.add(competition.getTeamsFilePath());
     }
 }
