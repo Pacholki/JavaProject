@@ -1,3 +1,5 @@
+@import "../fonts/fonts.css";
+
 * {
     -fx-primary: #2c3e7d;
     -fx-primary-light: #334585;
@@ -11,6 +13,7 @@
     background-color: -fx-secondary;
     -fx-background-color: -fx-secondary;
 }
+
 
 HBox {
     margin: 1em 0;
@@ -128,4 +131,51 @@ MFXButton .mfx-ripple-generator {
 .teamButton:hover {
     background-color: -fx-contrast;
     -fx-background-color: -fx-contrast;
+}
+
+.gameweekChoiceBox {
+    -fx-min-width: 100px;
+    -fx-max-width: 230px;
+    -fx-pref-height: 5px;
+    -fx-padding: 0 0 0 15;
+	-fx-background-color: #3db7e4;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 15px;
+    -fx-border-width: 4px;
+    -fx-text-fill: white;
+    -fx-font-family: 'Open Sans' Sans-Serif;
+    -fx-font-weight: bold;
+}
+
+.gameweekChoiceBox * {
+    -fx-padding: 0;
+}
+
+.gameweekChoiceBox .text-input {
+    -fx-background-color: transparent;
+}
+
+.gameweekChoiceBox .text-field {
+
+}
+
+.gameweekChoiceBox .floating-text { /* ten tekst co po kliknięciu idzie do góry */
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 5;
+    -fx-font-size: 18px;
+    -fx-font-family: 'Open Sans' Sans-Serif;
+    -fx-font-weight: bold;
+}
+
+.gameweekChoiceBox .caret .mfx-font-icon {  /* kolor strzałeczki */
+    -mfx-color: white;
+}
+
+.gameweekChoiceBox .caret {
+
+}
+
+.gameweekChoiceBox .arrow-button {
+    -fx-background-color: white;
 }
