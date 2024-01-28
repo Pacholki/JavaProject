@@ -108,6 +108,14 @@ public class Team extends Entity {
         return points[gameweek];
     }
 
+    public int getGoalDifference(Integer gameweek) { return goalsFor[gameweek] - goalsAgainst[gameweek];}
+
+    public int getTeamPlace(Competition currComp, Team targetTeam) {
+        List<Team> sortedTeams = currComp.getTeamsSorted();
+        int index = sortedTeams.indexOf(targetTeam);
+        return index + 1;
+    }
+
     public TeamTableRow getTableRow(Integer gameweek) {
         return new TeamTableRow(this, gameweek);
     }

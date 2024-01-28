@@ -2,6 +2,8 @@ package com.pacholki.entity;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -194,6 +196,14 @@ public class Competition extends Entity {
     public League getLeague() {return league;}
     public Season getSeason() {return season;}
     public List<Team> getTeams() {return teams;}
+    public List<Team> getTeamsSorted() {
+        List<Team> sortedTeams = teams.subList(0, teams.size());
+        Collections.sort(sortedTeams, Comparator
+                .comparingInt((Team team) -> team.getPoints(totalGameweeks))
+                .thenComparingInt(team -> team.getGoalDifference(totalGameweeks)));
+        Collections.reverse(sortedTeams);
+        return sortedTeams;
+    }
     public List<Game> getSchedule() {return schedule;}
     public String getCompDir() {return compDir;} 
     public int getPlayedGameweeks() {return playedGameweeks;}
@@ -207,4 +217,6 @@ public class Competition extends Entity {
         if (! isValid())    return "Null values!!!";
         return league.toString() + "\t" + season.toString();
     }
+
+
 }

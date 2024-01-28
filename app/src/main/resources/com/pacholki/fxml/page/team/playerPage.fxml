@@ -11,10 +11,18 @@
     </center>
    <center>
       <HBox fx:id="playerGroups">
-          <VBox fx:id = "goalkeepersBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" > <Label text="Goalkeepers" /> </VBox>
-          <VBox fx:id = "defendersBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" > <Label text="Defenders" /> </VBox>
-          <VBox fx:id = "midfieldersBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" > <Label text="Midfielders" /> </VBox>
-          <VBox fx:id = "forwardsBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" > <Label text="Forwards" /> </VBox>
+          <VBox fx:id = "goalkeepersBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" >
+              <Label text="Goalkeepers" styleClass="playerInfo"/>
+          </VBox>
+          <VBox fx:id = "defendersBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" >
+              <Label text="Defenders" styleClass="playerInfo"/>
+          </VBox>
+          <VBox fx:id = "midfieldersBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" >
+              <Label text="Midfielders" styleClass="playerInfo"/>
+          </VBox>
+          <VBox fx:id = "forwardsBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" >
+              <Label text="Forwards" styleClass="playerInfo"/>
+          </VBox>
       </HBox>
    </center>
 </BorderPane>
