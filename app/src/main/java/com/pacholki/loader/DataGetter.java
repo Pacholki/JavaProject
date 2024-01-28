@@ -39,6 +39,7 @@ public abstract class DataGetter extends Loader {
             showSkipDownloadMessage(verbose > 0, message);
         }
 
+        saveCompetition();
         customDataAction();
     }
 
@@ -79,6 +80,8 @@ public abstract class DataGetter extends Loader {
     protected abstract void markUpdated();
     protected abstract void showLoadScreen();
 
+    protected void saveCompetition() {}
+
     protected void customDataAction() {
         return;
     }
@@ -93,7 +96,6 @@ public abstract class DataGetter extends Loader {
             File file = new File(filePath);
             if (! file.exists())    return true;
         }
-
         return false;
     }
 }
