@@ -171,7 +171,7 @@ public class Game extends Entity {
         if (period.isZero()) {
             return "Today";
         } else if (period.isNegative()) {
-            return "in the past";
+            return "Postponed";
         } else {
             long totalDays = matchDate.toEpochDay() - currentDate.toEpochDay();
             return "in " + totalDays + " days";
