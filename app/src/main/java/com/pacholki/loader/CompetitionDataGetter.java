@@ -12,14 +12,14 @@ public class CompetitionDataGetter extends VisibleDataGetter {
     private Season season;
     private Competition competition;
 
-    public CompetitionDataGetter(Competition competition, boolean forceDownload) {
+    public CompetitionDataGetter(Competition competition, boolean isAnUpdate) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
         this.entity = competition;
         this.competition = competition;
-        this.forceDownload = forceDownload;
+        this.isAnUpdate = isAnUpdate;
         this.message = "CompetitionOverview";
-        this.verbose = 1;
+        this.verbose = 0;
     }
 
     public CompetitionDataGetter(Competition competition) {
@@ -52,5 +52,10 @@ public class CompetitionDataGetter extends VisibleDataGetter {
     protected void addRequiredFiles() {
         requiredFiles.add(competition.getScheduleFilePath());
         requiredFiles.add(competition.getTeamsFilePath());
+    }
+    
+    @Override
+    protected void markUpdated() {
+        competition.markUpdated();
     }
 }

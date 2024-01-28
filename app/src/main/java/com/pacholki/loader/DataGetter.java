@@ -13,6 +13,7 @@ public abstract class DataGetter extends Loader {
     protected int id;
     protected int verbose = 1;
     protected boolean forceDownload = false;
+    protected boolean isAnUpdate = false;
     protected String message;
     protected Entity entity;
 
@@ -29,12 +30,23 @@ public abstract class DataGetter extends Loader {
 
         if (isDownloadNecessary()) {
             handleNewDownload();
+            markUpdated();
         }
-        else {
-            showSkipDownloadMessage(message);
+        else if (isAnUpdate) {
+            handleUpdate();
+            markUpdated();
+        } else {
+            showSkipDownloadMessage(verbose > 0, message);
         }
 
         customDataAction();
+    }
+
+    private void handleUpdate() {
+        showTryDownloadMessage(verbose > 1, message);
+        int exitCode = getData();
+        showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
+        showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
     }
 
     private void handleNewDownload() {
@@ -56,12 +68,14 @@ public abstract class DataGetter extends Loader {
         if (! condition) return;
         System.out.println("-----\nFailed to download: \n" + entity + "\n" + message +  "\n-----");
     }
-    protected void showSkipDownloadMessage(String message) {
+    protected void showSkipDownloadMessage(boolean condition, String message) {
+        if (! condition) return;
         System.out.println("-----\nSkipping the download of: \n" + entity + "\n" + message +  "\n-----");
     }
 
     public abstract int getData();
     protected abstract void addRequiredFiles();
+    protected abstract void markUpdated();
 
     protected void customDataAction() {
         return;

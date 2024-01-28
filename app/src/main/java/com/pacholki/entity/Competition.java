@@ -31,8 +31,9 @@ public class Competition extends Entity {
     private int playedGameweeks;
     private int totalGameweeks;
     private boolean playerDataReady;
-    private boolean updated;
     private boolean forceUpdate;
+    private boolean updated;
+
 
     public Competition(League league, Season season, MainController controller, boolean forceUpdate) {
         this.league = league;
@@ -40,9 +41,9 @@ public class Competition extends Entity {
         this.controller = controller;
         this.forceUpdate = forceUpdate;
         this.playerDataReady = false;
-        this.updated = false;
         this.playedGameweeks = 0;
         this.totalGameweeks = 0;
+        this.updated = false;
         if (isValid())  {
             prepPaths();
             getData();
@@ -53,7 +54,6 @@ public class Competition extends Entity {
             }
             getPlayersData();
         }
-        this.updated = forceUpdate;
     }
 
     public Competition(League league, Season season, MainController controller) {
@@ -162,6 +162,10 @@ public class Competition extends Entity {
 
     public boolean wasUpdated() {
         return updated;
+    }
+
+    public void markUpdated() {
+        updated = true;
     }
 
     public Team getTeamByName(String name) {
