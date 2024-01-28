@@ -136,6 +136,11 @@ public class MainController extends Controller {
         }
     }
 
+    @Override
+    public void showLoadScreen(Entity entity) {
+        System.out.println("Showing a cool load screen for :" + entity);
+    }
+
     public List<MFXButton> generateTeamButtons(Competition competition) {
         List<MFXButton> teamButtons = new ArrayList<>();
         for (Team team : competition.getTeams()) {

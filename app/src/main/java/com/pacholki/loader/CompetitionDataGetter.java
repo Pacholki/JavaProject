@@ -19,7 +19,7 @@ public class CompetitionDataGetter extends VisibleDataGetter {
         this.competition = competition;
         this.isAnUpdate = isAnUpdate;
         this.message = "CompetitionOverview";
-        this.verbose = 0;
+        this.verbose = 1;
     }
 
     public CompetitionDataGetter(Competition competition) {

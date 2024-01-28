@@ -19,7 +19,7 @@ public class PlayerDataGetter extends DataGetter {
         this.competition = competition;
         this.isAnUpdate = isAnUpdate;
         this.message = "PlayerData";
-        this.verbose = 0;
+        this.verbose = 1;
     }
 
     public PlayerDataGetter(Competition competition) {
@@ -60,4 +60,6 @@ public class PlayerDataGetter extends DataGetter {
 
     @Override
     protected void markUpdated() {}
+    @Override
+    protected void showLoadScreen() {}
 }

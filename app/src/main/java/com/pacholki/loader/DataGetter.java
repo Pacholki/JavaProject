@@ -50,6 +50,7 @@ public abstract class DataGetter extends Loader {
     }
 
     private void handleNewDownload() {
+        showLoadScreen();
         showTryDownloadMessage(verbose > 1, message);
         int exitCode = getData();
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
@@ -76,6 +77,7 @@ public abstract class DataGetter extends Loader {
     public abstract int getData();
     protected abstract void addRequiredFiles();
     protected abstract void markUpdated();
+    protected abstract void showLoadScreen();
 
     protected void customDataAction() {
         return;
