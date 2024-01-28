@@ -173,17 +173,8 @@ public class Game extends Entity {
         } else if (period.isNegative()) {
             return "in the past";
         } else {
-            StringBuilder result = new StringBuilder("in ");
-            if (period.getYears() > 0) {
-                result.append(period.getYears()).append(" years ");
-            }
-            if (period.getMonths() > 0) {
-                result.append(period.getMonths()).append(" months ");
-            }
-            if (period.getDays() > 0) {
-                result.append(period.getDays()).append(" days");
-            }
-            return result.toString().trim();
+            long totalDays = matchDate.toEpochDay() - currentDate.toEpochDay();
+            return "in " + totalDays + " days";
         }
     }
 
