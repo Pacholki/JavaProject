@@ -172,7 +172,7 @@ MFXButton .mfx-ripple-generator {
 }
 
 .gameweekChoiceBox .caret .mfx-font-icon {  /* kolor strzałeczki */
-    -mfx-color: white;
+    -mfx-color: #323232;
 }
 
 .gameweekChoiceBox .caret {
@@ -184,6 +184,7 @@ MFXButton .mfx-ripple-generator {
 }
 
 #scrollPane { /* to takie z boku */
+    
 }
 
 .playerInfo {
