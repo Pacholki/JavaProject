@@ -12,7 +12,7 @@
              <VBox>
                  <Label fx:id="playerNameText" prefHeight="56.0" prefWidth="310.0" styleClass="playerInfo"/>
                  <Label fx:id="teamNameText" prefHeight="56.0" prefWidth="310.0" styleClass="playerInfo"/>
-                 <Label fx:id="ageText" prefHeight="56.0" prefWidth="310.0" styleClass="playerInfo"/>
+                 <Label fx:id="ageText" prefHeight="56.0" prefWidth="500.0" styleClass="playerInfo"/>
                  <Label fx:id="positionsText" prefHeight="56.0" prefWidth="310.0" styleClass="playerInfo"/>
              </VBox>
          </children>
