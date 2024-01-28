@@ -31,7 +31,6 @@ public class MainPane extends MyPane {
     }
         
     public void loadFirstSeason() {
-        System.out.println("siema");
         changeCompetition(leagues.get(0), seasons.get(0));
     }
 
@@ -74,7 +73,6 @@ public class MainPane extends MyPane {
 
     private boolean changeCompetition(League league, Season season) {
 
-        System.out.println("changing competition");
         boolean competitionFound = false;
         for (Competition competition : competitions) {
             if (competition.getLeague().equals(league) & competition.getSeason().equals(season)) {
@@ -85,7 +83,6 @@ public class MainPane extends MyPane {
         }
 
         if (!competitionFound) {
-            System.out.println("not found");
             Competition competition = new Competition(league, season, controller);
             if (competitions.size() == 0) {
                 currentCompetition = competition;
