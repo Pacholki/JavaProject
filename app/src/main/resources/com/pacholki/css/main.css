@@ -185,3 +185,7 @@ MFXButton .mfx-ripple-generator {
 #scrollPane { /* to takie z boku */
 }
 
+#entityPane {
+    background-color: red;
+}
+

@@ -51,6 +51,12 @@ public abstract class DataGetter extends Loader {
 
     private void handleNewDownload() {
         showLoadScreen();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         showTryDownloadMessage(verbose > 1, message);
         int exitCode = getData();
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);

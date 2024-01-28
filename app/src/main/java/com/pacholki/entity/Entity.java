@@ -21,6 +21,10 @@ public abstract class Entity {
         return controller;
     }
 
+    public String getFXML_DIR() {
+        return FXML_DIR;
+    }
+
     public abstract void prepareData();
     public abstract String getFXMLPath();
 }

@@ -138,7 +138,14 @@ public class MainController extends Controller {
 
     @Override
     public void showLoadScreen(Entity entity) {
-        System.out.println("Showing a cool load screen for :" + entity);
+        try {
+            String fxmlPath = entity.getFXML_DIR() + "loadScreen.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Pane pane = loader.load();
+            entityPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<MFXButton> generateTeamButtons(Competition competition) {
