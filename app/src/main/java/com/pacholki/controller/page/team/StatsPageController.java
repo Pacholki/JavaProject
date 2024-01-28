@@ -55,4 +55,6 @@ public class StatsPageController extends Controller {
 
     @Override
     public void updatePane(Entity entity) {}
+    @Override
+    public void showLoadScreen(Entity entity) {}
 }

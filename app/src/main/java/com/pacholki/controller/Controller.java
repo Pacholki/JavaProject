@@ -14,4 +14,5 @@ public abstract class Controller implements Initializable {
     protected static TeamPane teamPane;
 
     public abstract void updatePane(Entity entity);
+    public abstract void showLoadScreen(Entity entity);
 }
