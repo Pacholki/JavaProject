@@ -38,7 +38,7 @@ public class CompetitionController extends Controller {
         competition = competitionPane.getCurrentCompetition();
 
         generateTable(competition.getPlayedGameweeks());
-        generateFixtures(competition.getTotalGameweeks());
+        generateFixtures(competition.getPlayedGameweeks());
 
         setTableGameweekChoiceBox(competition.getPlayedGameweeks());
         setFixtureGameweekChoiceBox(competition.getTotalGameweeks());

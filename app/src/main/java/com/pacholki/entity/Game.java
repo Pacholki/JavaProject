@@ -2,6 +2,8 @@ package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.*;
+
 public class Game extends Entity {
 
     private static final String FXML_PATH = DATA_DIR + "fxml/game.fxml";
@@ -9,7 +11,7 @@ public class Game extends Entity {
     @JsonProperty("week")
     private int gameweek;
     private String day;
-    private String date;
+    private long date;
     private String time;
     @JsonProperty("home_team")
     private String homeTeamName;
@@ -43,7 +45,7 @@ public class Game extends Entity {
     public void setDay(String day) {
         this.day = day;
     }
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
     public void setTime(String time) {
@@ -102,7 +104,7 @@ public class Game extends Entity {
     public String getDay() {
         return day;
     }
-    public String getDate() {
+    public long getDate() {
         return date;
     }
     public String getTime() {
@@ -153,6 +155,36 @@ public class Game extends Entity {
     }
     public int getAwayScore() {
         return awayScore;
+    }
+
+    public String getStringScore() {
+        if(!hasBeenPlayed()){return getDaysUntilMatch();}
+        return score;
+    }
+    private String getDaysUntilMatch() {
+        Instant instant = Instant.ofEpochMilli(date);
+        LocalDate matchDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate currentDate = LocalDate.now();
+
+        Period period = Period.between(currentDate, matchDate);
+
+        if (period.isZero()) {
+            return "Today";
+        } else if (period.isNegative()) {
+            return "in the past";
+        } else {
+            StringBuilder result = new StringBuilder("in ");
+            if (period.getYears() > 0) {
+                result.append(period.getYears()).append(" years ");
+            }
+            if (period.getMonths() > 0) {
+                result.append(period.getMonths()).append(" months ");
+            }
+            if (period.getDays() > 0) {
+                result.append(period.getDays()).append(" days");
+            }
+            return result.toString().trim();
+        }
     }
 
     // ---------------------------------------------
