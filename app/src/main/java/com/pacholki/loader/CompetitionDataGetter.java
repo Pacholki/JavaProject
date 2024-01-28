@@ -2,6 +2,7 @@ package com.pacholki.loader;
 
 import java.io.IOException;
 
+import com.pacholki.controller.MainController;
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
@@ -57,5 +58,10 @@ public class CompetitionDataGetter extends VisibleDataGetter {
     @Override
     protected void markUpdated() {
         competition.markUpdated();
+    }
+
+    @Override
+    protected void saveCompetition() {
+        ((MainController) competition.getController()).addToCompetitionList(competition);
     }
 }

@@ -40,6 +40,7 @@ public class MainController extends Controller {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainPane = new MainPane(this);
+        mainPane.loadFirstSeason();
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
         leagueChoiceButton.setText(mainPane.getCurrentLeague().getName());
@@ -113,6 +114,12 @@ public class MainController extends Controller {
 
     public String getLeagueName() {
         return currentLeagueName;
+    }
+
+    public void addToCompetitionList(Competition competition) {
+        mainPane.tidyCompetitionList(competition);
+        mainPane.addCompetition(competition);
+        mainPane.setCurrentCompetition(competition);
     }
 
     @Override

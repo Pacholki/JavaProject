@@ -28,6 +28,10 @@ public class MainPane extends MyPane {
         readLeagues();
         readSeasons();
         competitions = new ArrayList<>();
+    }
+        
+    public void loadFirstSeason() {
+        System.out.println("siema");
         changeCompetition(leagues.get(0), seasons.get(0));
     }
 
@@ -70,6 +74,7 @@ public class MainPane extends MyPane {
 
     private boolean changeCompetition(League league, Season season) {
 
+        System.out.println("changing competition");
         boolean competitionFound = false;
         for (Competition competition : competitions) {
             if (competition.getLeague().equals(league) & competition.getSeason().equals(season)) {
@@ -78,9 +83,13 @@ public class MainPane extends MyPane {
                 currentCompetition.setMe();
             }
         }
+
         if (!competitionFound) {
-            currentCompetition = new Competition(league, season, controller);
-            competitions.add(currentCompetition);
+            System.out.println("not found");
+            Competition competition = new Competition(league, season, controller);
+            if (competitions.size() == 0) {
+                currentCompetition = competition;
+            }
         }
 
         return true;
@@ -91,9 +100,7 @@ public class MainPane extends MyPane {
         if (! currentCompetition.isActive())    return;
         if (currentCompetition.wasUpdated())    return;
 
-        competitions.remove(currentCompetition);
-        currentCompetition = new Competition(currentCompetition.getLeague(), currentCompetition.getSeason(), controller, true);
-        competitions.add(currentCompetition);
+        new Competition(currentCompetition.getLeague(), currentCompetition.getSeason(), controller, true);
     }
 
     public List<League> getLeagues() {
@@ -114,5 +121,24 @@ public class MainPane extends MyPane {
 
     public void setCurrentTeam(Team team) {
         currentTeam = team;
+    }
+
+    public void setCurrentCompetition(Competition competition) {
+        currentCompetition = competition;
+    }
+
+    public void addCompetition(Competition competition) {
+        competitions.add(competition);
+    }
+
+    public void tidyCompetitionList(Competition newCompetition) {
+        List<Competition> deprecatedCompetitions = new ArrayList<>();
+        for (Competition competition : competitions) {
+            if (competition.getLeague().equals(newCompetition.getLeague()) & 
+                competition.getSeason().equals(newCompetition.getSeason())) {
+                    deprecatedCompetitions.add(competition);
+                }
+        }
+        competitions.removeAll(deprecatedCompetitions);
     }
 }
