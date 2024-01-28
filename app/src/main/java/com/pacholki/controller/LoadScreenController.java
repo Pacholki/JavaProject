@@ -10,8 +10,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Stop;
-import javafx.scene.paint.LinearGradient;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
