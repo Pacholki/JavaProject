@@ -201,7 +201,6 @@ MFXButton .mfx-ripple-generator {
     -fx-text-fill: #fbfafa;
     /* -fx-font-family: 'Open Sans' Sans-Serif; */ /* czemu tekst jest ten sam po wybraniu gracza w sensie to nie ma sensu */
 }
-}
 
 #entityPane {
     background-color: red;
