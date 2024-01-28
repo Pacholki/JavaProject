@@ -12,13 +12,18 @@ public class PlayerDataGetter extends DataGetter {
     private Season season;
     private Competition competition;
 
-    public PlayerDataGetter(Competition competition) {
+    public PlayerDataGetter(Competition competition, boolean isAnUpdate) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
         this.entity = competition;
         this.competition = competition;
+        this.isAnUpdate = isAnUpdate;
         this.message = "PlayerData";
         this.verbose = 1;
+    }
+
+    public PlayerDataGetter(Competition competition) {
+        this(competition, false);
     }
 
     @Override
@@ -52,4 +57,9 @@ public class PlayerDataGetter extends DataGetter {
     protected void addRequiredFiles() {
         requiredFiles.add(competition.getPlayersFilePath());
     }
+
+    @Override
+    protected void markUpdated() {}
+    @Override
+    protected void showLoadScreen() {}
 }
