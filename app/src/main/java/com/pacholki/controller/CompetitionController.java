@@ -66,7 +66,7 @@ public class CompetitionController extends Controller {
     }
 
     private void setTableGameweekChoiceBox(int maxGameweek) {
-        tableGameweekChoiceBox.setText("Choose gameweek");
+        // tableGameweekChoiceBox.setText("Choose gameweek");
         tableGameweekChoiceBox.setItems(generateGameweekChoices(maxGameweek));
         tableGameweekChoiceBox.setOnAction(event -> {
             competitionPane.setTableGameweek(tableGameweekChoiceBox.getValue().gameweek);
@@ -75,7 +75,7 @@ public class CompetitionController extends Controller {
     }
 
     private void setFixtureGameweekChoiceBox(int maxGameweek) {
-        fixtureGameweekChoiceBox.setText("Choose gameweek");
+        // fixtureGameweekChoiceBox.setText("Choose gameweek");
         fixtureGameweekChoiceBox.setItems(generateGameweekChoices(maxGameweek));
         fixtureGameweekChoiceBox.setOnAction(event -> {
             competitionPane.setFixtureGameweek(fixtureGameweekChoiceBox.getValue().gameweek);
