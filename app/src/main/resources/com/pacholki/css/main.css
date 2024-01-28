@@ -1,6 +1,7 @@
 @import "../fonts/fonts.css";
 @import "table.css";
 
+
 * {
     -fx-primary: #2b3254;
     -fx-primary-light: #334585;
@@ -185,3 +186,17 @@ MFXButton .mfx-ripple-generator {
 #scrollPane { /* to takie z boku */
 }
 
+.playerInfo {
+    -fx-text-fill: #fbfafa;
+    -fx-font-size: 25px;
+    -fx-font-family: 'Arial';
+    -fx-font-weight: bold;
+}
+
+#teamNameText {
+    -fx-font-size: 25px;
+    -fx-font-family: 'Arial';
+    -fx-font-weight: bold;
+    -fx-text-fill: #fbfafa;
+    /* -fx-font-family: 'Open Sans' Sans-Serif; */ /* czemu tekst jest ten sam po wybraniu gracza w sensie to nie ma sensu */
+}
