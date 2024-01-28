@@ -1,4 +1,4 @@
-package com.pacholki.changer;
+package com.pacholki.loader;
 
 import javafx.application.Platform;
 
