@@ -86,6 +86,16 @@ public class MainPane extends MyPane {
         return true;
     }
 
+    public void handleCompetitionUpdate() {
+
+        if (! currentCompetition.isActive())    return;
+        if (currentCompetition.wasUpdated())    return;
+
+        competitions.remove(currentCompetition);
+        currentCompetition = new Competition(currentCompetition.getLeague(), currentCompetition.getSeason(), controller, true);
+        competitions.add(currentCompetition);
+    }
+
     public List<League> getLeagues() {
         return leagues;
     }

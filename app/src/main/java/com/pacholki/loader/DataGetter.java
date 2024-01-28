@@ -12,7 +12,7 @@ public abstract class DataGetter extends Loader {
 
     protected int id;
     protected int verbose = 1;
-    protected boolean skipDownload = true;
+    protected boolean forceDownload = false;
     protected String message;
     protected Entity entity;
 
@@ -28,16 +28,20 @@ public abstract class DataGetter extends Loader {
         addRequiredFiles();
 
         if (isDownloadNecessary()) {
-            showTryDownloadMessage(verbose > 1, message);
-            int exitCode = getData();
-            showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
-            showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
+            handleNewDownload();
         }
         else {
             showSkipDownloadMessage(message);
         }
 
         customDataAction();
+    }
+
+    private void handleNewDownload() {
+        showTryDownloadMessage(verbose > 1, message);
+        int exitCode = getData();
+        showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
+        showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
     }
 
     protected void showTryDownloadMessage(boolean condition, String message) {
@@ -65,8 +69,7 @@ public abstract class DataGetter extends Loader {
 
     private boolean isDownloadNecessary() {
         if (filesMissing()) return true;
-        if (skipDownload)   return false;
-        return true;
+        return forceDownload;
     }
 
     private boolean filesMissing() {

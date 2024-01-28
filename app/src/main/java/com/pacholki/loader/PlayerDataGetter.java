@@ -12,13 +12,18 @@ public class PlayerDataGetter extends DataGetter {
     private Season season;
     private Competition competition;
 
-    public PlayerDataGetter(Competition competition) {
+    public PlayerDataGetter(Competition competition, boolean forceDownload) {
         this.league = competition.getLeague();
         this.season = competition.getSeason();
         this.entity = competition;
         this.competition = competition;
+        this.forceDownload = forceDownload;
         this.message = "PlayerData";
         this.verbose = 1;
+    }
+
+    public PlayerDataGetter(Competition competition) {
+        this(competition, false);
     }
 
     @Override

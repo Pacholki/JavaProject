@@ -121,6 +121,8 @@ public class MainController extends Controller {
         teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
         
         updateEntityPane(competition);
+
+        mainPane.handleCompetitionUpdate();
     }
 
     public void updateEntityPane(Entity entity) {
