@@ -161,7 +161,6 @@ public class MainController extends Controller {
 
     private void viewTeam(Team team) {
         mainPane.setCurrentTeam(team);
-        Tools.display(team.getPlayers());
         updateEntityPane(team);
     }
 }

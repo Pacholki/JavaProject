@@ -56,6 +56,7 @@ public class InfoPageController extends Controller {
                 "    L: " + team.getGamesLost(max_gmw));
         playersCountText.setText("Number of players: " + team.getPlayers().size());
         generateTeamFixture(competitionPane.getCurrentTeam());
+
     }
 
     private void setImage(ImageView image) {
