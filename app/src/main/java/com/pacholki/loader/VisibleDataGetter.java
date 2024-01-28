@@ -9,7 +9,11 @@ public abstract class VisibleDataGetter extends DataGetter{
         id = requests;
 
         super.run(verbose);
+    }
 
+    @Override
+    protected void customDataAction() {
+        entity.prepareData();
         boolean isLastUserRequest = (requests == id);
         if (isLastUserRequest) {
             Platform.runLater(() -> entity.getController().updatePane(entity));
@@ -17,7 +21,10 @@ public abstract class VisibleDataGetter extends DataGetter{
     }
 
     @Override
-    protected void customDataAction() {
-        entity.prepareData();
+    protected void showLoadScreen() {
+        boolean isLastUserRequest = (requests == id);
+        if (isLastUserRequest) {
+            Platform.runLater(() -> entity.getController().showLoadScreen(entity));
+        }
     }
 }

@@ -121,11 +121,25 @@ public class MainController extends Controller {
         teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
         
         updateEntityPane(competition);
+
+        mainPane.handleCompetitionUpdate();
     }
 
     public void updateEntityPane(Entity entity) {
         try {
             String fxmlPath = entity.getFXMLPath();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Pane pane = loader.load();
+            entityPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void showLoadScreen(Entity entity) {
+        try {
+            String fxmlPath = entity.getFXML_DIR() + "loadScreen.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Pane pane = loader.load();
             entityPane.getChildren().setAll(pane);

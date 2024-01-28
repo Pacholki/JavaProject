@@ -33,14 +33,19 @@ public class Competition extends Entity {
     private int playedGameweeks;
     private int totalGameweeks;
     private boolean playerDataReady;
+    private boolean forceUpdate;
+    private boolean updated;
 
-    public Competition(League league, Season season, MainController controller) {
+
+    public Competition(League league, Season season, MainController controller, boolean forceUpdate) {
         this.league = league;
         this.season = season;
         this.controller = controller;
+        this.forceUpdate = forceUpdate;
         this.playerDataReady = false;
         this.playedGameweeks = 0;
         this.totalGameweeks = 0;
+        this.updated = false;
         if (isValid())  {
             prepPaths();
             getData();
@@ -53,6 +58,10 @@ public class Competition extends Entity {
         }
     }
 
+    public Competition(League league, Season season, MainController controller) {
+        this(league, season, controller, false);
+    }
+
     private void prepPaths() {
         compDir = LEAGUES_DIR + league.getName() + "/" + season.getFBrefID() + "/";
         teamsFilePath = compDir + "teams.json";
@@ -62,12 +71,12 @@ public class Competition extends Entity {
     // ---------------------------------------------
 
     private void getData() {
-        getter = new CompetitionDataGetter(this);
+        getter = new CompetitionDataGetter(this, forceUpdate);
         getter.start();
     }
 
     private void getPlayersData() {
-        PlayerDataGetter playerGetter = new PlayerDataGetter(this);
+        PlayerDataGetter playerGetter = new PlayerDataGetter(this, forceUpdate);
         playerGetter.start();
     }
 
@@ -147,6 +156,18 @@ public class Competition extends Entity {
 
     public boolean isValid() {
         return (league != null & season != null);
+    }
+
+    public boolean isActive() {
+        return season.isActive();
+    }
+
+    public boolean wasUpdated() {
+        return updated;
+    }
+
+    public void markUpdated() {
+        updated = true;
     }
 
     public Team getTeamByName(String name) {
