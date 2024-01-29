@@ -27,14 +27,22 @@ public abstract class DataGetter extends Loader {
     public void run(int verbose) {
 
         addRequiredFiles();
-
+        int exitCode = 0;
         if (isDownloadNecessary()) {
-            handleNewDownload();
+            exitCode = handleNewDownload();
             markUpdated();
+            if(exitCode != 0) {
+                showError();
+                return;
+            }
         }
         else if (isAnUpdate) {
-            handleUpdate();
+            exitCode = handleUpdate();
             markUpdated();
+            if(exitCode != 0) {
+                showOutdatedDataNotification();
+                return;
+            }
         } else {
             showSkipDownloadMessage(verbose > 0, message);
         }
@@ -43,19 +51,21 @@ public abstract class DataGetter extends Loader {
         customDataAction();
     }
 
-    private void handleUpdate() {
+    private int handleUpdate() {
         showTryDownloadMessage(verbose > 1, message);
         int exitCode = getData();
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
         showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
+        return exitCode;
     }
 
-    private void handleNewDownload() {
+    private int handleNewDownload() {
         showLoadScreen();
         showTryDownloadMessage(verbose > 1, message);
         int exitCode = getData();
         showDownloadSuccessfulMessage(exitCode == 0 & verbose > 0, message);
         showDownloadFailedMessage(exitCode != 0 & verbose > 0, message);
+        return exitCode;
     }
 
     protected void showTryDownloadMessage(boolean condition, String message) {
@@ -79,6 +89,8 @@ public abstract class DataGetter extends Loader {
     protected abstract void addRequiredFiles();
     protected abstract void markUpdated();
     protected abstract void showLoadScreen();
+    protected abstract void showError();
+    protected abstract void showOutdatedDataNotification();
 
     protected void saveCompetition() {}
 

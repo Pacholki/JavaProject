@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.ErrorScreenController" stylesheets="@../css/load.css">
+    <center>
+        <VBox alignment="CENTER">
+            <ImageView fx:id="pudzianError" fitHeight="600.0" fitWidth="600.0"/>
+            <Label fx:id="errorText" style="-fx-text-fill: red; -fx-font-weight: bold; -fx-font-size: 35;" />
+        </VBox>
+    </center>
+</BorderPane>

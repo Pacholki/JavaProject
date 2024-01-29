@@ -69,4 +69,8 @@ public class TeamController extends Controller {
     public void updatePane(Entity entity) {}
     @Override
     public void showLoadScreen(Entity entity) {}
+    @Override
+    public void showError(Entity entity) {}
+    @Override
+    public void showOutdatedDataNotification(Entity entity) {}
 }
