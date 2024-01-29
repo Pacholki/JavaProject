@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import com.pacholki.entity.*;
 import com.pacholki.pane.MainPane;
 
-import com.pacholki.util.Tools;
 import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
@@ -78,6 +77,7 @@ public class MainController extends Controller {
         for (League league : mainPane.getLeagues()) {
             MFXButton button = new MFXButton(league.getName());
             button.setOnAction(e -> changeLeague(league));
+            button.getStyleClass().add("choice-button");
             leagueButtons.add(button);
         }
 
@@ -91,6 +91,7 @@ public class MainController extends Controller {
         for (Season season : mainPane.getSeasons()) {
             MFXButton button = new MFXButton(season.getLabel());
             button.setOnAction(e -> changeSeason(season));
+            button.getStyleClass().add("choice-button");
             seasonButtons.add(button);
         }
 
