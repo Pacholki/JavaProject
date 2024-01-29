@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.page.team.AnalysisPageController">
+    <top>
+        <CheckBox text="Show Per 90'" fx:id="checkBox" onAction="#toggleView" styleClass="playerInfo"/>
+    </top>
+    <center>
+        <HBox>
+            <TableView fx:id="analysisTable" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS"/>
+            <TableView fx:id="per90analysisTable" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </center>
+</BorderPane>
+

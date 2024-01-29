@@ -1,8 +1,8 @@
 package com.pacholki.entity;
 
 import com.pacholki.controller.Controller;
-import com.pacholki.changer.DataGetter;
-import com.pacholki.changer.DataWaiter;
+import com.pacholki.loader.DataGetter;
+import com.pacholki.loader.DataWaiter;
 
 public abstract class Entity {
 
@@ -13,13 +13,16 @@ public abstract class Entity {
     protected DataGetter getter;
 
     public void setMe() {
-        System.out.println("Trying to set " + toString());
         DataWaiter waiter = new DataWaiter(this, getter);
         waiter.start();
     };
 
     public Controller getController() {
         return controller;
+    }
+
+    public String getFXML_DIR() {
+        return FXML_DIR;
     }
 
     public abstract void prepareData();

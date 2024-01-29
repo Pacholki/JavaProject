@@ -28,6 +28,9 @@ public class MainPane extends MyPane {
         readLeagues();
         readSeasons();
         competitions = new ArrayList<>();
+    }
+        
+    public void loadFirstSeason() {
         changeCompetition(leagues.get(0), seasons.get(0));
     }
 
@@ -69,7 +72,6 @@ public class MainPane extends MyPane {
     }
 
     private boolean changeCompetition(League league, Season season) {
-
         boolean competitionFound = false;
         for (Competition competition : competitions) {
             if (competition.getLeague().equals(league) & competition.getSeason().equals(season)) {
@@ -78,12 +80,22 @@ public class MainPane extends MyPane {
                 currentCompetition.setMe();
             }
         }
-        if (!competitionFound) {
-            currentCompetition = new Competition(league, season, controller);
-            competitions.add(currentCompetition);
-        }
 
+        if (!competitionFound) {
+            Competition competition = new Competition(league, season, controller);
+            if (competitions.size() == 0) {
+                currentCompetition = competition;
+            }
+        }
         return true;
+    }
+
+    public void handleCompetitionUpdate() {
+
+        if (! currentCompetition.isActive())    return;
+        if (currentCompetition.wasUpdated())    return;
+
+        new Competition(currentCompetition.getLeague(), currentCompetition.getSeason(), controller, true);
     }
 
     public List<League> getLeagues() {
@@ -104,5 +116,24 @@ public class MainPane extends MyPane {
 
     public void setCurrentTeam(Team team) {
         currentTeam = team;
+    }
+
+    public void setCurrentCompetition(Competition competition) {
+        currentCompetition = competition;
+    }
+
+    public void addCompetition(Competition competition) {
+        competitions.add(competition);
+    }
+
+    public void tidyCompetitionList(Competition newCompetition) {
+        List<Competition> deprecatedCompetitions = new ArrayList<>();
+        for (Competition competition : competitions) {
+            if (competition.getLeague().equals(newCompetition.getLeague()) & 
+                competition.getSeason().equals(newCompetition.getSeason())) {
+                    deprecatedCompetitions.add(competition);
+                }
+        }
+        competitions.removeAll(deprecatedCompetitions);
     }
 }

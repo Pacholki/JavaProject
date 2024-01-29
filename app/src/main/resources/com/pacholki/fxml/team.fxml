@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.TeamController">
-  <center>
-  </center>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="There will be some team info showing here soon" />
-            <Label text="Current team:" />
-            <Label fx:id = "teamName" text="" />
-         </children>
-      </VBox>
-   </center>
-</BorderPane>
+<?import javafx.scene.layout.VBox?>
+<GridPane fx:id="gridPane" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.TeamController" styleClass="container">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+    <Button fx:id="infoButton" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+    <Button fx:id="playerButton" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="4" GridPane.columnSpan="2"/>
+    <Button fx:id="statsButton" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="7" GridPane.columnSpan="2"/>
+    <Button fx:id="advancedButton" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="10" GridPane.columnSpan="2"/>
+    <Pane fx:id="pagePane" GridPane.rowIndex="2" GridPane.rowSpan="13" GridPane.columnIndex="0" GridPane.columnSpan="13"/>
+</GridPane>
+

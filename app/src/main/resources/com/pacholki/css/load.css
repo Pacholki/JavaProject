@@ -1,0 +1,5 @@
+.svg-pane {
+    -fx-background-color: lightblue;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+}

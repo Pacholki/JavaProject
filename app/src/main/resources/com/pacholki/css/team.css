@@ -1,0 +1,20 @@
+.team-container {
+    -fx-hgap: 3em;
+    -fx-vgap: 2em;
+}
+
+.team-container .button {
+    -fx-pref-width: 14em;
+    -fx-min-height: 3em;
+    -fx-background-color: -fx-primary-light;
+    -fx-background-radius: 0.4em;
+    -fx-font-size: 16px;
+    -fx-text-fill: -fx-floral-white;
+    -fx-label-padding: 0;
+    -fx-translate-y: 20px;
+}
+
+.team-container .button:hover {
+    -fx-background-color: linear-gradient(to right, -fx-burgundy, -fx-butterscotch);
+    -fx-text-fill: -fx-sunset;
+}

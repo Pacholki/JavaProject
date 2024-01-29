@@ -4,9 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Season {
 
+    private static final String activeSeasonID = "2324";
+
     private String label;
     @JsonProperty("season")
     private String FBrefID;
+
+    public boolean isActive() {
+        return FBrefID.equals(activeSeasonID);
+    }
 
     // ---------------------------------------------
 

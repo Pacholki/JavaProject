@@ -1,0 +1,49 @@
+.container {
+    -fx-hgap: 3em;
+    -fx-vgap: 2em;
+    /* -fx-background-color: -fx-contrast;
+    -fx-grid-lines-visible: true; */
+}
+
+.combo-container {
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.gameweekChoiceBox {
+    -fx-min-width: 100px;
+    -fx-max-width: 220px;
+    -fx-pref-height: 5px;
+    -fx-padding: 0 0 0 15;
+	-fx-background-color: #3db7e4;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #323232;
+    -fx-font-family: 'Open Sans' Sans-Serif;
+    -fx-font-weight: bold;
+}
+
+.gameweekChoiceBox * {
+    -fx-padding: 0;
+}
+
+.gameweekChoiceBox .text-input {
+    -fx-background-color: transparent;
+}
+
+.gameweekChoiceBox .floating-text {
+    -fx-text-fill: #323232;
+    -fx-padding: 0 0 0 5;
+    -fx-font-size: 18px;
+    -fx-font-family: 'Open Sans' Sans-Serif;
+    -fx-font-weight: bold;
+}
+
+.gameweekChoiceBox .caret .mfx-font-icon {
+    -mfx-color: #323232;
+}
+
+.gameweekChoiceBox .arrow-button {
+    -fx-background-color: white;
+}

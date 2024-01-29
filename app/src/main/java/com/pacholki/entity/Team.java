@@ -2,10 +2,16 @@ package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Team extends Entity {
 
     private static final String FXML_PATH = FXML_DIR + "team.fxml";
-    
+
+    private Competition competition;
+
+    private List<Player> players;
     @JsonProperty("team")
     private String name;
     private int[] gamesPlayed = new int[40];
@@ -17,12 +23,28 @@ public class Team extends Entity {
     private int[] points = new int[40];
     // ---------------------------------------------
 
+    public Team(){
+        this.players = new ArrayList<>();
+    }
+
+    // ---------------------------------------------
+    public Competition getCompetition() {
+        return competition;
+    }
+
     public String getName() {
         return name;
     }
 
+    public List<Player> getPlayers() {
+        return players;
+    }
+
     // ---------------------------------------------
 
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -86,17 +108,26 @@ public class Team extends Entity {
         return points[gameweek];
     }
 
+    public int getGoalDifference(Integer gameweek) { return goalsFor[gameweek] - goalsAgainst[gameweek];}
+
+    public int getTeamPlace(Competition currComp, Team targetTeam) {
+        List<Team> sortedTeams = currComp.getTeamsSorted();
+        int index = sortedTeams.indexOf(targetTeam);
+        return index + 1;
+    }
+
     public TeamTableRow getTableRow(Integer gameweek) {
         return new TeamTableRow(this, gameweek);
     }
 
     //-------------------------------------------------
 
-    @Override
-    public void prepareData() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'prepareData'");
+    public void addPlayer(Player player) {
+        players.add(player);
     }
+
+    @Override
+    public void prepareData() {}
 
     @Override
     public String getFXMLPath() {
