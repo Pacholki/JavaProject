@@ -1,7 +1,7 @@
 @import "../fonts/fonts.css";
 @import "colors.css";
 @import "competition.css";
-@import "table.css"
+@import "table.css";
 
 .root {
     -fx-font-family: "Open Sans Bold";
@@ -63,7 +63,6 @@
 
 .league-choice-container:hover .selected-league-button,
 .season-choice-container:hover .selected-season-button {
-    -fx-background-radius: 0;
     -fx-border-width: 0 0 2px 0;
     -fx-border-insets: 0 0 -2px 0;
     -fx-border-color: -fx-floral-white;
