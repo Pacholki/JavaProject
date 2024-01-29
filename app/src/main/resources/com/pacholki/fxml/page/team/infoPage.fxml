@@ -16,7 +16,7 @@
                <Label fx:id="bilansText" prefHeight="56.0" prefWidth="600.0" styleClass="playerInfo" />
                <Label fx:id="playersCountText" prefHeight="56.0" prefWidth="600.0" styleClass="playerInfo" />
             </VBox>
-            <TableView fx:id="teamFixtures" prefHeight="800.0" prefWidth="450.0" BorderPane.alignment="CENTER" />
+            <TableView fx:id="teamFixtures" prefHeight="800.0" prefWidth="450.0" BorderPane.alignment="CENTER" styleClass="team-table"/>
          </children>
       </HBox>
    </center>

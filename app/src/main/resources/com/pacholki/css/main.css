@@ -2,9 +2,16 @@
 @import "colors.css";
 @import "competition.css";
 @import "table.css";
+@import "team.css";
+@import "page.css";
 
 .root {
     -fx-font-family: "Open Sans Bold";
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: -fx-floral-white;
 }
 
 .header {
