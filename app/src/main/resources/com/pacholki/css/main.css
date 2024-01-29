@@ -1,208 +1,132 @@
 @import "../fonts/fonts.css";
+@import "colors.css";
+@import "competition.css";
 @import "table.css";
 
-
-* {
-    -fx-primary: #2b3254;
-    -fx-primary-light: #334585;
-    -fx-secondary: #a3b8ff;
-    -fx-complementary: #f1e9c3;
-    -fx-contrast: crimson;
-    -fx-darktext: #3f3e3e;
-}
-
 .root {
-    -fx-background-color: #2b3254;
-}
-
-
-HBox {
-    margin: 1em 0 1em 0;
-    -fx-spacing: 1em;
-    padding: 1em;
-    -fx-padding: 1em;
+    -fx-font-family: "Open Sans Bold";
 }
 
 .header {
-    min-height: 8em;
-    -fx-min-height: 8em;
-    max-height: 8em;
-    -fx-max-height: 8em;
-
-    z-index: -1;
+    -fx-background-color: -fx-primary-dark;
+    -fx-min-height: 6em;
+    -fx-max-height: 6em;
     -fx-view-order: -1;
-
-    -fx-background-color: #111836; /* to co w canvie kornela */
+    -fx-padding: 0 0 0 5em;
+    -fx-font-size: 22px;
 }
 
-/* VBOX */
-.choiceContainer {
-    -fx-background-color: #111836;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-alignment: center;
-    /* -fx-padding: 1em; */
+.league-choice-container,
+.season-choice-container {
+    -fx-background-color: -fx-primary-dark;
+    -fx-background-radius: 0.4em;
+    -fx-padding: 1.5em 1em 1em 1em;
 
-    /* margin: 0 0 0 50px; */
-    /* -fx-spacing: 0.5em; */
+    -fx-alignment: top-center;
 }
 
-/* VBOX */
-.choiceButtonList {
-    -fx-margin: 0 0.2em; 
-    -fx-spacing: 0.2em;
-    -fx-border-radius: 5px; /* idk czy działa */
+.choice-button-list {
+    -fx-margin: 0 0.2em;
 }
 
-.button,
-.selectButton {
-    -fx-background-color: #3db7e4;
-    -fx-background-radius: 10px;
-    -fx-border-color: white;
-    -fx-border-radius: 10px;
-    cursor: hand;
+.button {
     -fx-cursor: hand;
-    min-width: 10em;
-    -fx-min-width: 10em;
-    font-size: 2em;
-    -fx-font-size: 2em;
-    font-weight: 800;
-    -fx-font-weight: 800;
 }
 
-MFXButton .mfx-ripple-generator {
-    color: -fx-darktext;
-    -fx-text-fill: -fx-darktext;
+.league-choice-container .button,
+.season-choice-container .button {
+    -fx-pref-width: 16em;
+    -fx-min-height: 3em;
+    -fx-background-color: -fx-primary-light;
+    -fx-background-radius: 0;
+    -fx-text-fill: -fx-floral-white;
+    -fx-label-padding: 0;
+}
 
-    border-radius: 0.5em;
-    -fx-background-radius: 0.5em;
-
-    cursor: hand;
-    -fx-cursor: hand;
-
-    -mfx-ripple-color: -fx-contrast;
+.league-choice-container .button .mfx-ripple-generator,
+.season-choice-container .button .mfx-ripple-generator {
+    -mfx-ripple-color: -fx-floral-white;
     -mfx-background-opacity: 0.2;
     -mfx-ripple-opacity: 0.2;
     -mfx-ripple-radius: 0.5em;
     -mfx-auto-clip: true;
 }
 
-
-#scrollPane {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
-
-    min-width: 20em;
-    -fx-min-width: 20em;
-
-    min-height: inherit;
-    -fx-min-height: inherit; 
+.league-choice-container .selected-league-button,
+.season-choice-container .selected-season-button {
+    -fx-background-radius: 0.2em;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-insets: 0 0 -1px 0;
+    -fx-border-color: -fx-sunset;
+    -fx-view-order: -2;
 }
 
-/* MFXScrollPane .mfx-scroll-pane {
-    background-color: transparent;
-    -fx-background-color: transparent; */
-/* 
-    -track-color: rgb(255, 255, 255, 0.3);
-    -thumb-color: white;
-    -thumb-hover-color: -fx-primary; */
-/* } */
-
-#teamButtonContainer {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
-
-    padding: 1em;
-    -fx-padding: 1em;
-
-    margin: 0.1em 0;
-    -fx-spacing: 0.1em;
-
+.league-choice-container:hover .selected-league-button,
+.season-choice-container:hover .selected-season-button {
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-insets: 0 0 -2px 0;
+    -fx-border-color: -fx-floral-white;
 }
 
-.teamButton {
-    background-color: -fx-primary;
-    -fx-background-color: -fx-primary;
-
-    color: -fx-complementary;
-    -fx-text-fill: -fx-complementary;
-
-    font-size: 1.5em;
-    -fx-font-size: 1.5em;
+.league-choice-container .choice-button:hover,
+.season-choice-container .choice-button:hover {
+    -fx-background-color: -fx-oxford-blue;
 }
 
-.teamButton:hover {
-    background-color: -fx-contrast;
-    -fx-background-color: -fx-contrast;
-}
-/*     ******************************* */
-.gameweekChoiceBox {
-    -fx-min-width: 100px;
-    -fx-max-width: 220px;
-    -fx-pref-height: 5px;
-    -fx-padding: 0 0 0 15;
-	-fx-background-color: #3db7e4;
-    -fx-border-color: white;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-    -fx-border-width: 1px;
-    -fx-text-fill: #323232;
-    -fx-font-family: 'Open Sans' Sans-Serif;
-    -fx-font-weight: bold;
+/* ------------------------------------------ */
+
+.team-scroll-bar {
+    -fx-padding: 1em 3em;
+    -fx-background-color: -fx-primary-dark;
 }
 
-.gameweekChoiceBox * {
-    -fx-padding: 0;
+.team-bar {
+    -fx-background-color: -fx-primary-dark;
+    -fx-font-size: 16px;
+    -fx-spacing: 0.2em;
 }
 
-.gameweekChoiceBox .text-input {
+.team-bar .button {
+    -fx-pref-width: 14em;
+    -fx-min-height: 3em;
+    -fx-background-color: -fx-primary-light;
+    -fx-background-radius: 0.4em;
+    -fx-text-fill: -fx-floral-white;
+    -fx-label-padding: 0;
+}
+
+.team-bar .button .mfx-ripple-generator,
+.team-bar .button .mfx-ripple-generator {
+    -mfx-ripple-color: -fx-floral-white;
+    -mfx-background-opacity: 0.2;
+    -mfx-ripple-opacity: 0.2;
+    -mfx-ripple-radius: 0.5em;
+    -mfx-auto-clip: true;
+}
+
+.team-bar .button:hover,
+.team-bar .button:hover {
+    -fx-background-color: linear-gradient(to right, -fx-burgundy, -fx-butterscotch);
+    -fx-text-fill: -fx-sunset;
+}
+
+.team-scroll-bar .scroll-bar:vertical,
+.team-scroll-bar .scroll-bar:vertical .track,
+.team-scroll-bar .scroll-bar:vertical .track-background {
     -fx-background-color: transparent;
 }
 
-.gameweekChoiceBox .text-field {
-
+.team-scroll-bar .scroll-bar .increment-button,
+.team-scroll-bar .scroll-bar .decrement-button {
+    -fx-padding: 2;
+    -fx-opacity: 0;
 }
 
-.gameweekChoiceBox .floating-text { /* ten tekst co po kliknięciu idzie do góry */
-    -fx-text-fill: #323232;
-    -fx-padding: 0 0 0 5;
-    -fx-font-size: 18px;
-    -fx-font-family: 'Open Sans' Sans-Serif;
-    -fx-font-weight: bold;
+.team-scroll-bar .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, -fx-dark-red, -fx-butterscotch);
 }
 
-.gameweekChoiceBox .caret .mfx-font-icon {  /* kolor strzałeczki */
-    -mfx-color: #323232;
+.entity-pane {
+    -fx-background-color: -fx-primary;
+    -fx-alignment: center;
 }
-
-.gameweekChoiceBox .caret {
-
-}
-
-.gameweekChoiceBox .arrow-button {
-    -fx-background-color: white;
-}
-
-#scrollPane { /* to takie z boku */
-    
-}
-
-.playerInfo {
-    -fx-text-fill: #fbfafa;
-    -fx-font-size: 25px;
-    -fx-font-family: 'Arial';
-    -fx-font-weight: bold;
-}
-
-#teamNameText {
-    -fx-font-size: 25px;
-    -fx-font-family: 'Arial';
-    -fx-font-weight: bold;
-    -fx-text-fill: #fbfafa;
-    /* -fx-font-family: 'Open Sans' Sans-Serif; */ /* czemu tekst jest ten sam po wybraniu gracza w sensie to nie ma sensu */
-}
-
-#entityPane {
-    background-color: red;
-}
-

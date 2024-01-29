@@ -1,33 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyComboBox?>
+<?import io.github.palexdev.materialfx.controls.*?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.CompetitionController">
-   <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="ALWAYS" minWidth="600.0" prefWidth="600.0" />
-          <ColumnConstraints hgrow="ALWAYS" minWidth="600.0" prefWidth="600.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="300.0" prefHeight="600.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-        <MFXComboBox fx:id="tableGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek"/>
-        <TableView fx:id="leagueTable" BorderPane.alignment="CENTER" GridPane.rowIndex="1">
-          <columns>
-          </columns>
-        </TableView>
-        <MFXComboBox fx:id="fixtureGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek" GridPane.columnIndex="1"/>
-        <TableView fx:id="leagueFixtures" BorderPane.alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1">
-          <columns>
-          </columns>
-        </TableView>
-      </GridPane>
-   </center>
-</BorderPane>
+<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.CompetitionController" styleClass="container">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="80.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+  <HBox styleClass="combo-container" GridPane.rowIndex="3" GridPane.rowSpan="1" GridPane.columnIndex="4" GridPane.columnSpan="3">
+    <MFXComboBox fx:id="tableGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek"/>
+  </HBox>
+  <TableView fx:id="leagueTable" GridPane.rowIndex="4" GridPane.rowSpan="9" GridPane.columnIndex="0" GridPane.columnSpan="7" styleClass="team-table">
+  </TableView>
+  <HBox styleClass="combo-container" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="8" GridPane.columnSpan="3">
+    <MFXComboBox fx:id="fixtureGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek"/>
+  </HBox>
+  <TableView fx:id="leagueFixtures" GridPane.rowIndex="2" GridPane.rowSpan = "11" GridPane.columnIndex="8" GridPane.columnSpan="3" styleClass="team-table">
+  </TableView>
+</GridPane>

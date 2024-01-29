@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -10,32 +11,58 @@
 <?import javafx.scene.control.Label?>
 <BorderPane prefHeight="742.0" prefWidth="877.0" styleClass="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.MainController" stylesheets="@../css/main.css">
    <top>
+
       <HBox fx:id="header" styleClass="header" BorderPane.alignment="CENTER">
+
          <children>
-            <VBox styleClass="choiceContainer">
+
+            <VBox styleClass="league-choice-container">
+
                <children>
-                  <MFXButton fx:id="leagueChoiceButton" onAction="#handleLeagueChoice" styleClass="selectButton" text="Choose league" />
-                  <VBox fx:id="leagueButtonContainer" styleClass="choiceButtonList">
+
+                  <MFXButton fx:id="leagueChoiceButton" onAction="#handleLeagueChoice" styleClass="selected-league-button" text="Choose league" />
+
+                  <VBox fx:id="leagueButtonContainer" styleClass="choice-button-list">
+
                   </VBox>
+
                </children>
+
             </VBox>
-            <VBox styleClass="choiceContainer">
+
+            <VBox styleClass="season-choice-container">
+
                <children>
-                  <MFXButton fx:id="seasonChoiceButton" onAction="#handleSeasonChoice" styleClass="selectButton" text="Choose season" />
-                  <VBox fx:id="seasonButtonContainer" styleClass="choiceButtonList">
+
+                  <MFXButton fx:id="seasonChoiceButton" onAction="#handleSeasonChoice" styleClass="selected-season-button" text="Choose season" />
+
+                  <VBox fx:id="seasonButtonContainer" styleClass="choice-button-list">
+
                   </VBox>
+
                </children>
+
             </VBox>
             <Label fx:id="warningText" />
          </children>
+
       </HBox>
+
    </top>
+
    <left>
-      <MFXScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true">
-         <VBox fx:id="teamButtonContainer" />
-      </MFXScrollPane>
+
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" styleClass="team-scroll-bar">
+
+         <VBox fx:id="teamButtonContainer" styleClass="team-bar" />
+
+      </ScrollPane>
+
    </left>
+
    <center>
-      <Pane fx:id="entityPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+
+      <HBox fx:id="entityPane" styleClass="entity-pane"/>
+
    </center>
 </BorderPane>

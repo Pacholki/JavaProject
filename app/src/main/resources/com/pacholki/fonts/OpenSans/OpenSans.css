@@ -17,19 +17,35 @@
  */
 
 @font-face {
+    font-family: 'Open Sans Light';
+    font-weight: 300px;
+    font-style: normal;
+    font-display: swap;
+    src: url('OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans SemiBold';
+    font-weight: 600px;
+    font-style: normal;
+    font-display: swap;
+    src: url('OpenSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Open Sans Bold';
     font-weight: bold;
     font-style: normal;
     font-display: swap;
     src: url('OpenSans-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Open Sans BoldItalic';
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-    src: url('OpenSans-BoldItalic.ttf') format('truetype');
 }
 
 @font-face {
@@ -41,19 +57,19 @@
 }
 
 @font-face {
+    font-family: 'Open Sans BoldItalic';
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+    src: url('OpenSans-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Open Sans ExtraBoldItalic';
     font-weight: 800px;
     font-style: italic;
     font-display: swap;
     src: url('OpenSans-ExtraBoldItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Open Sans Light';
-    font-weight: 300px;
-    font-style: normal;
-    font-display: swap;
-    src: url('OpenSans-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -70,22 +86,6 @@
     font-style: italic;
     font-display: swap;
     src: url('OpenSans-Italic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Open Sans SemiBold';
-    font-weight: 600px;
-    font-style: normal;
-    font-display: swap;
-    src: url('OpenSans-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Open Sans Regular';
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    src: url('OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {

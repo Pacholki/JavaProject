@@ -1,55 +1,60 @@
-@import "../fonts/fonts.css";
-
-.table-view {
-    -fx-font-family: "Open Sans";
-}
-
+.table-view,
+.table-view .corner,
 .table-view .column-header,
 .table-view .column-header-background .filler {
-    -fx-background-color: #3f1052; 
+    -fx-background-color: transparent;
 }
 
-.table-view .column-header .label{
-    -fx-text-fill: #fbfafa;
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.team-table .column-header-background {
+    -fx-background-color: linear-gradient(to right, -fx-burgundy, -fx-butterscotch);
+    -fx-background-radius: 0.5em 0.5em 0 0;
+    -fx-padding: 0 0 0.5em 0;
+}
+
+.team-table .column-header .label{
+    -fx-text-fill: -fx-floral-white;
     -fx-font-weight: bold; 
     -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14px;
+    /* -fx-padding: 0.5em 1em; */
 }
 
-.table-view .cell{
-   -fx-cell-size: 45px;
-  -fx-alignment: center-left;
-  -fx-background-color: #303134;
-  -fx-border-color: #303134;
-  -fx-text-fill: #fbfafa;
-  -fx-alignment: CENTER_LEFT;  
+.team-table .cell{
+    -fx-cell-size: 3em;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 2 0 2 1em;
+    -fx-border-color: transparent;
+    -fx-text-fill: -fx-dark-red;
+    -fx-pref-width: 8em;
 }
 
-
-
-
-/* scroll bar starts here */
-
-/* The increment and decrement button CSS class of scrollbar */
-.table-view .increment-button ,.table-view .decrement-button {
-    -fx-background-color:transparent;
-	-fx-background-radius: 2em;
-
+.team-table .table-row-cell:odd{
+    -fx-background-color: -fx-fawn;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
 }
 
-/* The main scrollbar **track** CSS class  */
-.table-view .scroll-bar:horizontal .track,
-.table-view .scroll-bar:vertical .track{
-	-fx-background-color: transparent;
-	-fx-border-color: white;
-
-	-fx-background-radius: 2em;
-	-fx-border-radius:2em;
+.team-table .table-row-cell:even{
+    -fx-background-color: -fx-sunset;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
 }
 
-/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
-.table-view .scroll-bar:horizontal .thumb,
-.table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: rgb(171, 171, 171);
-	-fx-background-radius: 2em;
-
+.team-table .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, -fx-dark-red, -fx-butterscotch);
 }

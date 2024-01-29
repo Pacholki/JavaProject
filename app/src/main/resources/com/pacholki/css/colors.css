@@ -1,0 +1,23 @@
+* {
+    -fx-primary: #2b3254;
+    -fx-primary-light: #334585;
+    -fx-primary-dark: #111836;
+    -fx-secondary: #a3b8ff;
+    -fx-complementary: #f1e9c3;
+    -fx-contrast: crimson;
+    -fx-cornell: #AA142D;
+    -fx-darktext: #3f3e3e;
+    -fx-lighttext: whitesmoke;
+
+    -fx-oxford-blue: #002244ff;
+    -fx-oxford-blue-2: #00254bff;
+    -fx-oxford-blue-3: #002952ff;
+    -fx-burgundy: #760b20ff;
+    -fx-dark-red: #8d0209ff;
+    -fx-butterscotch: #de9e54ff;
+    -fx-fawn: #e5ac6bff;
+    -fx-buff: #ecba82ff;
+    -fx-sunset: #f0c99dff;
+    -fx-light-orange: #f4d8b8ff;
+    -fx-floral-white: #fcf6edff;
+}
