@@ -3,28 +3,44 @@
 <?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyComboBox?>
 <?import io.github.palexdev.materialfx.controls.*?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
 
-<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.CompetitionController" stylesheets="@../css/competition.css">
+<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pacholki.controller.CompetitionController" styleClass="container">
   <columnConstraints>
-    <ColumnConstraints hgrow="ALWAYS" minWidth="600.0" prefWidth="600.0" />
-    <ColumnConstraints hgrow="ALWAYS" minWidth="600.0" prefWidth="600.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="300.0" prefHeight="600.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
-  <MFXComboBox fx:id="tableGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek"/>
-  <TableView fx:id="leagueTable" BorderPane.alignment="CENTER" GridPane.rowIndex="1">
-    <columns>
-    </columns>
+  <MFXComboBox fx:id="tableGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek" GridPane.rowIndex="3" GridPane.rowSpan="1" GridPane.columnIndex="3" GridPane.columnSpan="2"/>
+  <TableView fx:id="leagueTable" GridPane.rowIndex="4" GridPane.rowSpan="9" GridPane.columnIndex="1" GridPane.columnSpan="4">
   </TableView>
-  <MFXComboBox fx:id="fixtureGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek" GridPane.columnIndex="1"/>
-  <TableView fx:id="leagueFixtures" BorderPane.alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1">
-    <columns>
-    </columns>
+  <MFXComboBox fx:id="fixtureGameweekChoiceBox" styleClass="gameweekChoiceBox" floatingText="Choose Gameweek" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="8" GridPane.columnSpan="2"/>
+  <TableView fx:id="leagueFixtures" GridPane.rowIndex="2" GridPane.rowSpan = "11" GridPane.columnIndex="6" GridPane.columnSpan="4">
   </TableView>
 </GridPane>

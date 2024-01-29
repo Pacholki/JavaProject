@@ -1,5 +1,7 @@
 @import "../fonts/fonts.css";
 @import "colors.css";
+@import "competition.css";
+@import "table.css"
 
 .root {
     -fx-font-family: "Open Sans Bold";
@@ -127,4 +129,5 @@
 
 .entity-pane {
     -fx-background-color: -fx-primary;
+    -fx-alignment: center;
 }

@@ -11,6 +11,7 @@ import com.pacholki.pane.TeamPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
@@ -22,9 +23,19 @@ public class TeamController extends Controller {
     private final String analysisPageFXML = "/com/pacholki/fxml/page/team/analysisPage.fxml";
 
     @FXML
+    private GridPane gridPane;
+    @FXML
     private HBox navbar;
     @FXML
     protected Pane pagePane;
+    @FXML
+    private Button infoButton;
+    @FXML
+    private Button playerButton;
+    @FXML
+    private Button statsButton;
+    @FXML
+    private Button advancedButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,19 +45,20 @@ public class TeamController extends Controller {
     }
 
     private void addButtons() {
-        navbar.getChildren().clear();
         String[] fxmlPaths = {
             infoPageFXML,
             playerPageFXML,
             statsPageFXML,
             analysisPageFXML
         };
+        Button[] pageButtons = {infoButton, playerButton, statsButton, advancedButton};
         String[] buttonLabels = {"InfoPage", "Players", "Stats", "Advanced"};
-        for(int i=0; i < buttonLabels.length; i++) {
-            Button button = new Button(buttonLabels[i]);
+        int i = 0;
+        for(Button button : pageButtons) {
             int finalI = i;
+            button.setText(buttonLabels[i]);
             button.setOnAction(e -> updatePagePane(fxmlPaths[finalI]));
-            navbar.getChildren().add(button);
+            i++;
         }
     }
 

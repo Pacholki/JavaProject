@@ -124,8 +124,8 @@ public class MainController extends Controller {
 
     public void addToCompetitionList(Competition competition) {
         mainPane.tidyCompetitionList(competition);
-        mainPane.addCompetition(competition);
         mainPane.setCurrentCompetition(competition);
+        mainPane.addCompetition(competition);
     }
 
     @Override
