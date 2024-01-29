@@ -62,7 +62,7 @@
 
    <center>
 
-      <Pane fx:id="entityPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="entityPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" styleClass="entity-pane"/>
 
    </center>
 </BorderPane>

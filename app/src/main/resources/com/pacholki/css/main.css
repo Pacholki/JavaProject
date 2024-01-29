@@ -124,3 +124,7 @@
 .team-scroll-bar .scroll-bar:vertical .thumb {
     -fx-background-color: linear-gradient(to bottom, -fx-dark-red, -fx-butterscotch);
 }
+
+.entity-pane {
+    -fx-background-color: -fx-primary;
+}
