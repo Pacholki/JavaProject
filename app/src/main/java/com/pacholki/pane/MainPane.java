@@ -72,7 +72,6 @@ public class MainPane extends MyPane {
     }
 
     private boolean changeCompetition(League league, Season season) {
-
         boolean competitionFound = false;
         for (Competition competition : competitions) {
             if (competition.getLeague().equals(league) & competition.getSeason().equals(season)) {
@@ -88,7 +87,6 @@ public class MainPane extends MyPane {
                 currentCompetition = competition;
             }
         }
-
         return true;
     }
 
