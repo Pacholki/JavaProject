@@ -32,10 +32,6 @@
     -fx-background-color: transparent;
 }
 
-.gameweekChoiceBox .text-field {
-
-}
-
 .gameweekChoiceBox .floating-text {
     -fx-text-fill: #323232;
     -fx-padding: 0 0 0 5;
@@ -46,10 +42,6 @@
 
 .gameweekChoiceBox .caret .mfx-font-icon {
     -mfx-color: #323232;
-}
-
-.gameweekChoiceBox .caret {
-
 }
 
 .gameweekChoiceBox .arrow-button {

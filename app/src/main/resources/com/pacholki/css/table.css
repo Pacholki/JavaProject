@@ -55,6 +55,7 @@
     -fx-padding: 0.0em;
 }
 
-.team-table .scroll-bar:vertical .thumb {
+.team-table .scroll-bar:vertical .thumb,
+.team-table .scroll-bar:horizontal .thumb {
     -fx-background-color: linear-gradient(to bottom, -fx-dark-red, -fx-butterscotch);
 }
