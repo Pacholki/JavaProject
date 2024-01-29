@@ -14,8 +14,10 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 
 public class MainController extends Controller {
     
@@ -36,6 +38,9 @@ public class MainController extends Controller {
     private VBox teamButtonContainer;
     @FXML
     private Pane entityPane;
+
+    @FXML
+    private Label warningText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -155,6 +160,25 @@ public class MainController extends Controller {
         }
     }
 
+    @Override
+    public void showError(Entity entity) {
+        try {
+            String fxmlPath = entity.getFXML_DIR() + "errorScreen.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Pane pane = loader.load();
+            entityPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void showOutdatedDataNotification(Entity entity) {
+        warningText.setText("Data can be outdated.");
+    }
+
+
+
     public List<MFXButton> generateTeamButtons(Competition competition) {
         List<MFXButton> teamButtons = new ArrayList<>();
         for (Team team : competition.getTeams()) {
@@ -168,7 +192,6 @@ public class MainController extends Controller {
 
     private void viewTeam(Team team) {
         mainPane.setCurrentTeam(team);
-        Tools.display(team.getPlayers());
         updateEntityPane(team);
     }
 }

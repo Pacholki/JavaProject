@@ -39,7 +39,10 @@ public class CompetitionDataGetter extends VisibleDataGetter {
         int exitCode = 2;
         try {
             Process process = processBuilder.start();
+            DownloadTimer downloadTimer = new DownloadTimer(10000, process);
+            downloadTimer.start();
             exitCode = process.waitFor();
+            System.out.println(exitCode);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

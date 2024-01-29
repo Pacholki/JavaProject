@@ -15,4 +15,6 @@ public abstract class Controller implements Initializable {
 
     public abstract void updatePane(Entity entity);
     public abstract void showLoadScreen(Entity entity);
+    public abstract void showError(Entity entity);
+    public abstract void showOutdatedDataNotification(Entity entity);
 }

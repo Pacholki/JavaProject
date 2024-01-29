@@ -27,4 +27,20 @@ public abstract class VisibleDataGetter extends DataGetter{
             Platform.runLater(() -> entity.getController().showLoadScreen(entity));
         }
     }
+
+    @Override
+    protected void showError() {
+        boolean isLastUserRequest = (requests == id);
+        if (isLastUserRequest) {
+            Platform.runLater(() -> entity.getController().showError(entity));
+        }
+    }
+
+    @Override
+    protected void showOutdatedDataNotification() {
+        boolean isLastUserRequest = (requests == id);
+        if (isLastUserRequest) {
+            Platform.runLater(() ->  entity.getController().showOutdatedDataNotification(entity));
+        }
+    }
 }

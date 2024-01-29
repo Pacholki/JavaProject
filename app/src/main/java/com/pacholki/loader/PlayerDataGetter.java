@@ -3,6 +3,7 @@ package com.pacholki.loader;
 import com.pacholki.entity.Competition;
 import com.pacholki.entity.League;
 import com.pacholki.entity.Season;
+import javafx.application.Platform;
 
 import java.io.IOException;
 
@@ -38,6 +39,8 @@ public class PlayerDataGetter extends DataGetter {
         int exitCode = 2;
         try {
             Process process = processBuilder.start();
+            DownloadTimer downloadTimer = new DownloadTimer(10000, process);
+            downloadTimer.start();
             exitCode = process.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,4 +65,8 @@ public class PlayerDataGetter extends DataGetter {
     protected void markUpdated() {}
     @Override
     protected void showLoadScreen() {}
+    @Override
+    protected void showError() {}
+    @Override
+    protected void showOutdatedDataNotification() {}
 }

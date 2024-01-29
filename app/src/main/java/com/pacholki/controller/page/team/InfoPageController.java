@@ -41,7 +41,6 @@ public class InfoPageController extends Controller {
                 "    D: " + team.getGamesDrawn(max_gmw) +
                 "    L: " + team.getGamesLost(max_gmw));
         playersCountText.setText("Number of players: " + team.getPlayers().size());
-        display(competitionPane.getCurrentCompetition().getTeamsSorted());
     }
 
     private void setImage(ImageView image) {
@@ -55,4 +54,8 @@ public class InfoPageController extends Controller {
     public void updatePane(Entity entity) {}
     @Override
     public void showLoadScreen(Entity entity) {}
+    @Override
+    public void showError(Entity entity) {}
+    @Override
+    public void showOutdatedDataNotification(Entity entity) {}
 }
