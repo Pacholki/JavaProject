@@ -39,7 +39,7 @@ public class PlayerDataGetter extends DataGetter {
         int exitCode = 2;
         try {
             Process process = processBuilder.start();
-            DownloadTimer downloadTimer = new DownloadTimer(10000, process);
+            DownloadTimer downloadTimer = new DownloadTimer(10, process);
             downloadTimer.start();
             exitCode = process.waitFor();
         } catch (IOException e) {

@@ -135,6 +135,8 @@ public class MainController extends Controller {
         updateEntityPane(competition);
 
         mainPane.handleCompetitionUpdate();
+        hideWarning();
+
     }
 
     public void updateEntityPane(Entity entity) {
@@ -175,6 +177,10 @@ public class MainController extends Controller {
     @Override
     public void showOutdatedDataNotification(Entity entity) {
         warningText.setText("Data can be outdated.");
+    }
+
+    public void hideWarning() {
+        warningText.setVisible(false);
     }
 
 
