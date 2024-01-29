@@ -109,5 +109,8 @@ public class AnalysisPageController extends Controller {
     @Override
     public void showLoadScreen(Entity entity) {}
 
-
+    @Override
+    public void showError(Entity entity) {}
+    @Override
+    public void showOutdatedDataNotification(Entity entity) {}
 }
