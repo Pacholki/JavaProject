@@ -28,6 +28,8 @@ public class TeamTableRow {
         this.points = team.getPoints(gameweek);
     }
 
+    // ---------------------------------------------
+
     public String getName() {
         return name;
     }

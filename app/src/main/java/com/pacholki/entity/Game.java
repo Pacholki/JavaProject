@@ -2,14 +2,16 @@ package com.pacholki.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.*;
+
 public class Game extends Entity {
 
     private static final String FXML_PATH = DATA_DIR + "fxml/game.fxml";
 
     @JsonProperty("week")
-    private Integer gameweek;
+    private int gameweek;
     private String day;
-    private String date;
+    private long date;
     private String time;
     @JsonProperty("home_team")
     private String homeTeamName;
@@ -37,13 +39,13 @@ public class Game extends Entity {
 
     // ---------------------------------------------
 
-    public void setGameweek(Integer gameweek) {
+    public void setGameweek(int gameweek) {
         this.gameweek = gameweek;
     }
     public void setDay(String day) {
         this.day = day;
     }
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
     public void setTime(String time) {
@@ -96,13 +98,13 @@ public class Game extends Entity {
 
     // ---------------------------------------------
 
-    public Integer getGameweek() {
+    public int getGameweek() {
         return gameweek;
     }
     public String getDay() {
         return day;
     }
-    public String getDate() {
+    public long getDate() {
         return date;
     }
     public String getTime() {
@@ -155,6 +157,27 @@ public class Game extends Entity {
         return awayScore;
     }
 
+    public String getStringScore() {
+        if(!hasBeenPlayed()){return getDaysUntilMatch();}
+        return score;
+    }
+    private String getDaysUntilMatch() {
+        Instant instant = Instant.ofEpochMilli(date);
+        LocalDate matchDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate currentDate = LocalDate.now();
+
+        Period period = Period.between(currentDate, matchDate);
+
+        if (period.isZero()) {
+            return "Today";
+        } else if (period.isNegative()) {
+            return "Postponed";
+        } else {
+            long totalDays = matchDate.toEpochDay() - currentDate.toEpochDay();
+            return "in " + totalDays + " days";
+        }
+    }
+
     // ---------------------------------------------
 
     public void setCompetition(Competition competition) {
@@ -163,9 +186,10 @@ public class Game extends Entity {
 
     @Override
     public void prepareData() {
-        setHomeTeam(competition.getTeamByName(getHomeTeamName()));
-        setAwayTeam(competition.getTeamByName(getAwayTeamName()));
+        setHomeTeam(competition.getTeamByName(homeTeamName));
+        setAwayTeam(competition.getTeamByName(awayTeamName));
         prepareScore();
+        updateGameweek();
     }
 
     private void prepareScore() {
@@ -174,6 +198,12 @@ public class Game extends Entity {
 
         this.homeScore = Integer.parseInt(score.split("\u2013")[0]);
         this.awayScore = Integer.parseInt(score.split("\u2013")[1]);
+    }
+
+    private void updateGameweek() {
+        competition.setTotalGameweeks(Math.max(competition.getTotalGameweeks(), gameweek));
+        if(!hasBeenPlayed()) return;
+        competition.setPlayedGameweeks(Math.max(competition.getPlayedGameweeks(), gameweek));
     }
 
     public void record() {

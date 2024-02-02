@@ -1,131 +1,139 @@
-* {
-    -fx-primary: #2c3e7d;
-    -fx-primary-light: #334585;
-    -fx-secondary: #a3b8ff;
-    -fx-complementary: #f1e9c3;
-    -fx-contrast: crimson;
-    -fx-darktext: #3f3e3e;
-}
+@import "../fonts/fonts.css";
+@import "colors.css";
+@import "competition.css";
+@import "table.css";
+@import "team.css";
+@import "page.css";
 
 .root {
-    background-color: -fx-secondary;
-    -fx-background-color: -fx-secondary;
+    -fx-font-family: "Open Sans Bold";
 }
 
-HBox {
-    margin: 1em 0;
-    -fx-spacing: 1em;
-    padding: 1em;
-    -fx-padding: 1em;
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: -fx-floral-white;
 }
 
 .header {
-    min-height: 8em;
-    -fx-min-height: 8em;
-    max-height: 8em;
-    -fx-max-height: 8em;
-
-    z-index: -1;
+    -fx-background-color: -fx-primary-dark;
+    -fx-min-height: 6em;
+    -fx-max-height: 6em;
     -fx-view-order: -1;
-
-    background-color: -fx-primary;
-    -fx-background-color: -fx-primary;
+    -fx-padding: 0 0 0 5em;
+    -fx-font-size: 22px;
 }
 
-.choiceContainer {
-    background-color: -fx-primary;
-    -fx-background-color: -fx-primary;
-    border-radius: 1em;
-    -fx-background-radius: 1em;
-    
-    padding: 1em;
-    -fx-padding: 1em;
+.league-choice-container,
+.season-choice-container {
+    -fx-background-color: -fx-primary-dark;
+    -fx-background-radius: 0.4em;
+    -fx-padding: 1.5em 1em 1em 1em;
 
-    margin: 0 0.5em;
-    -fx-spacing: 0.5em;
+    -fx-alignment: top-center;
 }
 
-.choiceButtonList {
-    margin: 0 0.2em;
-    -fx-spacing: 0.2em;
+.choice-button-list {
+    -fx-margin: 0 0.2em;
 }
 
-.button,
-.selectButton {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
-    cursor: hand;
+.button {
     -fx-cursor: hand;
-    min-width: 10em;
-    -fx-min-width: 10em;
-    font-size: 2em;
-    -fx-font-size: 2em;
-    font-weight: 800;
-    -fx-font-weight: 800;
 }
 
-MFXButton .mfx-ripple-generator {
-    color: -fx-darktext;
-    -fx-text-fill: -fx-darktext;
+.league-choice-container .button,
+.season-choice-container .button {
+    -fx-pref-width: 16em;
+    -fx-min-height: 3em;
+    -fx-background-color: -fx-primary-light;
+    -fx-background-radius: 0;
+    -fx-text-fill: -fx-floral-white;
+    -fx-label-padding: 0;
+}
 
-    border-radius: 0.5em;
-    -fx-background-radius: 0.5em;
-
-    cursor: hand;
-    -fx-cursor: hand;
-
-    -mfx-ripple-color: -fx-contrast;
+.league-choice-container .button .mfx-ripple-generator,
+.season-choice-container .button .mfx-ripple-generator {
+    -mfx-ripple-color: -fx-floral-white;
     -mfx-background-opacity: 0.2;
     -mfx-ripple-opacity: 0.2;
     -mfx-ripple-radius: 0.5em;
     -mfx-auto-clip: true;
 }
 
-
-#scrollPane {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
-
-    min-width: 20em;
-    -fx-min-width: 20em;
-
-    min-height: inherit;
-    -fx-min-height: inherit; 
+.league-choice-container .selected-league-button,
+.season-choice-container .selected-season-button {
+    -fx-background-radius: 0.2em;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-insets: 0 0 -1px 0;
+    -fx-border-color: -fx-sunset;
+    -fx-view-order: -2;
 }
 
-/* MFXScrollPane .mfx-scroll-pane {
-    background-color: transparent;
-    -fx-background-color: transparent; */
-/* 
-    -track-color: rgb(255, 255, 255, 0.3);
-    -thumb-color: white;
-    -thumb-hover-color: -fx-primary; */
-/* } */
-
-#teamButtonContainer {
-    background-color: -fx-complementary;
-    -fx-background-color: -fx-complementary;
-
-    padding: 1em;
-    -fx-padding: 1em;
-
-    margin: 0.1em 0;
-    -fx-spacing: 0.1em;
-
+.league-choice-container:hover .selected-league-button,
+.season-choice-container:hover .selected-season-button {
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-insets: 0 0 -2px 0;
+    -fx-border-color: -fx-floral-white;
 }
 
-.teamButton {
-    background-color: -fx-primary;
+.league-choice-container .choice-button:hover,
+.season-choice-container .choice-button:hover {
+    -fx-background-color: -fx-oxford-blue;
+}
+
+/* ------------------------------------------ */
+
+.team-scroll-bar {
+    -fx-padding: 1em 3em;
+    -fx-background-color: -fx-primary-dark;
+}
+
+.team-bar {
+    -fx-background-color: -fx-primary-dark;
+    -fx-font-size: 16px;
+    -fx-spacing: 0.2em;
+}
+
+.team-bar .button {
+    -fx-pref-width: 14em;
+    -fx-min-height: 3em;
+    -fx-background-color: -fx-primary-light;
+    -fx-background-radius: 0.4em;
+    -fx-text-fill: -fx-floral-white;
+    -fx-label-padding: 0;
+}
+
+.team-bar .button .mfx-ripple-generator,
+.team-bar .button .mfx-ripple-generator {
+    -mfx-ripple-color: -fx-floral-white;
+    -mfx-background-opacity: 0.2;
+    -mfx-ripple-opacity: 0.2;
+    -mfx-ripple-radius: 0.5em;
+    -mfx-auto-clip: true;
+}
+
+.team-bar .button:hover,
+.team-bar .button:hover {
+    -fx-background-color: linear-gradient(to right, -fx-burgundy, -fx-butterscotch);
+    -fx-text-fill: -fx-sunset;
+}
+
+.team-scroll-bar .scroll-bar:vertical,
+.team-scroll-bar .scroll-bar:vertical .track,
+.team-scroll-bar .scroll-bar:vertical .track-background {
+    -fx-background-color: transparent;
+}
+
+.team-scroll-bar .scroll-bar .increment-button,
+.team-scroll-bar .scroll-bar .decrement-button {
+    -fx-padding: 2;
+    -fx-opacity: 0;
+}
+
+.team-scroll-bar .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, -fx-dark-red, -fx-butterscotch);
+}
+
+.entity-pane {
     -fx-background-color: -fx-primary;
-
-    color: -fx-complementary;
-    -fx-text-fill: -fx-complementary;
-
-    font-size: 1.5em;
-    -fx-font-size: 1.5em;
-}
-
-.teamButton:hover {
-    background-color: -fx-contrast;
-    -fx-background-color: -fx-contrast;
+    -fx-alignment: center;
 }

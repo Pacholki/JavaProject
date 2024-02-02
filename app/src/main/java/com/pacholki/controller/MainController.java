@@ -13,11 +13,12 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class MainController extends Controller implements Initializable {
+
+public class MainController extends Controller {
     
     private String currentLeagueName;
 
@@ -37,9 +38,13 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private Pane entityPane;
 
+    @FXML
+    private Label warningText;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainPane = new MainPane(this);
+        mainPane.loadFirstSeason();
         this.leagueButtons = generateLeagueButtons();
         this.seasonButtons = generateSeasonButtons();
         leagueChoiceButton.setText(mainPane.getCurrentLeague().getName());
@@ -77,6 +82,7 @@ public class MainController extends Controller implements Initializable {
         for (League league : mainPane.getLeagues()) {
             MFXButton button = new MFXButton(league.getName());
             button.setOnAction(e -> changeLeague(league));
+            button.getStyleClass().add("choice-button");
             leagueButtons.add(button);
         }
 
@@ -90,6 +96,7 @@ public class MainController extends Controller implements Initializable {
         for (Season season : mainPane.getSeasons()) {
             MFXButton button = new MFXButton(season.getLabel());
             button.setOnAction(e -> changeSeason(season));
+            button.getStyleClass().add("choice-button");
             seasonButtons.add(button);
         }
 
@@ -115,12 +122,22 @@ public class MainController extends Controller implements Initializable {
         return currentLeagueName;
     }
 
+    public void addToCompetitionList(Competition competition) {
+        mainPane.tidyCompetitionList(competition);
+        mainPane.setCurrentCompetition(competition);
+        mainPane.addCompetition(competition);
+    }
+
     @Override
     public void updatePane(Entity entity) {
         Competition competition = (Competition) entity;
         teamButtonContainer.getChildren().setAll(generateTeamButtons(competition));
         
         updateEntityPane(competition);
+
+        mainPane.handleCompetitionUpdate();
+        hideWarning();
+
     }
 
     public void updateEntityPane(Entity entity) {
@@ -133,6 +150,41 @@ public class MainController extends Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void showLoadScreen(Entity entity) {
+        try {
+            String fxmlPath = entity.getFXML_DIR() + "loadScreen.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Pane pane = loader.load();
+            entityPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void showError(Entity entity) {
+        try {
+            String fxmlPath = entity.getFXML_DIR() + "errorScreen.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Pane pane = loader.load();
+            entityPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void showOutdatedDataNotification(Entity entity) {
+        warningText.setText("Data can be outdated.");
+    }
+
+    public void hideWarning() {
+        warningText.setVisible(false);
+    }
+
+
 
     public List<MFXButton> generateTeamButtons(Competition competition) {
         List<MFXButton> teamButtons = new ArrayList<>();
